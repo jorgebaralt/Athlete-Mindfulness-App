@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\e66beeeba065d25b0d0ec23183c947b0d353bd55\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f6418cb92f757a50a4abb7f844dc4d6aef91031\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\6700f9ce9cfe84749370d477af72cb79560d7f2b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3efc76f2ba3d14aecb3493b201be5d7e0b069cb6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\f5a46d44af3b0dc66b4217f808e4e4cb20e0007e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_72bf01308aaee93e425e0f7e696f917535c49f64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\fd206cf8cfe3a9418b76c76fe28b4333fb545d8a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6e89dfe07e2fc22a78629b9ae0f6a17447d9a6c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\cdb778656930e674c5cd884ef7cfe1eb7372e1e8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_82aeb79dd48e5ed37fde8f1e1dda66042383ede7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\ce7dd72c237b4b1c4817280d0c57f83738a6e4d7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_21afb274c4df2a4d022a6faac2a29e75eae23f3a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\6d1823d3036361bcc4899181eaae89f9df1c1ffc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f700ff04c7212eaad86456bc9be0a1c621195524\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\5b4486263006fc6f5686b780cd1f5209d43a50e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7f3c69a2079b713bd231964d3b2d0b4c207e5304\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\79bb379bf0e05ab02fed70c68772e668e871d716\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c9bc96ccc23f0582e36fb4e041ea64abdccf2484\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\ad097bad1f7774b4d44739fb0b98772edd373f77\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9995d20f23935631fe9fb5bcee6b0e1b51bbe389\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="309f38c61469c06712fb75f1696e416855ccaaf0">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6d39466c7868f08025634bb7c646d83ded09c74c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.2.0_736720a9035ea3fface7a4766b2073e3650ced76\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\b9a276b19e743b5cd3524d7a0884fbd21e95a52e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2d2d5e111f26c9d41aaa54ad1a8c78c608c724fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\.android\build-cache\fa11eb36f5b57f6f300d649cd264c2dc1f3fad2f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b71b433a497a92c85d4cfa0c6f25656519280195\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\jorgebaraltq\Desktop\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5889a7528b015179fec4a4603393ca50df0ae010\classes.dex" />
+    </item>
+
+</items>
