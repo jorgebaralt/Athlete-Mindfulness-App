@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
@@ -38,12 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
-    public void goToMainActivity(View view){
-        Intent intent = new Intent(this,MainActivity.class);
+    public void goToSurvey(View view){
+        Intent intent = new Intent(this,SurveyActivity.class);
         startActivity(intent);
     }
     public void goToNavigation(View view){
-        Intent intent = new Intent(this,Navigation.class);
+        Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
 }

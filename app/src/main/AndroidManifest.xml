@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".SurveyActivity" />
         <activity
-            android:name=".Navigation"
-            android:label="@string/title_activity_navigation"
+            android:name=".NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 

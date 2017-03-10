@@ -16,8 +16,12 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
     }
 
-    void goToMainActivity(View view){
-        Intent intent = new Intent(this,MainActivity.class);
+    public void goToSurvey(View view){
+        Intent intent = new Intent(this,SurveyActivity.class);
+        startActivity(intent);
+    }
+    public void goToNavigation(View view){
+        Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
 }
