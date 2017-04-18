@@ -15,6 +15,7 @@ public class Leaderboard extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        //inflate the fragment into the navigation drawer
         return inflater.inflate(R.layout.leaderboard_layout,container,false);
     }
 }
