@@ -1,0 +1,752 @@
+  [1m[35m (382.4ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (232.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (290.7ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (32.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (42.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (209.6ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (73.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (64.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (184.6ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (41.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (241.2ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (38.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (77.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (279.7ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (39.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (222.9ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (257.2ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (34.3ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (192.7ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (37.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (90.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (311.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (39.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (235.9ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (48.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (438.3ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `useranswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (241.1ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (235.3ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (324.5ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleurl` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (78.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (20.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2017-04-02 16:47:24', '2017-04-02 16:47:24')[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (252.6ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (45.7ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (188.1ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (74.4ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (219.2ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (35.2ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (170.3ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (35.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (281.1ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (286.2ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (312.0ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `useranswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (338.9ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (232.7ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (59.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (339.9ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleurl` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (45.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for ::1 at 2017-04-02 12:48:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (23.0ms)
+Completed 200 OK in 247ms (Views: 123.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (254.7ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (57.3ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (233.3ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (45.5ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (246.8ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (55.4ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (222.2ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (53.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (291.0ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (227.4ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (90.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (446.6ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `useranswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (280.2ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (262.5ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (46.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (267.1ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleurl` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (55.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for ::1 at 2017-04-02 13:00:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DemoController#index as HTML
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `all' for nil:NilClass):
+  
+app/controllers/demo_controller.rb:3:in `index'
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendering C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (2505.5ms)
+Started GET "/" for ::1 at 2017-04-02 13:03:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by DemoController#index as HTML
+  Rendering demo/index.html.erb
+  Rendered demo/index.html.erb (4.0ms)
+Completed 200 OK in 60ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (227.7ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (52.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (218.6ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (34.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (310.5ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (31.8ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (197.1ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (48.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (334.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `password` varchar(40), `name` varchar(100), `email` varchar(255) DEFAULT '' NOT NULL, `age` int, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (206.2ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `correctAnswer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (267.3ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `useranswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (233.6ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (236.7ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (64.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (248.1ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleurl` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (43.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (17.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (168.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (55.8ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (18.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (508.7ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (107.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (303.6ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (84.8ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (270.0ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (40.6ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (306.2ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (50.7ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (58.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (433.5ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `first_name` varchar(25), `last_name` varchar(75), `gender` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `phone_number` int, `age` int, `points` int DEFAULT 0, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (24.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (227.9ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (84.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (264.2ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `usersAnswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (254.9ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (285.3ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (27.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (63.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (396.1ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleURL` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (276.3ms)[0m  [1m[35mCREATE TABLE `coaches` (`id` int AUTO_INCREMENT PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170425212257')[0m
+  [1m[35m (35.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `coaches`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (2.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (268.8ms)[0m  [1m[35mDROP TABLE `coaches`[0m
+  [1m[35mSQL (139.7ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170425212257'[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (250.7ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (29.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (283.4ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (40.8ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (194.0ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (29.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (239.2ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (31.2ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (46.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (265.6ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `first_name` varchar(25), `last_name` varchar(75), `gender` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `phone_number` int, `age` int, `points` int DEFAULT 0, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (250.0ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (328.1ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `usersAnswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (265.6ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (250.0ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (297.1ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleURL` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (265.6ms)[0m  [1m[35mCREATE TABLE `coaches` (`id` int AUTO_INCREMENT PRIMARY KEY, `players` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170425212257')[0m
+  [1m[35m (62.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (46.9ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `coaches`[0m
+  [1m[35m (15.6ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'coaches'[0m
+  [1m[35m (15.6ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for ::1 at 2017-04-27 23:42:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 3527ms (Views: 3352.5ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/users" for ::1 at 2017-04-27 23:43:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cot/isAnxvqIrTFB9OrYqykHokzf7nQ92qR4BBKDQtCu9cq7QC7FwKo/YyWcuVL0pBy49Xwwbv67ooumcEtiRA==", "user"=>{"first_name"=>"Kyle", "last_name"=>"Johnson", "email"=>"krj221@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create an account"}
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.6ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('Kyle', 'Johnson', 'krj221@gmail.com', '$2a$10$B1Q8w1jyXPSBs4i44A0azuABFUL/KurhCrVXnodkA7v6oAavmzMd2', '2017-04-28 03:43:24', '2017-04-28 03:43:24')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 547ms (ActiveRecord: 62.5ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:43:25 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 424ms (Views: 348.3ms | ActiveRecord: 15.6ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-04-27 23:43:54 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DEmcb+9aRK0HZ/2EHdvzM5QCUdvUPsGnpFeHQIpFRX/QNyleb1NHlyX1r+B1iHlsGRlLYnfg22TFUXTi6I1l6w=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:43:54 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 1016ms (Views: 925.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2017-04-27 23:43:58 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 294ms (Views: 252.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2017-04-27 23:44:08 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Po9m+L/ZWXLjbEttH71Fpz91s10eZfNNpB5tLlAH0mZMv+NVdNxDd/WMdQ877gzsh4wvn1cMKHLzMHOjgNlcbA==", "session"=>{"email"=>"krj221@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'krj221@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 579ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:44:09 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 391ms (Views: 316.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:44:16 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 395ms (Views: 330.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:49:40 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 470ms (Views: 423.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for ::1 at 2017-04-27 23:50:41 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wlZSzSYon60ISMWxlTsb6AA9OuP2vWKTNJQtrmqI9nweKOf8piGclyral9X9aJG3jSYgWlVjeFBVkt4MCEDW6A==", "user"=>{"first_name"=>"John", "last_name"=>"Doe", "email"=>"johndoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create an account"}
+  [1m[35m (7.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.9ms)[0m  [1m[32mINSERT INTO `users` (`first_name`, `last_name`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('John', 'Doe', 'johndoe@gmail.com', '$2a$10$TGjQjzu.613EOT2wx99w8uQ6tb9UHYjr0Y1uSEUv0UnVUo8jRPwLi', '2017-04-28 03:50:42', '2017-04-28 03:50:42')[0m
+  [1m[35m (60.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 481ms (ActiveRecord: 85.3ms)
+
+
+Started GET "/" for ::1 at 2017-04-27 23:50:42 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 744ms (Views: 643.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/demo/index" for ::1 at 2017-04-28 00:02:28 -0400
+Processing by DemoController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering demo/index.html.erb
+  Rendered demo/index.html.erb (15.6ms)
+Completed 200 OK in 125ms (Views: 101.6ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-04-28 00:02:36 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bmEq3+DbKOnAH6wIhGopT+IZiNRM00/QjuYG9vckYR6yH5/uYNIr0+KN/mzsOaMQbwKSbe8NVRPv4PVUlexBig=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:02:36 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 688ms (Views: 603.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/demo/index" for ::1 at 2017-04-28 00:02:41 -0400
+Processing by DemoController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :require_user rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2017-04-28 00:02:42 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 641ms (Views: 542.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2017-04-28 00:03:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CAQG9JtsP/zK7rAHc31cBXr+yritP11nBVmSzaIj2TTUerPFG2U8xuh84mMbLtZa9+XQAQ7hR6RkX2FvwOv5oA==", "session"=>{"email"=>"johndoe@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'johndoe@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 344ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:03:03 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 766ms (Views: 667.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:03:52 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 764ms (Views: 645.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:03:54 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 702ms (Views: 566.3ms | ActiveRecord: 5.0ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-04-28 00:03:56 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CQBtoPm8RGU5Yev/OVzSINct4VMQwNtobsEPWHaT4lHVftiRebVHXxvzuZtRD1h/Wjb76rMewasPx/z6FFvCxQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-04-28 00:03:57 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 371ms (Views: 306.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (277.7ms)[0m  [1m[35mDROP TABLE `coaches`[0m
+  [1m[35mSQL (52.4ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170425212257'[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (163.1ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (30.5ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (276.4ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (38.6ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (305.7ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (90.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (245.7ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (31.5ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (421.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` int AUTO_INCREMENT PRIMARY KEY, `username` varchar(25), `first_name` varchar(25), `last_name` varchar(75), `gender` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `phone_number` int, `age` int, `points` int DEFAULT 0, `coach` varchar(255) DEFAULT '' NOT NULL, `isCoach` tinyint(1) DEFAULT 0, `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (15.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161808')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (250.0ms)[0m  [1m[35mCREATE TABLE `questions` (`id` int AUTO_INCREMENT PRIMARY KEY, `question` text, `answer` text, `ageRange` varchar(255), `category` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161831')[0m
+  [1m[35m (62.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (328.1ms)[0m  [1m[35mCREATE TABLE `answers` (`id` int AUTO_INCREMENT PRIMARY KEY, `usersAnswer` text, `user_id` int, `question_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (268.4ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_user_id`  ON `answers` (`user_id`) [0m
+  [1m[35m (265.6ms)[0m  [1m[35mCREATE  INDEX `index_answers_on_question_id`  ON `answers` (`question_id`) [0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402161910')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (312.5ms)[0m  [1m[35mCREATE TABLE `notifications` (`id` int AUTO_INCREMENT PRIMARY KEY, `type` varchar(255), `articleURL` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170402162133')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (218.8ms)[0m  [1m[35mCREATE TABLE `coaches` (`id` int AUTO_INCREMENT PRIMARY KEY, `players` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170425212257')[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (15.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `answers`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'answers'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `coaches`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'coaches'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `notifications`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'notifications'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `questions`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'questions'[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('7697428670398797120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCoaches (20170425212257)
+  [1m[35m (234.4ms)[0m  [1m[35mDROP TABLE `coaches`[0m
+  [1m[35mSQL (46.9ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170425212257'[0m
+Migrating to CreateNotifications (20170402162133)
+  [1m[35m (187.5ms)[0m  [1m[35mDROP TABLE `notifications`[0m
+  [1m[35mSQL (62.5ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402162133'[0m
+Migrating to CreateAnswers (20170402161910)
+  [1m[35m (345.1ms)[0m  [1m[35mDROP TABLE `answers`[0m
+  [1m[35mSQL (46.9ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161910'[0m
+Migrating to CreateQuestions (20170402161831)
+  [1m[35m (218.8ms)[0m  [1m[35mDROP TABLE `questions`[0m
+  [1m[35mSQL (62.5ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161831'[0m
+Migrating to CreateUsers (20170402161808)
+  [1m[35m (140.6ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35mSQL (78.1ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170402161808'[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('7697428670398797120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
