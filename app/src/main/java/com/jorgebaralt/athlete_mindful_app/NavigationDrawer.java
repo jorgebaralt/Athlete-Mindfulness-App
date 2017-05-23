@@ -37,6 +37,7 @@ public class NavigationDrawer extends AppCompatActivity
         displaySelectedScreen(R.id.nav_profile);
 
 
+
     }
 
     @Override
@@ -85,18 +86,23 @@ public class NavigationDrawer extends AppCompatActivity
         return true;
     }
     private void displaySelectedScreen(int id){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         Fragment fragment = null;
         switch(id){
             case R.id.nav_survey:
+
                 goToSurvey();
                 break;
             case R.id.nav_profile:
+                toolbar.setTitle("Profile");
                 fragment = new Profile();
                 break;
             case R.id.nav_leaderboard:
-                fragment = new Leaderboard();
+                toolbar.setTitle("Leader Board");
+                fragment = new LeaderboardFragment();
                 break;
             case R.id.nav_chat:
+                toolbar.setTitle("Chat");
                 //TODO: start chat, refer to selected API
                 fragment = new Fragment();
         }

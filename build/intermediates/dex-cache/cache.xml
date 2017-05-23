@@ -3,129 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\ac0c45ca448dd9f38670739e155b759775e57311\output\jars\classes.jar"
+        jar="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindfulness-App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3e4385b6a0cdee000d5d1d9f250e97c20b3feab6\classes.dex" />
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindfulness-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_811ce0f781075e62ea9a5ae5898bdf8697d5a119\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\abf6a785d51e002fd895bfd6611e9658aa285e06\output\jars\classes.jar"
+        jar="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindfulness-App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b2ac56a91b3eefa79606fb9c41c175e451411baf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\eaca1e33d0db60a2379183e679a98366ff9dd469\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_76f2de0fdfb203a1ebf8a54f5212d4b88708636d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\a00f1fc4101e5b9de89e452c29f3cf6e622199fe\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_791e3a616cbf16cb140112b077f37ac4210586ba\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\81711d2323d6db4ac61c45f77a83d26c4f1299a4\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_14c3f217ef2b7d3eaa36478d6ecddca51bc8ab26\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\55d8b3ef4e837529a4af092416e846738bf6b40f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6cea3a6bbb98f0558404e49d404f8276f1953834\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\e826c9de83c90534b720561da5a682f8b492ef91\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_00e55a758d399cebe706cc95185684a87289758d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_46b16aa7b6393c28ec1538838f00b9a569c2a7e3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\1dc42ace3ed4328132bcef3dcea9373f4c172b99\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_596f1da3b4636e061617b4d2f26d89d76ef0ce68\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d0e2a43ff86b57f61c8f4600d4cb291ef473cf23">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5bedbaef3e5ca512cf0530b478ae07996d95bb76\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\91264f5464b5ca1f25c52eb90c16d3dbad1f9f9f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b1a1b21da5b521ed11d8ad61a260f14972ad2806\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\32cf23344c5fc123efae813657ccd8bbc0074927\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_51da12bb289cc954918e76a8578fb2b4f2e0093e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\283288802db26200ee28358985781e35c9fb561d\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e7a3529b6fce992f3a84b4553bf3029927c3b58f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\jorgebaraltq\.android\build-cache\cd2af7fb1f40e8de55a788d44f55dd20700a3229\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindful-App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a19e3157435a9c2c82c877e5bbf79a4c2e7416bf\classes.dex" />
+        sha1="9d480389d874510ea9bad4d821379ddb22852363">
+        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete-Mindfulness-App\Athlete-Mindfulness-App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4596dd6a6b79dcbbc57edc246a3f84e2bdff7527\classes.dex" />
     </item>
 
 </items>

@@ -5,24 +5,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     TextView registerHere;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // remove title
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         ///This removes notifications, time, etc. ON TOP
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-               // WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_login);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
         registerHere = (TextView) findViewById(R.id.textRegister);
+
+        //ACTION FOR LOGIN BUTTON
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToNavigation(v);
+
+            }
+        });
+
+        //ACTION FOR REGISTER BUTTON
         registerHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,15 +44,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void goToRegister(View view){
+    private void goToRegister(View view){
         Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
-    public void goToSurvey(View view){
-        Intent intent = new Intent(this,SurveyActivity.class);
-        startActivity(intent);
-    }
-    public void goToNavigation(View view){
+
+    private void goToNavigation(View view){
         Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
