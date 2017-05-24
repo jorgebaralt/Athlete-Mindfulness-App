@@ -1,0 +1,35 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Sign up</h1>
+
+    <%= form_for(@user) do |f| %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, 
+        :placeholder => "First name" %></br>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, :placeholder => "Last name" %></br>
+      <%= f.label :email %>
+      <%= f.email_field :email, :placeholder => "Email" %></br>
+      <%= f.label :username %>
+      <%= f.text_field :username, :placeholder => "Username" %></br>
+      <%= f.label :password %>
+      <%= f.password_field :password, 
+        :placeholder => "Password" %></br>
+      <%= f.label :gender %>
+      <%= f.text_field :gender, :placeholder =>
+          "Gender" %></br>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, 
+        :placeholder => "Phone Number" %></br>
+      <%= f.label :age %>
+      <%= f.number_field :age, 
+        :placeholder => "Age", :min => 10, :max => 100 %></br>
+      <%= f.submit "Create an account", class: "btn-submit" %>
+    <% end %>
+
+  
+    </div>
+  </div>
+</div>

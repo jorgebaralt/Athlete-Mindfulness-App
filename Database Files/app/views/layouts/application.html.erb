@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SeniorDesign</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="container">
+        <%= link_to root_path do %>
+          <h1>Home</h1>
+        <% end %>
+
+        <div class="nav pull-right">
+          <% if current_user %>
+          	<ul>
+              <li><%= current_user.username %></li>
+              <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+            </ul>
+          <% else %> 
+  					<ul> 
+   					 	<li><%= link_to "Login", 'login' %></a></li> 
+   				 		<li><%= link_to "Signup", 'signup' %></a></li> 
+  					</ul> 
+					<% end %>
+        </div>
+        
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
+</html>
