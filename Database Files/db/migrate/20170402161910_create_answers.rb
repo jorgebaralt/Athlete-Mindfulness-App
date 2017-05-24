@@ -1,0 +1,17 @@
+class CreateAnswers < ActiveRecord::Migration[5.0]
+  def up
+    create_table :answers do |t|
+      t.text "usersAnswer"
+      t.integer "user_id"
+      t.integer "question_id"
+      t.timestamps
+    end
+    add_index("answers", "user_id")
+    add_index("answers", "question_id")
+  end
+
+  def down
+    drop_table :answers
+  end
+
+end
