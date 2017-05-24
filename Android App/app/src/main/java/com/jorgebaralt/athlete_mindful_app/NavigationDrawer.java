@@ -98,7 +98,7 @@ public class NavigationDrawer extends AppCompatActivity
                 fragment = new Profile();
                 break;
             case R.id.nav_leaderboard:
-                toolbar.setTitle("Leader Board");
+                toolbar.setTitle("LeaderBoard");
                 fragment = new LeaderboardFragment();
                 break;
             case R.id.nav_chat:
