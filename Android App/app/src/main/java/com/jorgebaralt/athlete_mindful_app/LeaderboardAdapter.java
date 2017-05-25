@@ -29,7 +29,8 @@ public class LeaderboardAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        // Check if the existing view is being reused, otherwise inflate the view
+        // Check if the existing view is being reused, otherwise inflate the view ** REMEMBER TO
+        // INFLATE THE SPECIFIC LAYOUT FOR EACH VIEW (LEADERBOARD_ITEM)**
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(

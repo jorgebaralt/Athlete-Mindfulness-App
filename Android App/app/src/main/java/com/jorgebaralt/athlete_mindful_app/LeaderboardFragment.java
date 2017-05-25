@@ -23,6 +23,8 @@ public class LeaderboardFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.leaderboard_list,container,false);
 
         ArrayList<Users> user = new ArrayList<>();
+        //Testing users into the arraylist.
+        //TODO THIS MUST BE PULLED FROM THE DATABASE AND SENT TO THE LEADER BOARD ADAPTER
         user.add(new Users("jorgebaralt",250));
         user.add(new Users("jorgebaralt1",200));
         user.add(new Users("jorgebaralt2",190));
@@ -36,7 +38,9 @@ public class LeaderboardFragment extends Fragment{
 
         //create the adapter who deals with each user view.
         LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),user);
+        //get the VIEW that is going to be filled
         ListView listView = (ListView) rootView.findViewById(R.id.list);
+        //fill the VIEW.
         listView.setAdapter(adapter);
 
         return rootView;
