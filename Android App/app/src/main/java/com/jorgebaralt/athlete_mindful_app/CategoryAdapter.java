@@ -16,7 +16,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
         super(fm);
         mContext = context;
     }
-
+    //The different layouts that we can swipe.
     @Override
     public Fragment getItem(int position) {
         if(position==0)
@@ -34,6 +34,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
 
     }
 
+    //change name of each tab.
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0)
@@ -50,6 +51,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
             return "Spiritual";
         }
 
+    //number of tabs on the survey layout.
     @Override
     public int getCount() {
         return 6;
