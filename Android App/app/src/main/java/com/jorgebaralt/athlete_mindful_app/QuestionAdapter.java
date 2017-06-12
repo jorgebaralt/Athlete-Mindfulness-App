@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,12 +27,19 @@ public class QuestionAdapter extends ArrayAdapter{
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
         //inflate the specific item
-        if(listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.question_item, parent, false);
-        }
         //get the current question that we are loading
         Question currentQuestion = (Question) getItem(position);
+
+        //decide whether the question is type 1 = free answer, or type 2 = radio button
+        if(currentQuestion.getType()==1){
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.question_item, parent, false);}
+        else{
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.question_radio_item, parent, false);}
+
+
+
 
         //set the question string from arraylist, into display
         TextView questionTextView = (TextView) listItemView.findViewById(R.id.txtQuestion);

@@ -23,16 +23,17 @@ public class MentalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.question_list,container,false);
 
         ArrayList<Question> mentalQuestion = new ArrayList<>();
-        mentalQuestion.add(new Question("Question 1"));
-        mentalQuestion.add(new Question("Question 2"));
-        mentalQuestion.add(new Question("Question 3"));
-        mentalQuestion.add(new Question("Question 4"));
-        mentalQuestion.add(new Question("Question 5"));
-        mentalQuestion.add(new Question("Question 6"));
-        mentalQuestion.add(new Question("Question 7"));
-        mentalQuestion.add(new Question("Question 8"));
-        mentalQuestion.add(new Question("Question 9"));
-        mentalQuestion.add(new Question("Question 10"));
+        mentalQuestion.add(new Question("Question 1",1));
+        mentalQuestion.add(new Question("Question 2",1));
+        mentalQuestion.add(new Question("Question 3",2));
+        mentalQuestion.add(new Question("Question 4",2));
+        mentalQuestion.add(new Question("Question 5",2));
+        mentalQuestion.add(new Question("Question 6",1));
+        mentalQuestion.add(new Question("Question 7",1));
+        mentalQuestion.add(new Question("Question 8",2));
+        mentalQuestion.add(new Question("Question 9",1));
+        mentalQuestion.add(new Question("Question 10",1));
+
 
         QuestionAdapter adapter = new QuestionAdapter(getActivity(),mentalQuestion);
         //select the layout list to fill

@@ -21,5 +21,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/enter_answer_here"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        />
 </LinearLayout>
