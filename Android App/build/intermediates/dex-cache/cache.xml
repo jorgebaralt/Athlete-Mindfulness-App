@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Jorge Baralt\Documents\Android Projects\AthleteApp\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\jorgebaraltq\Documents\Athlete Project\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="890cd623d84facace41c7c9b72132da1e52841c5">
-        <dex dex="C:\Users\Jorge Baralt\Documents\Android Projects\AthleteApp\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0abdb55d134229e4b2039bd59f83b2d41ebf7097\classes.dex" />
+        sha1="38e40e7e5d5b711d3e4c8cdca5ccb29d8f58d8fb">
+        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete Project\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_efbe911e7e2a240eff6ae9974b23b334157c3aa6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Jorge Baralt\Documents\Android Projects\AthleteApp\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\jorgebaraltq\Documents\Athlete Project\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="C:\Users\Jorge Baralt\Documents\Android Projects\AthleteApp\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6cacf297acc1e12220ddfbf93903b56168dd8154\classes.dex" />
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\jorgebaraltq\Documents\Athlete Project\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_44c1cb27d88a51958f373c0bd6db0191dc6b16f5\classes.dex" />
     </item>
 
 </items>

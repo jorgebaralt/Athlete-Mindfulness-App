@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class LeaderboardAdapter extends ArrayAdapter {
-    private int score;
+
     public LeaderboardAdapter(Activity context, ArrayList<Users> users){
         super(context,0,users);
     }
@@ -29,8 +29,8 @@ public class LeaderboardAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        // Check if the existing view is being reused, otherwise inflate the view ** REMEMBER TO
-        // INFLATE THE SPECIFIC LAYOUT FOR EACH VIEW (LEADERBOARD_ITEM)**
+        // Check if the existing view is being reused, otherwise inflate the view
+        // ** REMEMBER TO INFLATE THE SPECIFIC LAYOUT FOR EACH VIEW (LEADERBOARD_ITEM)**
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
@@ -44,6 +44,7 @@ public class LeaderboardAdapter extends ArrayAdapter {
         //display the score of the current user.
         TextView scoreTextView = (TextView) listItemView.findViewById(R.id.txtScore);
         scoreTextView.setText("Current Score:" + Integer.toString(currentUser.getScore()));
+        //TODO change image of each user. NUMBER OR PROFILE PIC?
 
         return listItemView;
     }

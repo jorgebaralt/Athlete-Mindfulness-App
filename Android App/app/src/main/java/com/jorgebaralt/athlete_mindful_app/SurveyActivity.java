@@ -17,10 +17,12 @@ public class SurveyActivity extends AppCompatActivity  {
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         // Create an adapter that knows which fragment should be shown on each page
-        CategoryAdapter adapter = new CategoryAdapter(this,getSupportFragmentManager());
+        // HERE IS WHERE WE DECIDE HOW MANY TABS.
+        CategoryAdapter adapter = new CategoryAdapter(getSupportFragmentManager());
         // Set the adapter onto the view pager
+        // so it sets up the swapping
         viewPager.setAdapter(adapter);
-        // Find the tab layout that shows the tabs
+        // Find the tab layout that shows the tabs.
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         // Connect the tab layout with the view pager. This will
         //   1. Update the tab layout when the view pager is swiped

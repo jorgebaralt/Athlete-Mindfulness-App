@@ -6,16 +6,16 @@ package com.jorgebaralt.athlete_mindful_app;
 
 public class Question {
     private String question;
-    private String answer;
+    //private String answer;
 
-    public Question(String question, String answer){
+    public Question(String question){
         this.question = question;
-        this.answer = answer;
+       // this.answer = answer;
     }
     public String getQuestion(){
         return question;
     }
-    public String getAnswer(){
-        return answer;
-    }
+    //public String getAnswer(){
+       // return answer;
+    //}
 }

@@ -19,7 +19,7 @@ public class LeaderboardFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        //inflate the fragment into the navigation drawer
+        //inflate the specific fragment into the navigation drawer
         View rootView = inflater.inflate(R.layout.leaderboard_list,container,false);
 
         ArrayList<Users> user = new ArrayList<>();
@@ -36,10 +36,10 @@ public class LeaderboardFragment extends Fragment{
         user.add(new Users("jorgebaralt8",30));
         user.add(new Users("jorgebaralt9",0));
 
-        //create the adapter who deals with each user view.
+        //create the adapter who deals with each user view. custom adapter since we are doing it custom.
         LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),user);
         //get the VIEW that is going to be filled
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.leaderboardList);
         //fill the VIEW.
         listView.setAdapter(adapter);
 

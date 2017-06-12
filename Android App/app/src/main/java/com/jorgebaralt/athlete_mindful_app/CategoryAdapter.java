@@ -10,11 +10,11 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 
 public class CategoryAdapter extends FragmentPagerAdapter {
-    private Context mContext;
 
-    public CategoryAdapter(Context context, FragmentManager fm) {
+
+    public CategoryAdapter(FragmentManager fm) {
         super(fm);
-        mContext = context;
+
     }
     //The different layouts that we can swipe.
     @Override

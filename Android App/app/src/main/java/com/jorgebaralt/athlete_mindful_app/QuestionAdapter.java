@@ -18,26 +18,26 @@ import java.util.ArrayList;
 
 public class QuestionAdapter extends ArrayAdapter{
     //constructor
-    public QuestionAdapter(Activity context, ArrayList<Users> users){
-        super(context,0);
+    public QuestionAdapter(Activity context, ArrayList<Question> question){
+        super(context,0,question);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
+        //inflate the specific item
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.question_item, parent, false);
         }
-        //get the current user that we are loading
+        //get the current question that we are loading
         Question currentQuestion = (Question) getItem(position);
-        //display the username of the current user
+
+        //set the question string from arraylist, into display
         TextView questionTextView = (TextView) listItemView.findViewById(R.id.txtQuestion);
         questionTextView.setText(currentQuestion.getQuestion());
-        //display the score of the current user.
-        EditText answerTextView= (EditText) listItemView.findViewById(R.id.txtAnswer);
-        answerTextView.setText(currentQuestion.getAnswer());
+
 
         return listItemView;
     }
