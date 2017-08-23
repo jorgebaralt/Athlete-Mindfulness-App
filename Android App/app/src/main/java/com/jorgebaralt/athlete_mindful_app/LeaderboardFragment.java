@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -22,19 +21,19 @@ public class LeaderboardFragment extends Fragment{
         //inflate the specific fragment into the navigation drawer
         View rootView = inflater.inflate(R.layout.leaderboard_list,container,false);
 
-        ArrayList<Users> user = new ArrayList<>();
+        ArrayList<Student> user = new ArrayList<>();
         //Testing users into the arraylist.
         //TODO THIS MUST BE PULLED FROM THE DATABASE AND SENT TO THE LEADER BOARD ADAPTER
-        user.add(new Users("jorgebaralt",250));
-        user.add(new Users("jorgebaralt1",200));
-        user.add(new Users("jorgebaralt2",190));
-        user.add(new Users("jorgebaralt3",180));
-        user.add(new Users("jorgebaralt4",170));
-        user.add(new Users("jorgebaralt5",150));
-        user.add(new Users("jorgebaralt6",100));
-        user.add(new Users("jorgebaralt7",50));
-        user.add(new Users("jorgebaralt8",30));
-        user.add(new Users("jorgebaralt9",0));
+        user.add(new Student("jorgebaralt",250));
+        user.add(new Student("jorgebaralt1",200));
+        user.add(new Student("jorgebaralt2",190));
+        user.add(new Student("jorgebaralt3",180));
+        user.add(new Student("jorgebaralt4",170));
+        user.add(new Student("jorgebaralt5",150));
+        user.add(new Student("jorgebaralt6",100));
+        user.add(new Student("jorgebaralt7",50));
+        user.add(new Student("jorgebaralt8",30));
+        user.add(new Student("jorgebaralt9",0));
 
         //create the adapter who deals with each user view. custom adapter since we are doing it custom.
         LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),user);

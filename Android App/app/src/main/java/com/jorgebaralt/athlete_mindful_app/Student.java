@@ -5,12 +5,12 @@ package com.jorgebaralt.athlete_mindful_app;
  */
 
 //create object for users.
-public class Users {
+public class Student {
     private String username;
     private int score;
 
 
-    public Users (String username, int score){
+    public Student(String username, int score){
         this.username = username;
         this.score = score;
     }
