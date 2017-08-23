@@ -9,6 +9,7 @@ public class Users {
     private String username;
     private int score;
 
+
     public Users (String username, int score){
         this.username = username;
         this.score = score;
