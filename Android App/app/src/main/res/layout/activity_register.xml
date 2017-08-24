@@ -94,6 +94,14 @@
         app:layout_constraintRight_toRightOf="@+id/textEmail"
         app:layout_constraintTop_toBottomOf="@+id/textEmail" />
 
+    <Spinner
+        android:id="@+id/coach_spinner"
+        android:layout_width="215dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginLeft="64dp"
+        />
+
     <TextView
         android:id="@+id/textGender"
         android:layout_width="215dp"
@@ -106,6 +114,8 @@
         app:layout_constraintLeft_toLeftOf="@+id/textPhone"
         app:layout_constraintRight_toRightOf="@+id/textPhone"
         app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+
+
 
     <RadioGroup
         android:id="@+id/radioGender"
@@ -183,6 +193,7 @@
             android:layout_height="wrap_content"
             android:text="16-18" />
     </RadioGroup>
+
 
 
 

@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Jorge Baralt\Documents\Android Projects\Athlete app\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45592ef799051766c4bec0da1dff9690904e775b">
-        <dex dex="C:\Users\Jorge Baralt\Documents\Android Projects\Athlete app\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_e5a1db3de69738ba2ad9fc1f7c08fd8e4258c80f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Jorge Baralt\Documents\Android Projects\Athlete app\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\jorge\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\Jorge Baralt\Documents\Android Projects\Athlete app\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6e535290dbffa70bcd95dfe4f07f4f47cad43d92\classes.dex" />
+        <dex dex="C:\Users\jorge\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_990c294b2907f0b49ebb748d492308da0500cfa5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\jorge\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5491e361d8e8372876def02c09df7028b29bf969">
+        <dex dex="C:\Users\jorge\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3293a27ffdd286425135d81d1018a9a238cc0f53\classes.dex" />
     </item>
 
 </items>

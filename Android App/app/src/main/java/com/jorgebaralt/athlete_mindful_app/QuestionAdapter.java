@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,9 +34,9 @@ public class QuestionAdapter extends ArrayAdapter{
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.question_item, parent, false);}
         else{
+            //TODO: modify so that we add radio buttons according to option number
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.question_radio_item, parent, false);}
-
 
 
 
@@ -48,4 +47,6 @@ public class QuestionAdapter extends ArrayAdapter{
 
         return listItemView;
     }
+
+
 }
