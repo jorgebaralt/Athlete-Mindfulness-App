@@ -26,12 +26,12 @@ public class MentalFragment extends Fragment {
         ArrayList<Question> mentalQuestion = new ArrayList<>();
         mentalQuestion.add(new Question("Question 1",1));
         mentalQuestion.add(new Question("Question 2",1));
-        mentalQuestion.add(new Question("Question 3",2));
-        mentalQuestion.add(new Question("Question 4",2));
-        mentalQuestion.add(new Question("Question 5",2));
+        mentalQuestion.add(new Question("Question 3",1));
+        mentalQuestion.add(new Question("Question 4",1));
+        mentalQuestion.add(new Question("Question 5",1));
         mentalQuestion.add(new Question("Question 6",1));
         mentalQuestion.add(new Question("Question 7",1));
-        mentalQuestion.add(new Question("Question 8",2));
+        mentalQuestion.add(new Question("Question 8",1));
         mentalQuestion.add(new Question("Question 9",1));
         mentalQuestion.add(new Question("Question 10",1));
 
@@ -42,10 +42,11 @@ public class MentalFragment extends Fragment {
         //fill the VIEW.
         listView.setAdapter(adapter);
 
+        //TODO: add the answer from the questions to the Database
+
+
 
         return rootView;
-
-
     }
 
 }

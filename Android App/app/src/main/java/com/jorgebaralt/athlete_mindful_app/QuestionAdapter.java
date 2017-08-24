@@ -27,16 +27,22 @@ public class QuestionAdapter extends ArrayAdapter{
         View listItemView = convertView;
         //inflate the specific item
         //get the current question that we are loading
+
         Question currentQuestion = (Question) getItem(position);
 
-        //decide whether the question is type 1 = free answer, or type 2 = radio button
-        if(currentQuestion.getType()==1){
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.question_item, parent, false);}
-        else{
-            //TODO: modify so that we add radio buttons according to option number
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.question_radio_item, parent, false);}
+        //check if there is an existing item view that we can reuse, if not create a new one
+        if(listItemView == null) {
+
+            //decide whether the question is type 1 = free answer, or type 2 = radio button
+            if (currentQuestion.getType() == 1) {
+                listItemView = LayoutInflater.from(getContext()).inflate(
+                        R.layout.question_item, parent, false);
+            } else {
+                //TODO: modify so that we add radio buttons according to option number
+                listItemView = LayoutInflater.from(getContext()).inflate(
+                        R.layout.question_radio_item, parent, false);
+            }
+        }
 
 
 
