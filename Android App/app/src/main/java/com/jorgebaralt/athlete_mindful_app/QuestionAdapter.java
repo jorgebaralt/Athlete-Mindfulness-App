@@ -3,6 +3,7 @@ package com.jorgebaralt.athlete_mindful_app;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Jorge Baralt on 5/25/2017.
@@ -28,21 +31,22 @@ public class QuestionAdapter extends ArrayAdapter{
         //inflate the specific item
         //get the current question that we are loading
 
+        Log.d(TAG, "getView: " + getViewTypeCount());
+
         Question currentQuestion = (Question) getItem(position);
 
-        //check if there is an existing item view that we can reuse, if not create a new one
-        if(listItemView == null) {
 
             //decide whether the question is type 1 = free answer, or type 2 = radio button
             if (currentQuestion.getType() == 1) {
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.question_item, parent, false);
             } else {
+
                 //TODO: modify so that we add radio buttons according to option number
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.question_radio_item, parent, false);
             }
-        }
+
 
 
 
