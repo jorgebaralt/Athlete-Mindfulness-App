@@ -3,12 +3,16 @@ package com.jorgebaralt.athlete_mindful_app;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,10 +42,23 @@ public class MentalFragment extends Fragment {
         QuestionAdapter adapter = new QuestionAdapter(getActivity(),mentalQuestion);
         //select the layout list to fill
         ListView listView = (ListView) rootView.findViewById(R.id.questionlist);
-        //fill the VIEW.
+        //fill the view.
         listView.setAdapter(adapter);
 
-        //TODO: add the answer from the questions to the Database
+        //Adding Submit Button, as a footer.
+        Button submitAnswers = new Button(getContext());
+        submitAnswers.setText("Submit");
+        submitAnswers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: store all the free question's answer into the database
+                //TODO: transit into the multple choice question
+                Log.d(TAG, "onClick: adding answers data to database");
+            }
+        });
+        listView.addFooterView(submitAnswers);
+
+
 
 
 

@@ -38,6 +38,7 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
         View listItemView = convertView;
 
         final Question currentQuestion =  getItem(position);
+
         ViewHolder holder;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_item,parent,false);
