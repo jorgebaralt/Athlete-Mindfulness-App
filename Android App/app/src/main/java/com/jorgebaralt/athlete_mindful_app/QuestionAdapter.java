@@ -3,57 +3,69 @@ package com.jorgebaralt.athlete_mindful_app;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by Jorge Baralt on 5/25/2017.
  */
 
-public class QuestionAdapter extends ArrayAdapter{
+public class QuestionAdapter extends ArrayAdapter<Question>{
+
+
+    public static class ViewHolder{
+        public TextView question;
+        public EditText answer;
+
+    }
+
     //constructor
     public QuestionAdapter(Activity context, ArrayList<Question> question){
         super(context,0,question);
+
+;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
-        //inflate the specific item
-        //get the current question that we are loading
 
-        Log.d(TAG, "getView: " + getViewTypeCount());
+        final Question currentQuestion =  getItem(position);
+        ViewHolder holder;
+        if(listItemView == null){
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_item,parent,false);
+            holder = new ViewHolder();
+            holder.answer = (EditText) listItemView.findViewById(R.id.txtAnswer);
+            holder.question = (TextView) listItemView.findViewById(R.id.txtQuestion);
+            listItemView.setTag(holder);
 
-        Question currentQuestion = (Question) getItem(position);
+        }else{
+            holder = (ViewHolder) convertView.getTag();
+        }
 
+        holder.question.setText(currentQuestion.getQuestion());
+        holder.answer.setText(currentQuestion.getAnswer());
 
-            //decide whether the question is type 1 = free answer, or type 2 = radio button
-            if (currentQuestion.getType() == 1) {
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.question_item, parent, false);
-            } else {
+        //fill EditText with value in data source
+        holder.answer.setId(position);
 
-                //TODO: modify so that we add radio buttons according to option number
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.question_radio_item, parent, false);
+        //update adapter once finish editing
+        holder.answer.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    final EditText Caption = (EditText) v;
+                    currentQuestion.setAnswer(Caption.getText().toString());
+                }
             }
-
-
-
-
-        //set the question string from arraylist, into display
-        TextView questionTextView = (TextView) listItemView.findViewById(R.id.txtQuestion);
-        questionTextView.setText(currentQuestion.getQuestion());
-
+        });
 
         return listItemView;
     }

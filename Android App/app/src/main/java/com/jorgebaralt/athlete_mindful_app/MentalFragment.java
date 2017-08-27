@@ -24,17 +24,16 @@ public class MentalFragment extends Fragment {
         //TODO: pull from database using JSON and get question string and type (1 or 2)
 
         ArrayList<Question> mentalQuestion = new ArrayList<>();
-        mentalQuestion.add(new Question("Question 1",1));
-        mentalQuestion.add(new Question("Question 2",2));
-        mentalQuestion.add(new Question("Question 3",1));
-        mentalQuestion.add(new Question("Question 4",2));
-        mentalQuestion.add(new Question("Question 5",1));
-        mentalQuestion.add(new Question("Question 6",2));
-        mentalQuestion.add(new Question("Question 7",1));
-        mentalQuestion.add(new Question("Question 8",2));
-        mentalQuestion.add(new Question("Question 9",2));
-        mentalQuestion.add(new Question("Question 10",1));
-
+        mentalQuestion.add(new Question("Question 1",1, ""));
+        mentalQuestion.add(new Question("Question 2",2, ""));
+        mentalQuestion.add(new Question("Question 3",1, ""));
+        mentalQuestion.add(new Question("Question 4",2, ""));
+        mentalQuestion.add(new Question("Question 5",1, ""));
+        mentalQuestion.add(new Question("Question 6",2, ""));
+        mentalQuestion.add(new Question("Question 7",1, ""));
+        mentalQuestion.add(new Question("Question 8",2, ""));
+        mentalQuestion.add(new Question("Question 9",2, ""));
+        mentalQuestion.add(new Question("Question 10",1, ""));
 
         QuestionAdapter adapter = new QuestionAdapter(getActivity(),mentalQuestion);
         //select the layout list to fill
