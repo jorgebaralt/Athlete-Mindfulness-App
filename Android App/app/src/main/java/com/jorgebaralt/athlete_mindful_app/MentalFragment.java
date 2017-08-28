@@ -51,9 +51,12 @@ public class MentalFragment extends Fragment {
         submitAnswers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: store all the free question's answer into the database
-                //TODO: transit into the multple choice question
                 Log.d(TAG, "onClick: adding answers data to database");
+                //TODO: store all the free question's answer into the database
+
+                Log.d(TAG, "onClick: Transit to multiple choice question");
+                //TODO: transit into the multiple choice question
+
             }
         });
         listView.addFooterView(submitAnswers);
