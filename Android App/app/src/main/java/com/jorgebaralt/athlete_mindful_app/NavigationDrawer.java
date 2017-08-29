@@ -90,7 +90,6 @@ public class NavigationDrawer extends AppCompatActivity
         Fragment fragment = null;
         switch(id){
             case R.id.nav_survey:
-
                 goToSurvey();
                 break;
             case R.id.nav_profile:
@@ -104,6 +103,10 @@ public class NavigationDrawer extends AppCompatActivity
             case R.id.nav_chat:
                 toolbar.setTitle("Chat");
                 //TODO: start chat, refer to selected API
+                fragment = new Fragment();
+                break;
+            case R.id.nav_notification:
+                toolbar.setTitle("Notifications");
                 fragment = new Fragment();
         }
         if(fragment!=null){
