@@ -105,13 +105,13 @@ public class MentalFragment extends Fragment {
         mentalQuestionFreeAnswer.add(new Question("Question 8", ""));
         mentalQuestionFreeAnswer.add(new Question("Question 9", ""));
         mentalQuestionFreeAnswer.add(new Question("Question 10", ""));
-        //Get all the Multiple Choice
+
 
     }
 
     public void getMultipleChoiceQuestion() {
         //TODO: pull from database using JSON
-        //Get all the Free Answer
+        //Get all the Multiple choice
         mentalQuestionMultipleChoice.add(new Question("Question 1", ""));
         mentalQuestionMultipleChoice.add(new Question("Question 2", ""));
         mentalQuestionMultipleChoice.add(new Question("Question 3", ""));
@@ -122,6 +122,5 @@ public class MentalFragment extends Fragment {
         mentalQuestionMultipleChoice.add(new Question("Question 8", ""));
         mentalQuestionMultipleChoice.add(new Question("Question 9", ""));
         mentalQuestionMultipleChoice.add(new Question("Question 10", ""));
-        //Get all the Multiple Choice
     }
 }

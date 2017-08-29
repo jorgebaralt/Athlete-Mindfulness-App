@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,15 +22,13 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
 
     public static class ViewHolder{
         public TextView question;
-        public EditText Radio;
+        public RadioGroup radioGroup;
 
     }
 
     //constructor
     public QuestionAdapterMultipleChoice(Activity context, ArrayList<Question> question){
         super(context,0,question);
-
-;
     }
 
     @NonNull
@@ -44,13 +43,15 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_radio_item,parent,false);
             holder = new ViewHolder();
             holder.question = (TextView) listItemView.findViewById(R.id.txtQuestion);
+            holder.radioGroup = (RadioGroup) listItemView.findViewById(R.id.radiogroup);
             listItemView.setTag(holder);
 
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.question.setText("TEST");
+        holder.question.setText(currentQuestion.getQuestion());
+
 
 
 
