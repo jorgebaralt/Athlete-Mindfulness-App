@@ -56,10 +56,13 @@ public class MentalFragment extends Fragment {
                 //TODO: store all the free question's answer into the database
 
                 Log.d(TAG, "onClick: Transit to multiple choice question");
+
                 multipleChoiceQuestion();
 
 
             }
+
+
         });
 
 
@@ -87,6 +90,7 @@ public class MentalFragment extends Fragment {
                 Log.d(TAG, "onClick: Displaying final message");
                 Toast toast = Toast.makeText(getContext(),"All your answers have been submitted", Toast.LENGTH_LONG);
                 toast.show();
+
             }
         });
 
@@ -95,16 +99,16 @@ public class MentalFragment extends Fragment {
     public void getFreeAnswerQuestion(){
         //TODO: pull from database using JSON
         //Get all the Free Answer
-        mentalQuestionFreeAnswer.add(new Question("Question 1" ,""));
-        mentalQuestionFreeAnswer.add(new Question("Question 2", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 3", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 4", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 5", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 6", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 7", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 8", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 9", ""));
-        mentalQuestionFreeAnswer.add(new Question("Question 10", ""));
+        mentalQuestionFreeAnswer.add(new Question("Question 1" ));
+        mentalQuestionFreeAnswer.add(new Question("Question 2"));
+        mentalQuestionFreeAnswer.add(new Question("Question 3"));
+        mentalQuestionFreeAnswer.add(new Question("Question 4"));
+        mentalQuestionFreeAnswer.add(new Question("Question 5"));
+        mentalQuestionFreeAnswer.add(new Question("Question 6"));
+        mentalQuestionFreeAnswer.add(new Question("Question 7"));
+        mentalQuestionFreeAnswer.add(new Question("Question 8"));
+        mentalQuestionFreeAnswer.add(new Question("Question 9"));
+        mentalQuestionFreeAnswer.add(new Question("Question 10"));
 
 
     }
@@ -112,15 +116,15 @@ public class MentalFragment extends Fragment {
     public void getMultipleChoiceQuestion() {
         //TODO: pull from database using JSON
         //Get all the Multiple choice
-        mentalQuestionMultipleChoice.add(new Question("Question 1", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 2", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 3", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 4", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 5", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 6", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 7", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 8", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 9", ""));
-        mentalQuestionMultipleChoice.add(new Question("Question 10", ""));
+        mentalQuestionMultipleChoice.add(new Question("Question 1"));
+        mentalQuestionMultipleChoice.add(new Question("Question 2"));
+        mentalQuestionMultipleChoice.add(new Question("Question 3"));
+        mentalQuestionMultipleChoice.add(new Question("Question 4"));
+        mentalQuestionMultipleChoice.add(new Question("Question 5"));
+        mentalQuestionMultipleChoice.add(new Question("Question 6"));
+        mentalQuestionMultipleChoice.add(new Question("Question 7"));
+        mentalQuestionMultipleChoice.add(new Question("Question 8"));
+        mentalQuestionMultipleChoice.add(new Question("Question 9"));
+        mentalQuestionMultipleChoice.add(new Question("Question 10"));
     }
 }

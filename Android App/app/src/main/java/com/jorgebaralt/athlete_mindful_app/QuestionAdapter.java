@@ -49,6 +49,7 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
 
         }else{
             holder = (ViewHolder) convertView.getTag();
+            listItemView.setTag(holder);
         }
 
         holder.question.setText(currentQuestion.getQuestion());
