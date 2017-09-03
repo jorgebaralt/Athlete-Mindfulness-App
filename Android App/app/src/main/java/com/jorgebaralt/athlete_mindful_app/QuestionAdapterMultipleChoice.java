@@ -25,9 +25,6 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
     public static class ViewHolder{
         public TextView question;
         public RadioGroup radioGroup;
-        public RadioButton radio1;
-        public RadioButton radio2;
-        public RadioButton radio3;
 
     }
 
