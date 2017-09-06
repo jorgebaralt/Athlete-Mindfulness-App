@@ -28,10 +28,12 @@ public class LeaderboardAdapter extends ArrayAdapter {
         // Check if the existing view is being reused, otherwise inflate the view
         // ** REMEMBER TO INFLATE THE SPECIFIC LAYOUT FOR EACH VIEW (LEADERBOARD_ITEM)**
         View listItemView = convertView;
+
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.leaderboard_item, parent, false);
         }
+
         //get the current user that we are loading
         Student currentUser = (Student) getItem(position);
         //display the username of the current user

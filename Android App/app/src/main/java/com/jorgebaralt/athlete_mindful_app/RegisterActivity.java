@@ -42,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText textPhone;
     RadioGroup radioGender;
     RadioGroup radioAge;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +62,41 @@ public class RegisterActivity extends AppCompatActivity {
         textPhone = (EditText) findViewById(R.id.textPhone);
         radioGender = (RadioGroup) findViewById(R.id.radioGender);
         radioAge = (RadioGroup) findViewById(R.id.radioAge);
+        submit = (Button) findViewById(R.id.btnSubmit);
 
 
         //Get the coach list from database
         getCoaches();
 
+        //TODO: verify that all fields are filled so enable button to submit.
 
-        //submit button
-        Button submit = (Button) findViewById(R.id.btnSubmit);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToNavigation(v);
+                //check that EditText are not empty
+                if(textName.getText().length() > 0 && textLastname.getText().length()>0 && textEmail.getText().length() > 0
+                        && textPhone.getText().length() > 0 && textPassword1.getText().length() > 0 &&
+                        textPassword2.getText().length() > 0){
+                    //check that passwords match
+                    Log.d(TAG, "onClick: " + textPassword1.getText().toString() + " == " + textPassword2.getText().toString());
+                    if(textPassword1.getText().toString().equals(textPassword2.getText().toString())) {
+                        Log.d(TAG, "onClick: PASSWORD MATCH, CONTINUE");
+                        //TODO: get coach id
+                        //TODO: add info to database
+
+                        goToNavigation(v);
+                    }
+                    else{
+                        Toast.makeText(RegisterActivity.this, "Make sure passwords match", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, "onClick: Password is not matching" );
+                    }
+                }
+                else {
+                    Toast.makeText(RegisterActivity.this, "Please Fill all the fields", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "onClick: Fill all the fields");
+                }
+
             }
         });
 

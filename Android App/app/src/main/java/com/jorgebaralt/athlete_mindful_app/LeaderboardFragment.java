@@ -23,7 +23,7 @@ public class LeaderboardFragment extends Fragment{
 
         ArrayList<Student> user = new ArrayList<>();
         //Testing users into the arraylist.
-        //TODO THIS MUST BE PULLED FROM THE DATABASE AND SENT TO THE LEADER BOARD ADAPTER
+        //TODO : get the top 10 students with their score from database.
         user.add(new Student("jorgebaralt",250));
         user.add(new Student("jorgebaralt1",200));
         user.add(new Student("jorgebaralt2",190));
