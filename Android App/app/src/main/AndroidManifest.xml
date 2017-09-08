@@ -24,6 +24,7 @@
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:parentActivityName=".LoginActivity"
             />
         <activity
             android:name=".SurveyActivity"
@@ -39,6 +40,7 @@
             android:name=".NavigationDrawer"
             android:label="Profile"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
     </application>
 
 </manifest>

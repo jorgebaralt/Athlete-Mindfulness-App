@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class LeaderboardAdapter extends ArrayAdapter {
 
-    public LeaderboardAdapter(Activity context, ArrayList<Student> users){
+    public LeaderboardAdapter(Activity context, ArrayList<Players> users){
         super(context,0,users);
     }
 
@@ -35,7 +35,7 @@ public class LeaderboardAdapter extends ArrayAdapter {
         }
 
         //get the current user that we are loading
-        Student currentUser = (Student) getItem(position);
+        Players currentUser = (Players) getItem(position);
         //display the username of the current user
         TextView usernameTextView = (TextView) listItemView.findViewById(R.id.txtUsername);
         usernameTextView.setText(currentUser.getUsername());

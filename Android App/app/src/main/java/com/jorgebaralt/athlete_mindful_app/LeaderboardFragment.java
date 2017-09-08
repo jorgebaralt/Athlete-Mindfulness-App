@@ -1,47 +1,94 @@
 package com.jorgebaralt.athlete_mindful_app;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by jorgebaraltq on 3/10/2017.
  */
 
 public class LeaderboardFragment extends Fragment{
+    //variables
+
+    static final String players_url= "http://project-env-4.us-east-1.elasticbeanstalk.com/players";
+    ArrayList<Players> player = new ArrayList<>();
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         //inflate the specific fragment into the navigation drawer
         View rootView = inflater.inflate(R.layout.leaderboard_list,container,false);
 
-        ArrayList<Student> user = new ArrayList<>();
-        //Testing users into the arraylist.
-        //TODO : get the top 10 students with their score from database.
-        user.add(new Student("jorgebaralt",250));
-        user.add(new Student("jorgebaralt1",200));
-        user.add(new Student("jorgebaralt2",190));
-        user.add(new Student("jorgebaralt3",180));
-        user.add(new Student("jorgebaralt4",170));
-        user.add(new Student("jorgebaralt5",150));
-        user.add(new Student("jorgebaralt6",100));
-        user.add(new Student("jorgebaralt7",50));
-        user.add(new Student("jorgebaralt8",30));
-        user.add(new Student("jorgebaralt9",0));
 
-        //create the adapter who deals with each user view. custom adapter since we are doing it custom.
-        LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),user);
-        //get the VIEW that is going to be filled
-        ListView listView = (ListView) rootView.findViewById(R.id.leaderboardList);
-        //fill the VIEW.
-        listView.setAdapter(adapter);
+        Log.d(TAG, "getTop10Player: STARTING JSON REQUEST FOR PLAYERS");
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, players_url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for(int i = 0; i < response.length();i++){
+                    try {
+                        JSONObject currentPlayer = response.getJSONObject(i);
+                        String firstname = currentPlayer.getString("first_name");
+                        String lastname = currentPlayer.getString("last_name");
+                        String playerName = firstname + " " + lastname;
+                        int playerScore = currentPlayer.getInt("points");
+
+
+
+                        player.add(new Players(playerName,playerScore));
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Eror...");
+                        e.printStackTrace();
+
+                    }
+                }
+            //All work if the json worked:
+
+                //TODO: Sort players by score
+
+                //create the adapter who deals with each user view. custom adapter since we are doing it custom.
+                LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),player);
+                //get the VIEW that is going to be filled
+                ListView listView = (ListView) getActivity().findViewById(R.id.leaderboardList);
+                //fill the VIEW.
+                listView.setAdapter(adapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(),"Error fetching data", Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                Log.e(TAG, "onErrorResponse: ",error );
+            }
+        });
+        MySingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
+
+
 
         return rootView;
     }
+
+
 }
