@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
 
@@ -28,8 +29,8 @@ import static android.content.ContentValues.TAG;
  */
 
 public class LeaderboardFragment extends Fragment{
-    //variables
 
+    //variables
     static final String players_url= "http://project-env-4.us-east-1.elasticbeanstalk.com/players";
     ArrayList<Players> player = new ArrayList<>();
 
@@ -67,6 +68,8 @@ public class LeaderboardFragment extends Fragment{
             //All work if the json worked:
 
                 //TODO: Sort players by score
+                Collections.sort(player);
+
 
                 //create the adapter who deals with each user view. custom adapter since we are doing it custom.
                 LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),player);
