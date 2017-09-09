@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         textPassword1 = (EditText) findViewById(R.id.txtPassword1);
         textPassword2 = (EditText) findViewById(R.id.txtPassword2);
         textPhone = (EditText) findViewById(R.id.txtPhone);
-        textAge = (EditText) findViewById(R.id.txtPhone);
+        textAge = (EditText) findViewById(R.id.txtAge);
         radioGender = (RadioGroup) findViewById(R.id.radioGender);
         submit = (Button) findViewById(R.id.btnSubmit);
 
@@ -121,13 +121,28 @@ public class RegisterActivity extends AppCompatActivity {
         //get coach id
         String selectedCoach = spinner.getSelectedItem().toString();
         for(int i = 0; i < coachList.size(); i ++ ){
-            if(coachList.get(i).getName().toString() == selectedCoach){
+            if(coachList.get(i).getName().equals(selectedCoach)){
                 id = coachList.get(i).getId();
                 Log.d(TAG, "createUser: FOUND COACH ID : " + id);
                 break;
             }
         }
-        final String coach_id = Integer.toString(id);
+        final String coachId = Integer.toString(id);
+
+        //get ageRange
+        int ageGroup;
+        if(Integer.parseInt(age)<= 13){
+            ageGroup = 1;
+        }else if(Integer.parseInt(age)>13 || Integer.parseInt(age)<= 15){
+            ageGroup = 2;
+        }else if(Integer.parseInt(age)>16 || Integer.parseInt(age)< 19){
+            ageGroup = 3;
+        }else{
+            ageGroup = 4;
+        }
+        final String ageRange = Integer.toString(ageGroup);
+        Log.d(TAG, "createUser: AGE RANGEEEE  ==== " + ageRange);
+
         //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
@@ -151,8 +166,9 @@ public class RegisterActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterActivity.this, "Error...", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this, "Error..." + error, Toast.LENGTH_LONG).show();
                 error.printStackTrace();
+
             }
         }){
             @Override
@@ -165,11 +181,13 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("phone",phone);
                 params.put("gender","1");
                 params.put("points","0");
-                params.put("coach_id",coach_id);
+                params.put("coach_id",coachId);
                 params.put("age",age);
+                //params.put("age_range",ageRange);
                 return params;
             }
         };
+        //send request to the queue.
         MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
 
     }
