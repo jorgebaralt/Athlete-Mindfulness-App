@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -49,8 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
     EditText textPassword1;
     EditText textPassword2;
     EditText textPhone;
-    RadioGroup radioGender;
     EditText textAge;
+    RadioGroup radioGender;
+    RadioButton radioSelectedGender;
     Button submit;
 
     @Override
@@ -141,8 +143,18 @@ public class RegisterActivity extends AppCompatActivity {
             ageGroup = 4;
         }
         final String ageRange = Integer.toString(ageGroup);
-        Log.d(TAG, "createUser: AGE RANGEEEE  ==== " + ageRange);
 
+        //get gender
+        String genderId;
+        int selectedId = radioGender.getCheckedRadioButtonId();
+        radioSelectedGender = (RadioButton) findViewById(selectedId);
+        if(radioSelectedGender.getText().toString().equals("Male")){
+            genderId = "1";
+        }
+        else {
+            genderId = "2";
+        }
+        final String gender = genderId;
         //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
@@ -179,7 +191,7 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("email",email);
                 params.put("encrypted_password",password);
                 params.put("phone",phone);
-                params.put("gender","1");
+                params.put("gender",gender);
                 params.put("points","0");
                 params.put("coach_id",coachId);
                 params.put("age",age);
