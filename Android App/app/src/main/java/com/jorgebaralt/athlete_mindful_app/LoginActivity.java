@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     TextView registerHere;
+    EditText email;
+    EditText password;
     Button btnLogin;
 
     @Override
@@ -21,8 +24,11 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
+        //declaration
         btnLogin = (Button) findViewById(R.id.btnLogin);
         registerHere = (TextView) findViewById(R.id.textRegister);
+        email = (EditText) findViewById(R.id.txtEmail);
+        password = (EditText) findViewById(R.id.txtPassword);
 
 
         //ACTION FOR LOGIN BUTTON

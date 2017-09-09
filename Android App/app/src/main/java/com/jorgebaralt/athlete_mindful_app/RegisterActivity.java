@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.coach_spinner);
         textName = (EditText)findViewById(R.id.textName);
         textLastname = (EditText)findViewById(R.id.textLastname);
-        textEmail = (EditText) findViewById(R.id.textEmail);
+        textEmail = (EditText) findViewById(R.id.txtEmail);
         textPassword1 = (EditText) findViewById(R.id.textPassword1);
         textPassword2 = (EditText) findViewById(R.id.textPassword2);
         textPhone = (EditText) findViewById(R.id.textPhone);
@@ -89,8 +89,8 @@ public class RegisterActivity extends AppCompatActivity {
                     if(textPassword1.getText().toString().equals(textPassword2.getText().toString())) {
                         Log.d(TAG, "onClick: PASSWORD MATCH, CONTINUE");
                         //TODO: insert user into database, ALLOW createUser for testing.
-                        //createUser();
-                        goToNavigation();
+                        createUser();
+                        //goToNavigation();
 
                     }
                     else{
@@ -112,9 +112,9 @@ public class RegisterActivity extends AppCompatActivity {
     private void createUser() {
         final String firstName = textName.getText().toString();
         final String lastName = textLastname.getText().toString();
-        String email = textEmail.getText().toString();
-        String password = textPassword1.getText().toString();
-        String phone = textPhone.getText().toString();
+        final String email = textEmail.getText().toString();
+        final String password = textPassword1.getText().toString();
+        final String phone = textPhone.getText().toString();
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, coaches_url, new Response.Listener<String>() {
@@ -145,6 +145,13 @@ public class RegisterActivity extends AppCompatActivity {
                 Map<String,String> params = new HashMap<>();
                 params.put("first_name",firstName);
                 params.put("last_name",lastName);
+                params.put("email",email);
+                params.put("encrypted_password",password);
+                params.put("phone",phone);
+                params.put("gender","1");
+                params.put("points","25");
+                params.put("coach_id","1");
+                params.put("age","22");
                 return params;
             }
         };

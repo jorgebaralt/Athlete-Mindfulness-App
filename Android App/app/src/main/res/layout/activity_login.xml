@@ -11,7 +11,7 @@
     tools:layout_editor_absoluteX="0dp">
 
     <EditText
-        android:id="@+id/textEmail"
+        android:id="@+id/txtEmail"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginTop="183dp"
@@ -30,9 +30,9 @@
         android:layout_height="48dp"
         android:text="Login"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textPassword"
-        app:layout_constraintRight_toRightOf="@+id/textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword"
+        app:layout_constraintLeft_toLeftOf="@+id/txtPassword"
+        app:layout_constraintRight_toRightOf="@+id/txtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 
@@ -59,16 +59,16 @@
         tools:layout_constraintTop_creator="1" />
 
     <EditText
-        android:id="@+id/textPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textEmail"
-        app:layout_constraintRight_toRightOf="@+id/textEmail"
-        app:layout_constraintTop_toBottomOf="@+id/textEmail"
+        app:layout_constraintLeft_toLeftOf="@+id/txtEmail"
+        app:layout_constraintRight_toRightOf="@+id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintLeft_creator="1" />
 
