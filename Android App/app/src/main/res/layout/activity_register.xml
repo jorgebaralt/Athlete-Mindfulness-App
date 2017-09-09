@@ -11,7 +11,7 @@
     app:layout_constraintHorizontal_bias="0.81">
 
     <EditText
-        android:id="@+id/textName"
+        android:id="@+id/txtName"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginLeft="64dp"
@@ -25,7 +25,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <EditText
-        android:id="@+id/textLastname"
+        android:id="@+id/txtLastname"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginLeft="64dp"
@@ -47,12 +47,12 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textPassword2"
-        app:layout_constraintRight_toRightOf="@+id/textPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword2" />
+        app:layout_constraintLeft_toLeftOf="@+id/txtPassword2"
+        app:layout_constraintRight_toRightOf="@+id/txtPassword2"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword2" />
 
     <EditText
-        android:id="@+id/textPassword1"
+        android:id="@+id/txtPassword1"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginLeft="64dp"
@@ -60,12 +60,12 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintLeft_toLeftOf="@+id/textLastname"
-        app:layout_constraintRight_toRightOf="@+id/textLastname"
-        app:layout_constraintTop_toBottomOf="@+id/textLastname" />
+        app:layout_constraintLeft_toLeftOf="@+id/txtLastname"
+        app:layout_constraintRight_toRightOf="@+id/txtLastname"
+        app:layout_constraintTop_toBottomOf="@+id/txtLastname" />
 
     <EditText
-        android:id="@+id/textPassword2"
+        android:id="@+id/txtPassword2"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginLeft="64dp"
@@ -74,14 +74,13 @@
         android:hint="Re-type Password"
         android:inputType="textPassword"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textPassword1"
-        app:layout_constraintRight_toRightOf="@+id/textPassword1"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword1" />
-
+        app:layout_constraintLeft_toLeftOf="@+id/txtPassword1"
+        app:layout_constraintRight_toRightOf="@+id/txtPassword1"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword1" />
 
 
     <EditText
-        android:id="@+id/textPhone"
+        android:id="@+id/txtPhone"
         android:layout_width="215dp"
         android:layout_height="40dp"
         android:layout_marginLeft="64dp"
@@ -89,6 +88,20 @@
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="@+id/txtEmail"
+        app:layout_constraintRight_toRightOf="@+id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+    <EditText
+        android:id="@+id/txtAge"
+        android:layout_width="215dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="@+id/txtEmail"
         app:layout_constraintRight_toRightOf="@+id/txtEmail"
@@ -113,9 +126,9 @@
         android:text=" Gender"
         android:textSize="18sp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/textPhone"
-        app:layout_constraintRight_toRightOf="@+id/textPhone"
-        app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+        app:layout_constraintLeft_toLeftOf="@+id/txtPhone"
+        app:layout_constraintRight_toRightOf="@+id/txtPhone"
+        app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
 
 
 
@@ -143,58 +156,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Female" />
-
-
     </RadioGroup>
 
-
-
-    <TextView
-        android:id="@+id/textAge"
-        android:layout_width="215dp"
-        android:layout_height="30dp"
-        android:text=" Age"
-        android:layout_marginLeft="64dp"
-        android:layout_marginStart="64dp"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/radioGender"
-        app:layout_constraintRight_toRightOf="@+id/radioGender"
-        app:layout_constraintTop_toBottomOf="@+id/radioGender" />
-
-    <RadioGroup
-        android:id="@+id/radioAge"
-        android:layout_width="215dp"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginLeft="64dp"
-        android:layout_marginStart="64dp"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="@+id/textAge"
-        app:layout_constraintRight_toRightOf="@+id/textAge"
-        app:layout_constraintTop_toBottomOf="@+id/textAge">
-
-        <RadioButton
-            android:id="@+id/radioAge10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="10-12" />
-
-        <RadioButton
-            android:id="@+id/radioAge13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="13-15"
-            app:layout_constraintHorizontal_bias="0.51" />
-
-        <RadioButton
-            android:id="@+id/radioAge16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="16-18" />
-    </RadioGroup>
 
 
 

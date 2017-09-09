@@ -32,8 +32,11 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    final ArrayList<Coach>  coachList = new ArrayList<>();
+
     //Variables
     static final String coaches_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/coaches";
+    static final String insert_players_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/players";
     AlertDialog.Builder builder;
 
     private String TAG;
@@ -47,9 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText textPassword2;
     EditText textPhone;
     RadioGroup radioGender;
-    RadioGroup radioAge;
+    EditText textAge;
     Button submit;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +63,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         //link views to layout views
         spinner = (Spinner)findViewById(R.id.coach_spinner);
-        textName = (EditText)findViewById(R.id.textName);
-        textLastname = (EditText)findViewById(R.id.textLastname);
+        textName = (EditText)findViewById(R.id.txtName);
+        textLastname = (EditText)findViewById(R.id.txtLastname);
         textEmail = (EditText) findViewById(R.id.txtEmail);
-        textPassword1 = (EditText) findViewById(R.id.textPassword1);
-        textPassword2 = (EditText) findViewById(R.id.textPassword2);
-        textPhone = (EditText) findViewById(R.id.textPhone);
+        textPassword1 = (EditText) findViewById(R.id.txtPassword1);
+        textPassword2 = (EditText) findViewById(R.id.txtPassword2);
+        textPhone = (EditText) findViewById(R.id.txtPhone);
+        textAge = (EditText) findViewById(R.id.txtPhone);
         radioGender = (RadioGroup) findViewById(R.id.radioGender);
-        radioAge = (RadioGroup) findViewById(R.id.radioAge);
         submit = (Button) findViewById(R.id.btnSubmit);
 
 
@@ -88,9 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.d(TAG, "onClick: " + textPassword1.getText().toString() + " == " + textPassword2.getText().toString());
                     if(textPassword1.getText().toString().equals(textPassword2.getText().toString())) {
                         Log.d(TAG, "onClick: PASSWORD MATCH, CONTINUE");
-                        //TODO: insert user into database, ALLOW createUser for testing.
                         createUser();
-                        //goToNavigation();
 
                     }
                     else{
@@ -115,13 +115,28 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = textEmail.getText().toString();
         final String password = textPassword1.getText().toString();
         final String phone = textPhone.getText().toString();
+        final String age = textAge.getText().toString();
+        int id = -1;
+        //TODO: get coach id
+        //get coach id
+        String selectedCoach = spinner.getSelectedItem().toString();
+        for(int i = 0; i < coachList.size(); i ++ ){
+            if(coachList.get(i).getName().toString() == selectedCoach){
+                id = coachList.get(i).getId();
+                Log.d(TAG, "createUser: FOUND COACH ID : " + id);
+                break;
+            }
+        }
+        final String coach_id = Integer.toString(id);
+        //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, coaches_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_players_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 builder.setTitle("Server Response");
-                builder.setMessage("Response : " + response);
+                Log.d(TAG, "onResponse: User Added : " + response);
+                builder.setMessage("Response : User has been created" );
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -149,23 +164,18 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("encrypted_password",password);
                 params.put("phone",phone);
                 params.put("gender","1");
-                params.put("points","25");
-                params.put("coach_id","1");
-                params.put("age","22");
+                params.put("points","0");
+                params.put("coach_id",coach_id);
+                params.put("age",age);
                 return params;
             }
         };
         MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
 
-
-
-
     }
 
     //JSON REQUEST TO GET EXISTING COACHES
     public void getCoaches(){
-
-        final ArrayList<Coach>  coachList = new ArrayList<>();
         coachList.add(new Coach (0,"Select Coach"));
 
         Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
@@ -184,11 +194,6 @@ public class RegisterActivity extends AppCompatActivity {
                         //create coach object
                         coachList.add((new Coach(id,coachName)));
 
-
-                        Log.d(TAG, "onResponse: LIST" + coachList);
-
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -196,7 +201,6 @@ public class RegisterActivity extends AppCompatActivity {
                 //store the name of the coaches on a string
                 String[] coaches = new String[coachList.size()];
                 for(int i = 0 ; i < coachList.size();i++){
-                    Log.d(TAG, "onResponse: " + coachList.get(i).getName());
                     coaches[i] = coachList.get(i).getName();
                 }
 
@@ -223,8 +227,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-    
-    
+
+
     public void goToSurvey(View view){
         Intent intent = new Intent(this,SurveyActivity.class);
         startActivity(intent);
