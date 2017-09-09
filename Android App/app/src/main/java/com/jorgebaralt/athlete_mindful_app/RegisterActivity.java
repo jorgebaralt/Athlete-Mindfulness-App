@@ -133,16 +133,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         //get ageRange
         int ageGroup;
-        if(Integer.parseInt(age)<= 13){
+        int ageNum = Integer.parseInt(age);
+        if(ageNum<= 13){
             ageGroup = 1;
-        }else if(Integer.parseInt(age)>13 || Integer.parseInt(age)<= 15){
+        }else if(ageNum>=14 && ageNum<= 15){
             ageGroup = 2;
-        }else if(Integer.parseInt(age)>16 || Integer.parseInt(age)< 19){
+        }else if(ageNum>=16 && ageNum<= 19){
             ageGroup = 3;
         }else{
             ageGroup = 4;
         }
         final String ageRange = Integer.toString(ageGroup);
+
 
         //get gender
         String genderId;
@@ -195,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("points","0");
                 params.put("coach_id",coachId);
                 params.put("age",age);
-                //params.put("age_range",ageRange);
+                params.put("age_range",ageRange);
                 return params;
             }
         };
