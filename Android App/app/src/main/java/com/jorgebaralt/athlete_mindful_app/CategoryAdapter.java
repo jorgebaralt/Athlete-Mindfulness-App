@@ -1,12 +1,8 @@
 package com.jorgebaralt.athlete_mindful_app;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-
-import java.util.ArrayList;
 
 /**
  * Created by jorgebaraltq on 5/23/2017.
@@ -32,9 +28,9 @@ public class CategoryAdapter extends FragmentPagerAdapter {
         else if(position==3)
             return new SocialFragment();
         else if(position==4)
-            return new LeadershipFragment();
+            return new TrainingFragment();
         else
-            return new SpiritualFragment();
+            return new CompetitionFragment();
 
     }
 
@@ -50,9 +46,9 @@ public class CategoryAdapter extends FragmentPagerAdapter {
         else if(position==3)
             return "Social";
         else if(position==4)
-            return "Leadership";
+            return "Training";
         else
-            return "Spiritual";
+            return "Competition";
         }
 
     //number of tabs on the survey layout.

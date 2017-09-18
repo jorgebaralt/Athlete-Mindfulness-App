@@ -35,7 +35,10 @@ public class MentalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.question_list,container,false);
 
         //get questions to display for the user From Database
-        getFreeAnswerQuestion();
+        GetQuestions getQuestion = new GetQuestions();
+        mentalQuestionFreeAnswer = getQuestion.GetFreeAnswer(mentalQuestionFreeAnswer,"current url");
+        mentalQuestionMultipleChoice = getQuestion.GetMultipleChoice(mentalQuestionMultipleChoice,"url");
+
 
 
 
@@ -76,8 +79,6 @@ public class MentalFragment extends Fragment {
 
 
     public void multipleChoiceQuestion(){
-        //get multiple choice question
-        getMultipleChoiceQuestion();
         //create custom adapter
         final QuestionAdapterMultipleChoice adapter = new
                 QuestionAdapterMultipleChoice(getActivity(), mentalQuestionMultipleChoice);
@@ -103,45 +104,5 @@ public class MentalFragment extends Fragment {
 
     }
 
-    public void getFreeAnswerQuestion(){
-        //TODO: pull from database using JSON
-        //Get all the Free Answer
-        if(mentalQuestionFreeAnswer.isEmpty()) {
-            mentalQuestionFreeAnswer.add(new Question("Question 1"));
-            mentalQuestionFreeAnswer.add(new Question("Question 2"));
-            mentalQuestionFreeAnswer.add(new Question("Question 3"));
-            mentalQuestionFreeAnswer.add(new Question("Question 4"));
-            mentalQuestionFreeAnswer.add(new Question("Question 5"));
-            mentalQuestionFreeAnswer.add(new Question("Question 6"));
-            mentalQuestionFreeAnswer.add(new Question("Question 7"));
-            mentalQuestionFreeAnswer.add(new Question("Question 8"));
-            mentalQuestionFreeAnswer.add(new Question("Question 9"));
-            mentalQuestionFreeAnswer.add(new Question("Question 10"));
-        }
-        else{
-            Log.d(TAG, "getFreeAnswerQuestion: List has already been filled");
-        }
 
-
-    }
-
-    public void getMultipleChoiceQuestion() {
-        //TODO: pull from database using JSON
-        //Get all the Multiple choice
-        if(mentalQuestionMultipleChoice.isEmpty()) {
-            mentalQuestionMultipleChoice.add(new Question("Question 1"));
-            mentalQuestionMultipleChoice.add(new Question("Question 2"));
-            mentalQuestionMultipleChoice.add(new Question("Question 3"));
-            mentalQuestionMultipleChoice.add(new Question("Question 4"));
-            mentalQuestionMultipleChoice.add(new Question("Question 5"));
-            mentalQuestionMultipleChoice.add(new Question("Question 6"));
-            mentalQuestionMultipleChoice.add(new Question("Question 7"));
-            mentalQuestionMultipleChoice.add(new Question("Question 8"));
-            mentalQuestionMultipleChoice.add(new Question("Question 9"));
-            mentalQuestionMultipleChoice.add(new Question("Question 10"));
-        }
-        else{
-            Log.d(TAG, "getMultipleChoiceQuestion: list has already been filled");
-        }
-    }
 }
