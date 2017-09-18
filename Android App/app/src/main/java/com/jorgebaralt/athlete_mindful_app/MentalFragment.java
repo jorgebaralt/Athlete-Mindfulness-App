@@ -11,16 +11,20 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MentalFragment extends Fragment {
-    ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
-    ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
+
+    public static ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
+    public static ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
+
     ListView listView;
     Button submitAnswers;
     Button submitMultipleChoice;
@@ -32,7 +36,7 @@ public class MentalFragment extends Fragment {
 
         //get questions to display for the user From Database
         getFreeAnswerQuestion();
-        getMultipleChoiceQuestion();
+
 
 
         //create the custom adapter
@@ -41,6 +45,7 @@ public class MentalFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.questionlist);
         //fill the view.
         listView.setAdapter(adapter);
+
 
         //Adding Submit Button, as a footer.
         submitAnswers = new Button(getContext());
@@ -71,6 +76,8 @@ public class MentalFragment extends Fragment {
 
 
     public void multipleChoiceQuestion(){
+        //get multiple choice question
+        getMultipleChoiceQuestion();
         //create custom adapter
         final QuestionAdapterMultipleChoice adapter = new
                 QuestionAdapterMultipleChoice(getActivity(), mentalQuestionMultipleChoice);
@@ -99,16 +106,21 @@ public class MentalFragment extends Fragment {
     public void getFreeAnswerQuestion(){
         //TODO: pull from database using JSON
         //Get all the Free Answer
-        mentalQuestionFreeAnswer.add(new Question("Question 1" ));
-        mentalQuestionFreeAnswer.add(new Question("Question 2"));
-        mentalQuestionFreeAnswer.add(new Question("Question 3"));
-        mentalQuestionFreeAnswer.add(new Question("Question 4"));
-        mentalQuestionFreeAnswer.add(new Question("Question 5"));
-        mentalQuestionFreeAnswer.add(new Question("Question 6"));
-        mentalQuestionFreeAnswer.add(new Question("Question 7"));
-        mentalQuestionFreeAnswer.add(new Question("Question 8"));
-        mentalQuestionFreeAnswer.add(new Question("Question 9"));
-        mentalQuestionFreeAnswer.add(new Question("Question 10"));
+        if(mentalQuestionFreeAnswer.isEmpty()) {
+            mentalQuestionFreeAnswer.add(new Question("Question 1"));
+            mentalQuestionFreeAnswer.add(new Question("Question 2"));
+            mentalQuestionFreeAnswer.add(new Question("Question 3"));
+            mentalQuestionFreeAnswer.add(new Question("Question 4"));
+            mentalQuestionFreeAnswer.add(new Question("Question 5"));
+            mentalQuestionFreeAnswer.add(new Question("Question 6"));
+            mentalQuestionFreeAnswer.add(new Question("Question 7"));
+            mentalQuestionFreeAnswer.add(new Question("Question 8"));
+            mentalQuestionFreeAnswer.add(new Question("Question 9"));
+            mentalQuestionFreeAnswer.add(new Question("Question 10"));
+        }
+        else{
+            Log.d(TAG, "getFreeAnswerQuestion: List has already been filled");
+        }
 
 
     }
@@ -116,15 +128,20 @@ public class MentalFragment extends Fragment {
     public void getMultipleChoiceQuestion() {
         //TODO: pull from database using JSON
         //Get all the Multiple choice
-        mentalQuestionMultipleChoice.add(new Question("Question 1"));
-        mentalQuestionMultipleChoice.add(new Question("Question 2"));
-        mentalQuestionMultipleChoice.add(new Question("Question 3"));
-        mentalQuestionMultipleChoice.add(new Question("Question 4"));
-        mentalQuestionMultipleChoice.add(new Question("Question 5"));
-        mentalQuestionMultipleChoice.add(new Question("Question 6"));
-        mentalQuestionMultipleChoice.add(new Question("Question 7"));
-        mentalQuestionMultipleChoice.add(new Question("Question 8"));
-        mentalQuestionMultipleChoice.add(new Question("Question 9"));
-        mentalQuestionMultipleChoice.add(new Question("Question 10"));
+        if(mentalQuestionMultipleChoice.isEmpty()) {
+            mentalQuestionMultipleChoice.add(new Question("Question 1"));
+            mentalQuestionMultipleChoice.add(new Question("Question 2"));
+            mentalQuestionMultipleChoice.add(new Question("Question 3"));
+            mentalQuestionMultipleChoice.add(new Question("Question 4"));
+            mentalQuestionMultipleChoice.add(new Question("Question 5"));
+            mentalQuestionMultipleChoice.add(new Question("Question 6"));
+            mentalQuestionMultipleChoice.add(new Question("Question 7"));
+            mentalQuestionMultipleChoice.add(new Question("Question 8"));
+            mentalQuestionMultipleChoice.add(new Question("Question 9"));
+            mentalQuestionMultipleChoice.add(new Question("Question 10"));
+        }
+        else{
+            Log.d(TAG, "getMultipleChoiceQuestion: list has already been filled");
+        }
     }
 }

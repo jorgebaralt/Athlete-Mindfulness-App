@@ -89,10 +89,18 @@ public class RegisterActivity extends AppCompatActivity {
                         && textPhone.getText().length() > 0 && textPassword1.getText().length() > 0 &&
                         textPassword2.getText().length() > 0){
                     //check that passwords match
-                    Log.d(TAG, "onClick: " + textPassword1.getText().toString() + " == " + textPassword2.getText().toString());
                     if(textPassword1.getText().toString().equals(textPassword2.getText().toString())) {
                         Log.d(TAG, "onClick: PASSWORD MATCH, CONTINUE");
-                        createUser();
+                        //check password length
+                        if(textPassword1.getText().toString().length() >= 6){
+                            Log.d(TAG, "onClick: Password length is fine ,continue");
+                            //inserting users into database
+                            insertPlayer();
+                        }
+                        else {
+                            Toast.makeText(RegisterActivity.this, "Password is too short (Minimum is 6 characters", Toast.LENGTH_SHORT).show();
+                        }
+
 
                     }
                     else{
@@ -110,22 +118,25 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    //Push users into database
-    private void createUser() {
+    //METHOD to insert user into database
+    private void insertPlayer() {
+        Log.d(TAG, "insertPlayer: Inserting user into database");
+
         final String firstName = textName.getText().toString();
         final String lastName = textLastname.getText().toString();
         final String email = textEmail.getText().toString();
         final String password = textPassword1.getText().toString();
+        final String passwordConfirmation = textPassword2.getText().toString();
         final String phone = textPhone.getText().toString();
         final String age = textAge.getText().toString();
         int id = -1;
-        //TODO: get coach id
+
         //get coach id
         String selectedCoach = spinner.getSelectedItem().toString();
         for(int i = 0; i < coachList.size(); i ++ ){
             if(coachList.get(i).getName().equals(selectedCoach)){
                 id = coachList.get(i).getId();
-                Log.d(TAG, "createUser: FOUND COACH ID : " + id);
+                Log.d(TAG, "insertPlayer: FOUND COACH ID : " + id);
                 break;
             }
         }
@@ -145,8 +156,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         final String ageRange = Integer.toString(ageGroup);
 
-
-        //get gender
+        //get gender from radio
         String genderId;
         int selectedId = radioGender.getCheckedRadioButtonId();
         radioSelectedGender = (RadioButton) findViewById(selectedId);
@@ -191,7 +201,8 @@ public class RegisterActivity extends AppCompatActivity {
                 params.put("first_name",firstName);
                 params.put("last_name",lastName);
                 params.put("email",email);
-                params.put("encrypted_password",password);
+                params.put("password",password);
+                params.put("password_confirmation",passwordConfirmation);
                 params.put("phone",phone);
                 params.put("gender",gender);
                 params.put("points","0");
@@ -227,6 +238,7 @@ public class RegisterActivity extends AppCompatActivity {
                         coachList.add((new Coach(id,coachName)));
 
                     } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Error Doing inside try");
                         e.printStackTrace();
                     }
                 }

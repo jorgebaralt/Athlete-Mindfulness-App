@@ -1,5 +1,8 @@
 package com.jorgebaralt.athlete_mindful_app;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 /**
  * Created by Jorge Baralt on 5/25/2017.
  */
@@ -28,6 +31,7 @@ public class Question {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
 
 
 }

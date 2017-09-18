@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO confirm login
+                //TODO : start authentication
                 goToNavigation(v);
 
             }
@@ -45,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         registerHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO get list of coaches.
                 goToRegister(v);
 
             }
