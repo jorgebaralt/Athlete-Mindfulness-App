@@ -22,24 +22,25 @@ import static android.content.ContentValues.TAG;
  */
 public class MentalFragment extends Fragment {
 
-    public static ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
-    public static ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
+    ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
+    ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
 
     ListView listView;
     Button submitAnswers;
     Button submitMultipleChoice;
+
+    GetQuestions getQuestions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.question_list,container,false);
 
-        //get questions to display for the user From Database
-        GetQuestions getQuestion = new GetQuestions();
-        mentalQuestionFreeAnswer = getQuestion.GetFreeAnswer(mentalQuestionFreeAnswer,"current url");
-        mentalQuestionMultipleChoice = getQuestion.GetMultipleChoice(mentalQuestionMultipleChoice,"url");
+        //instantiate class that gets our questions
+        getQuestions = new GetQuestions();
 
-
+        //fill array list with free answer questions
+        mentalQuestionFreeAnswer = getQuestions.GetFreeAnswer(mentalQuestionFreeAnswer,"current url");
 
 
         //create the custom adapter
@@ -48,7 +49,6 @@ public class MentalFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.questionlist);
         //fill the view.
         listView.setAdapter(adapter);
-
 
         //Adding Submit Button, as a footer.
         submitAnswers = new Button(getContext());
@@ -61,25 +61,28 @@ public class MentalFragment extends Fragment {
                 listView.removeFooterView(submitAnswers);
 
                 Log.d(TAG, "onClick: adding answers data to database");
+
                 //TODO: store all the free question's answer into the database
+                //clear array list after storing into database.
+                mentalQuestionFreeAnswer.clear();
 
                 Log.d(TAG, "onClick: Transit to multiple choice question");
 
                 multipleChoiceQuestion();
 
-
             }
 
-
         });
-
 
         return rootView;
     }
 
 
     public void multipleChoiceQuestion(){
-        //create custom adapter
+        //fill array list with the multiple choice questions
+        mentalQuestionMultipleChoice = getQuestions.GetMultipleChoice(mentalQuestionMultipleChoice,"url");
+
+        //create custom adapter for multiple choice
         final QuestionAdapterMultipleChoice adapter = new
                 QuestionAdapterMultipleChoice(getActivity(), mentalQuestionMultipleChoice);
         //using same list view, that has been empty before, we fill it with the new adapter info.
@@ -94,6 +97,8 @@ public class MentalFragment extends Fragment {
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Saving answers into database");
                 //TODO: Store answers into database
+                //clear the arraylist after storing
+                mentalQuestionMultipleChoice.clear();
                 //Display message to user
                 Log.d(TAG, "onClick: Displaying final message");
                 Toast toast = Toast.makeText(getContext(),"All your answers have been submitted", Toast.LENGTH_LONG);

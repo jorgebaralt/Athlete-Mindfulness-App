@@ -1,6 +1,8 @@
 package com.jorgebaralt.athlete_mindful_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +13,13 @@ import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     TextView registerHere;
-    EditText email;
-    EditText password;
+    EditText Email;
+    EditText Password;
     Button btnLogin;
+
+    String email;
+    String password;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +33,26 @@ public class LoginActivity extends AppCompatActivity {
         //declaration
         btnLogin = (Button) findViewById(R.id.btnLogin);
         registerHere = (TextView) findViewById(R.id.textRegister);
-        email = (EditText) findViewById(R.id.txtEmail);
-        password = (EditText) findViewById(R.id.txtPassword);
+        Email = (EditText) findViewById(R.id.txtEmail);
+        Password = (EditText) findViewById(R.id.txtPassword);
+
+        builder  = new AlertDialog.Builder(this);
 
 
         //ACTION FOR LOGIN BUTTON
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO confirm login
-                //TODO : start authentication
+                email = Email.getText().toString();
+                password = Password.getText().toString();
+
+                if(email.length() < 1 || password.length()<1){
+                    builder.setTitle("Something Went Wrong...");
+                    builder.setMessage("Please fill in all the fields");
+                    displayAlert("input_error");
+                }
+
+
                 goToNavigation(v);
 
             }
@@ -52,6 +68,20 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void displayAlert(final String error){
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(error.equals("input_error")) {
+                    Password.setText("");
+
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private void goToRegister(View view){

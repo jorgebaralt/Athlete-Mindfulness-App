@@ -101,7 +101,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Password is too short (Minimum is 6 characters", Toast.LENGTH_SHORT).show();
                         }
 
-
                     }
                     else{
                         Toast.makeText(RegisterActivity.this, "Make sure passwords match", Toast.LENGTH_SHORT).show();
@@ -115,6 +114,59 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    //JSON REQUEST TO GET EXISTING COACHES
+    public void getCoaches(){
+        coachList.add(new Coach (0,"Select Coach"));
+
+        Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, coaches_url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for( int i = 0 ; i < response.length(); i++){
+                    try {
+                        JSONObject currentCoach = response.getJSONObject(i);
+                        int id = currentCoach.getInt("id");
+                        String firstname = currentCoach.getString("first_name");
+                        String lastname = currentCoach.getString("last_name");
+                        String coachName = firstname + " " + lastname;
+
+                        //create coach object
+                        coachList.add((new Coach(id,coachName)));
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Error Doing inside try");
+                        e.printStackTrace();
+                    }
+                }
+                //store the name of the coaches on a string
+                String[] coaches = new String[coachList.size()];
+                for(int i = 0 ; i < coachList.size();i++){
+                    coaches[i] = coachList.get(i).getName();
+                }
+
+                //create spinner adapter that display names of the coaches to select.
+                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
+                //set the spinners adapter to the previously created one.
+                spinner.setAdapter(spinnerAdapter);
+                spinner.setPrompt("Select Coach");
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(RegisterActivity.this,"Error fetching data", Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                Log.e(TAG, "onErrorResponse: ",error );
+
+            }
+        });
+        //send the request queue
+        MySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
 
     }
 
@@ -170,6 +222,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
+        //start string request to create users.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_players_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -217,60 +270,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    //JSON REQUEST TO GET EXISTING COACHES
-    public void getCoaches(){
-        coachList.add(new Coach (0,"Select Coach"));
-
-        Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, coaches_url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                for( int i = 0 ; i < response.length(); i++){
-                    try {
-                        JSONObject currentCoach = response.getJSONObject(i);
-                        int id = currentCoach.getInt("id");
-                        String firstname = currentCoach.getString("first_name");
-                        String lastname = currentCoach.getString("last_name");
-                        String coachName = firstname + " " + lastname;
-
-                        //create coach object
-                        coachList.add((new Coach(id,coachName)));
-
-                    } catch (JSONException e) {
-                        Log.e(TAG, "onResponse: Error Doing inside try");
-                        e.printStackTrace();
-                    }
-                }
-                //store the name of the coaches on a string
-                String[] coaches = new String[coachList.size()];
-                for(int i = 0 ; i < coachList.size();i++){
-                    coaches[i] = coachList.get(i).getName();
-                }
-
-                //create spinner adapter that display names of the coaches to select.
-                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
-                //set the spinners adapter to the previously created one.
-                spinner.setAdapter(spinnerAdapter);
-                spinner.setPrompt("Select Coach");
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterActivity.this,"Error fetching data", Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-                Log.e(TAG, "onErrorResponse: ",error );
-
-            }
-        });
-        //send the request queue
-        MySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
-
-
-
-    }
 
 
     public void goToSurvey(View view){

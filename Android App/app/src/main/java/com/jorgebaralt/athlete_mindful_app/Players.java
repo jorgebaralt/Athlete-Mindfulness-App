@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 public class Players implements Comparable<Players> {
     private String username;
     private int score;
-
+    private String email;
 
     public Players(String username, int score){
         this.username = username;
