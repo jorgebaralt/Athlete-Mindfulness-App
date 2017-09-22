@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ///This removes notifications, time, etc. ON TOP
+        ///This removes notifications, time, etc. ON TOP of screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_register);
@@ -142,6 +142,8 @@ public class RegisterActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+
+                //SPINNER CODE**
                 //store the name of the coaches on a string
                 String[] coaches = new String[coachList.size()];
                 for(int i = 0 ; i < coachList.size();i++){
@@ -210,6 +212,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //get gender from radio
         String genderId;
+        //get the id of the selected radio button.
         int selectedId = radioGender.getCheckedRadioButtonId();
         radioSelectedGender = (RadioButton) findViewById(selectedId);
         if(radioSelectedGender.getText().toString().equals("Male")){

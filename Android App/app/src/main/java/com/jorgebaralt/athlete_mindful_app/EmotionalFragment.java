@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -32,9 +31,11 @@ public class EmotionalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.question_list,container,false);
 
         //instantiate class that gets our questions
-        getQuestions = new GetQuestions();
+        getQuestions = new GetQuestions(getActivity());
 
-        emotionalQuestionFreeAnswer = getQuestions.GetFreeAnswer(emotionalQuestionFreeAnswer,"some url");
+        if(emotionalQuestionFreeAnswer.isEmpty()) {
+            //emotionalQuestionFreeAnswer = getQuestions.GetFreeAnswer(emotionalQuestionFreeAnswer, "some url");
+        }
 
 
         return rootView;

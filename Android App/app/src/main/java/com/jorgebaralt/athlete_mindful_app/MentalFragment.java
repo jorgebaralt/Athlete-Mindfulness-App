@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
@@ -25,6 +24,8 @@ public class MentalFragment extends Fragment {
     ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
     ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
 
+    final String mental_questions_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/mental_questions";
+
     ListView listView;
     Button submitAnswers;
     Button submitMultipleChoice;
@@ -37,10 +38,12 @@ public class MentalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.question_list,container,false);
 
         //instantiate class that gets our questions
-        getQuestions = new GetQuestions();
+        getQuestions = new GetQuestions(getActivity());
 
         //fill array list with free answer questions
-        mentalQuestionFreeAnswer = getQuestions.GetFreeAnswer(mentalQuestionFreeAnswer,"current url");
+        if(mentalQuestionFreeAnswer.isEmpty()) {
+            mentalQuestionFreeAnswer = getQuestions.GetFreeAnswer(mentalQuestionFreeAnswer, mental_questions_url);
+        }
 
 
         //create the custom adapter
@@ -80,7 +83,9 @@ public class MentalFragment extends Fragment {
 
     public void multipleChoiceQuestion(){
         //fill array list with the multiple choice questions
-        mentalQuestionMultipleChoice = getQuestions.GetMultipleChoice(mentalQuestionMultipleChoice,"url");
+        if(mentalQuestionMultipleChoice.isEmpty()) {
+            mentalQuestionMultipleChoice = getQuestions.GetMultipleChoice(mentalQuestionMultipleChoice, "url");
+        }
 
         //create custom adapter for multiple choice
         final QuestionAdapterMultipleChoice adapter = new
@@ -98,12 +103,14 @@ public class MentalFragment extends Fragment {
                 Log.d(TAG, "onClick: Saving answers into database");
                 //TODO: Store answers into database
                 //clear the arraylist after storing
-                mentalQuestionMultipleChoice.clear();
+
+                //mentalQuestionMultipleChoice.clear();  ----------> MAKING APP CRASH
                 //Display message to user
                 Log.d(TAG, "onClick: Displaying final message");
                 Toast toast = Toast.makeText(getContext(),"All your answers have been submitted", Toast.LENGTH_LONG);
                 toast.show();
 
+                //TODO CHECK FOR CRASH on clear and intent
             }
         });
 

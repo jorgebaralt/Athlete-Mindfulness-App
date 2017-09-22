@@ -49,14 +49,14 @@ public class LeaderboardFragment extends Fragment{
             public void onResponse(JSONArray response) {
                 for(int i = 0; i < response.length();i++){
                     try {
+                        //get player data
                         JSONObject currentPlayer = response.getJSONObject(i);
                         String firstname = currentPlayer.getString("first_name");
                         String lastname = currentPlayer.getString("last_name");
                         String playerName = firstname + " " + lastname;
                         int playerScore = currentPlayer.getInt("points");
 
-
-
+                        //store player data into our array list
                         player.add(new Players(playerName,playerScore));
 
                     } catch (JSONException e) {
@@ -67,7 +67,8 @@ public class LeaderboardFragment extends Fragment{
                 }
             //All work if the json worked:
 
-                //TODO: Sort players by score
+                //sort players by score
+                //TODO: do sorting on backend ?
                 Collections.sort(player);
 
 

@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 
 //create object for users.
 public class Players implements Comparable<Players> {
-    private String username;
+    private String name;
     private int score;
     private String email;
 
-    public Players(String username, int score){
-        this.username = username;
+    public Players(String name, int score){
+        this.name = name;
         this.score = score;
     }
 
-    public String getUsername(){
-        return username;
+    public String getName(){
+        return name;
     }
     public int getScore(){
         return score;

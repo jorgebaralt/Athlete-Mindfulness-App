@@ -38,7 +38,7 @@ public class LeaderboardAdapter extends ArrayAdapter {
         Players currentUser = (Players) getItem(position);
         //display the username of the current user
         TextView usernameTextView = (TextView) listItemView.findViewById(R.id.txtUsername);
-        usernameTextView.setText(currentUser.getUsername());
+        usernameTextView.setText(currentUser.getName());
         //display the score of the current user.
         TextView scoreTextView = (TextView) listItemView.findViewById(R.id.txtScore);
         scoreTextView.setText("Current Score:" + Integer.toString(currentUser.getScore()));
