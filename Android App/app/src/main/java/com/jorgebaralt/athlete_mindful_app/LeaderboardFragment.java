@@ -10,17 +10,16 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 
@@ -31,8 +30,8 @@ import static android.content.ContentValues.TAG;
 public class LeaderboardFragment extends Fragment{
 
     //variables
-    static final String players_url= "http://project-env-4.us-east-1.elasticbeanstalk.com/players";
-    ArrayList<Players> player = new ArrayList<>();
+    static final String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    ArrayList<Player> player = new ArrayList<>();
 
 
     @Nullable
@@ -44,51 +43,33 @@ public class LeaderboardFragment extends Fragment{
 
         Log.d(TAG, "getTop10Player: STARTING JSON REQUEST FOR PLAYERS");
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, players_url, null, new Response.Listener<JSONArray>() {
+        //create retrofit
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit = builder.build();
+
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<ArrayList<Player>> call = apiInterface.getPlayers();
+        call.enqueue(new Callback<ArrayList<Player>>() {
             @Override
-            public void onResponse(JSONArray response) {
-                for(int i = 0; i < response.length();i++){
-                    try {
-                        //get player data
-                        JSONObject currentPlayer = response.getJSONObject(i);
-                        String firstname = currentPlayer.getString("first_name");
-                        String lastname = currentPlayer.getString("last_name");
-                        String playerName = firstname + " " + lastname;
-                        int playerScore = currentPlayer.getInt("points");
-
-                        //store player data into our array list
-                        player.add(new Players(playerName,playerScore));
-
-                    } catch (JSONException e) {
-                        Log.e(TAG, "onResponse: Eror...");
-                        e.printStackTrace();
-
-                    }
-                }
-            //All work if the json worked:
-
-                //sort players by score
-                //TODO: do sorting on backend ?
+            public void onResponse(Call<ArrayList<Player>> call, Response<ArrayList<Player>> response) {
+                player = response.body();
+                //TODO: sort on backend?
                 Collections.sort(player);
-
-
-                //create the adapter who deals with each user view. custom adapter since we are doing it custom.
                 LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),player);
                 //get the VIEW that is going to be filled
                 ListView listView = (ListView) getActivity().findViewById(R.id.leaderboardList);
                 //fill the VIEW.
                 listView.setAdapter(adapter);
+
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(),"Error fetching data", Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-                Log.e(TAG, "onErrorResponse: ",error );
+            public void onFailure(Call<ArrayList<Player>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Error displaying players", Toast.LENGTH_SHORT).show();
+
             }
         });
-        MySingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
-
 
 
         return rootView;

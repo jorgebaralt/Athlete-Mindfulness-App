@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class LeaderboardAdapter extends ArrayAdapter {
 
-    public LeaderboardAdapter(Activity context, ArrayList<Players> users){
+    public LeaderboardAdapter(Activity context, ArrayList<Player> users){
         super(context,0,users);
     }
 
@@ -35,13 +35,14 @@ public class LeaderboardAdapter extends ArrayAdapter {
         }
 
         //get the current user that we are loading
-        Players currentUser = (Players) getItem(position);
+        Player currentUser = (Player) getItem(position);
         //display the username of the current user
         TextView usernameTextView = (TextView) listItemView.findViewById(R.id.txtUsername);
         usernameTextView.setText(currentUser.getName());
         //display the score of the current user.
         TextView scoreTextView = (TextView) listItemView.findViewById(R.id.txtScore);
-        scoreTextView.setText("Current Score:" + Integer.toString(currentUser.getScore()));
+        scoreTextView.setText("Current Score:" + Integer.toString(currentUser.getPoints()));
+
         //TODO change image of each user. NUMBER OR PROFILE PIC?
 
         return listItemView;

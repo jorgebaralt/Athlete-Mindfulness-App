@@ -1,15 +1,21 @@
 package com.jorgebaralt.athlete_mindful_app;
 
-import java.util.Collection;
-import java.util.Iterator;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Jorge Baralt on 5/25/2017.
  */
 
 public class Question {
+    @SerializedName("question_text")
     private String question;
     private String answer;
+    private int category;
+
+    @SerializedName("age_range")
+    private int ageRange;
+
+
     int current = NONE;
     public static final int NONE = 10000;
     public static final int answer0 = 0;

@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.13.0_38b74e4be266d69e70035860c1bf242ab4307618\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -12,12 +21,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.3.0\9e09011e9767bb76b5e27c9b8223476b93b14631\converter-gson-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.3.0_5c5265f107f8e259bd3bc5684b15b88bc8a781cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\User\.android\build-cache\3606c379a78e04bfde438510766a6e1cf62b66eb\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
         <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_be3c79a44ca91e57bd69cb61264fcbedb96bf552\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.3.0\bcacde6a8ccedcc56c127403d26b76072fe6214d\retrofit-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.3.0_3a2b7afb9e37189ac4d0ba07871534360c8d5b2c\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -36,6 +63,15 @@
         revision="25.0.2"
         sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
         <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6bbd5cf025a82990109b995712a6746ead280430\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_6588e2d99545897d2f73b2d19e617a456d73fb1f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -63,6 +99,15 @@
         revision="25.0.2"
         sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
         <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8dc7ec05905d82747d9494215312eed6447cfc82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.8.0\5a11f020cce2d11eb71ba916700600e18c4547e7\okhttp-3.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5a11f020cce2d11eb71ba916700600e18c4547e7">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.8.0_1000583ae91e402d26214813814a662e9313bbe6\classes.dex" />
     </item>
     <item
         is-multidex="true"

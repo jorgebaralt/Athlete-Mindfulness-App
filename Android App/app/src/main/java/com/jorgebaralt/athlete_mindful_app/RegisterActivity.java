@@ -16,28 +16,32 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.API.MySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    final ArrayList<Coach>  coachList = new ArrayList<>();
+   ArrayList<Coach>  coachList = new ArrayList<>();
 
     //Variables
     static final String coaches_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/coaches";
     static final String insert_players_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/players";
+    static final String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
     AlertDialog.Builder builder;
 
     private String TAG;
@@ -54,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
     RadioGroup radioGender;
     RadioButton radioSelectedGender;
     Button submit;
+    int BASE_POINTS = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +82,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         //Get the coach list from database
-        getCoaches();
+        getCoachesRetrofit();
+        //getCoaches();
 
         //Submit Button
         submit.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +123,48 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+
+    public  void getCoachesRetrofit(){
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<ArrayList<Coach>> call = apiInterface.getCoaches();
+        call.enqueue(new Callback<ArrayList<Coach>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Coach>> call, retrofit2.Response<ArrayList<Coach>> response) {
+                coachList = response.body();
+
+                //create spinner adapter that display names of the coaches to select.
+                String[] coaches = new String[coachList.size()];
+                for(int i = 0 ; i < coachList.size();i++){
+                    coaches[i] = coachList.get(i).getName();
+                }
+                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
+                //set the spinners adapter to the previously created one.
+                spinner.setAdapter(spinnerAdapter);
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Coach>> call, Throwable t) {
+                Toast.makeText(RegisterActivity.this, "Error getting coaches", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "onFailure: Error loading coaches",t );
+
+            }
+        });
+
+
+    }
+
     //JSON REQUEST TO GET EXISTING COACHES
     public void getCoaches(){
-        coachList.add(new Coach (0,"Select Coach"));
+        coachList.add(new Coach (0,"Select","Coach"));
 
         Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
 
@@ -132,10 +177,10 @@ public class RegisterActivity extends AppCompatActivity {
                         int id = currentCoach.getInt("id");
                         String firstname = currentCoach.getString("first_name");
                         String lastname = currentCoach.getString("last_name");
-                        String coachName = firstname + " " + lastname;
+
 
                         //create coach object
-                        coachList.add((new Coach(id,coachName)));
+                        coachList.add((new Coach(id,firstname,lastname)));
 
                     } catch (JSONException e) {
                         Log.e(TAG, "onResponse: Error Doing inside try");
@@ -183,48 +228,95 @@ public class RegisterActivity extends AppCompatActivity {
         final String passwordConfirmation = textPassword2.getText().toString();
         final String phone = textPhone.getText().toString();
         final String age = textAge.getText().toString();
-        int id = -1;
+        int coachId = -1;
 
         //get coach id
         String selectedCoach = spinner.getSelectedItem().toString();
         for(int i = 0; i < coachList.size(); i ++ ){
             if(coachList.get(i).getName().equals(selectedCoach)){
-                id = coachList.get(i).getId();
-                Log.d(TAG, "insertPlayer: FOUND COACH ID : " + id);
+                coachId = coachList.get(i).getId();
+                Log.d(TAG, "insertPlayer: FOUND COACH ID : " + coachId);
                 break;
             }
         }
-        final String coachId = Integer.toString(id);
+
 
         //get ageRange
-        int ageGroup;
+        int ageRange;
         int ageNum = Integer.parseInt(age);
         if(ageNum<= 13){
-            ageGroup = 1;
+            ageRange = 1;
         }else if(ageNum>=14 && ageNum<= 15){
-            ageGroup = 2;
+            ageRange = 2;
         }else if(ageNum>=16 && ageNum<= 19){
-            ageGroup = 3;
+            ageRange = 3;
         }else{
-            ageGroup = 4;
+            ageRange = 4;
         }
-        final String ageRange = Integer.toString(ageGroup);
+
 
         //get gender from radio
-        String genderId;
+        int gender;
         //get the id of the selected radio button.
         int selectedId = radioGender.getCheckedRadioButtonId();
         radioSelectedGender = (RadioButton) findViewById(selectedId);
         if(radioSelectedGender.getText().toString().equals("Male")){
-            genderId = "1";
+            gender = 1;
         }
         else {
-            genderId = "2";
+            gender = 2;
         }
-        final String gender = genderId;
+
+        //create new Player to send to POST
+        Player newPlayer = new Player(firstName,lastName,BASE_POINTS);
+        newPlayer.setAge(ageNum);
+        newPlayer.setAgeRange(ageRange);
+        newPlayer.setCoachId(coachId);
+        newPlayer.setEmail(email);
+        newPlayer.setPassword(password);
+        newPlayer.setPasswordConfirmation(passwordConfirmation);
+        newPlayer.setPhone(phone);
+        newPlayer.setGender(gender);
+
         //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);
 
+        //Retrofit request
+        Retrofit.Builder retroBuilder = new Retrofit.Builder()
+                .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = retroBuilder.build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<Player> call = apiInterface.createPlayer(newPlayer);
+        call.enqueue(new Callback<Player>() {
+            @Override
+            public void onResponse(Call<Player> call, retrofit2.Response<Player> response) {
+                builder.setTitle("Server Response");
+                Log.d(TAG, "onResponse: User Added : " + response);
+                builder.setMessage("Response : User has been created" );
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        goToNavigation();
+                    }
+                });
+                //create the dialog
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+
+            @Override
+            public void onFailure(Call<Player> call, Throwable t) {
+                Toast.makeText(RegisterActivity.this, "Error Creating user", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "onFailure: ",t );
+            }
+        });
+
+
+
+        /*
         //start string request to create users.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_players_url, new Response.Listener<String>() {
             @Override
@@ -270,7 +362,7 @@ public class RegisterActivity extends AppCompatActivity {
         };
         //send request to the queue.
         MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
-
+*/
     }
 
 
