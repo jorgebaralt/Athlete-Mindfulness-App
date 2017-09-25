@@ -51,13 +51,12 @@ public class MentalFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.question_list,container,false);
 
 
-
-        //fill array list with free answer questions from database
-
+        //fill array list with free answer questions from database using RETROFIT
             Retrofit.Builder builder = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
             Retrofit retrofit = builder.build();
+
             //TODO: make the api receive a parameter to only get the question_type 1 or 2 accordingly.
             ApiInterface apiInterface = retrofit.create(ApiInterface.class);
             Call<ArrayList<Question>> call =  apiInterface.getMentalQuestions(FREE_ANSWER_TYPE);
@@ -66,6 +65,7 @@ public class MentalFragment extends Fragment {
                 public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                     //get response from server and store into array list
                     mentalQuestionFreeAnswer = response.body();
+
                     //create the custom adapter\
                     QuestionAdapter adapter = new QuestionAdapter(getActivity(), mentalQuestionFreeAnswer);
                     //select the layout list to fill
@@ -75,6 +75,7 @@ public class MentalFragment extends Fragment {
                     //Adding Submit Button, as a footer.
                     submitAnswers = new Button(getContext());
                     submitAnswers.setText("Submit");
+
                     listView.addFooterView(submitAnswers);
                     submitAnswers.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -88,10 +89,8 @@ public class MentalFragment extends Fragment {
 
                             //clear array list after storing into database.
                             mentalQuestionFreeAnswer.clear();
-                            Log.d(TAG, "onClick: SIZE OF ARRAYLIST = " + mentalQuestionFreeAnswer.size());
 
                             Log.d(TAG, "onClick: Transit to multiple choice question");
-
                             multipleChoiceQuestion();
                         }
 

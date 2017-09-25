@@ -15,8 +15,9 @@ public class Question {
     @SerializedName("age_range")
     private int ageRange;
 
+    private String options;
 
-    int current = NONE;
+    public int current = NONE;
     public static final int NONE = 10000;
     public static final int answer0 = 0;
     public static final int answer1 = 1;
@@ -38,6 +39,9 @@ public class Question {
         this.answer = answer;
     }
 
+    public String getOptions() {
+        return options;
+    }
 
 
 }

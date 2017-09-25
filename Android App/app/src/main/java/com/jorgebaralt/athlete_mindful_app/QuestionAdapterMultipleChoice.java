@@ -38,7 +38,7 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
 
-        final Question currentQuestion =  getItem(position);
+        Question currentQuestion =  getItem(position);
 
         ViewHolder holder;
         if(listItemView == null){
@@ -51,10 +51,11 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                    //to identify the Question Object I get from the radiogroup with getTag
+                    //to identify the Question Object I get from the radio group with getTag
                     //the integer represent the position
                     Integer pos = (Integer) group.getTag();
                     Question currentPosition =  getItem(pos);
+                    //set the Model to hold the answer the user picked
                     switch (checkedId){
                         case R.id.radioBtn1:
                             currentPosition.current = Question.answer0;
@@ -67,18 +68,17 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
                             break;
                         default:
                             currentPosition.current = Question.NONE;
-
                     }
 
                 }
             });
-
-
         }else{
             holder = (ViewHolder) convertView.getTag();
             listItemView.setTag(holder);
         }
+
         //set the question
+
         holder.question.setText(currentQuestion.getQuestion());
         //pass current position as tag
         holder.radioGroup.setTag(new Integer(position));
@@ -91,10 +91,6 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
         }else{
             holder.radioGroup.clearCheck();
         }
-
-
-
-
 
         return listItemView;
     }

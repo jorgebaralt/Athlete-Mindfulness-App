@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         //Get the coach list from database
-        getCoachesRetrofit();
+        getCoaches();
         //getCoaches();
 
         //Submit Button
@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-    public  void getCoachesRetrofit(){
+    public  void getCoaches(){
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -163,59 +163,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     //JSON REQUEST TO GET EXISTING COACHES
-    public void getCoaches(){
-        coachList.add(new Coach (0,"Select","Coach"));
 
-        Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, coaches_url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                for( int i = 0 ; i < response.length(); i++){
-                    try {
-                        JSONObject currentCoach = response.getJSONObject(i);
-                        int id = currentCoach.getInt("id");
-                        String firstname = currentCoach.getString("first_name");
-                        String lastname = currentCoach.getString("last_name");
-
-
-                        //create coach object
-                        coachList.add((new Coach(id,firstname,lastname)));
-
-                    } catch (JSONException e) {
-                        Log.e(TAG, "onResponse: Error Doing inside try");
-                        e.printStackTrace();
-                    }
-                }
-
-                //SPINNER CODE**
-                //store the name of the coaches on a string
-                String[] coaches = new String[coachList.size()];
-                for(int i = 0 ; i < coachList.size();i++){
-                    coaches[i] = coachList.get(i).getName();
-                }
-
-                //create spinner adapter that display names of the coaches to select.
-                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
-                //set the spinners adapter to the previously created one.
-                spinner.setAdapter(spinnerAdapter);
-                spinner.setPrompt("Select Coach");
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterActivity.this,"Error fetching data", Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-                Log.e(TAG, "onErrorResponse: ",error );
-
-            }
-        });
-        //send the request queue
-        MySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
-
-    }
 
     //METHOD to insert user into database
     private void insertPlayer() {
@@ -313,9 +261,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e(TAG, "onFailure: ",t );
             }
         });
-
-
-
         /*
         //start string request to create users.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_players_url, new Response.Listener<String>() {
@@ -364,6 +309,10 @@ public class RegisterActivity extends AppCompatActivity {
         MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
 */
     }
+    public void goToNavigation(){
+        Intent intent = new Intent(this,NavigationDrawer.class);
+        startActivity(intent);
+    }
 
 
 
@@ -371,9 +320,59 @@ public class RegisterActivity extends AppCompatActivity {
         Intent intent = new Intent(this,SurveyActivity.class);
         startActivity(intent);
     }
-    public void goToNavigation(){
-        Intent intent = new Intent(this,NavigationDrawer.class);
-        startActivity(intent);
+
+    public void getCoachesJson(){
+        coachList.add(new Coach (0,"Select","Coach"));
+
+        Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, coaches_url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for( int i = 0 ; i < response.length(); i++){
+                    try {
+                        JSONObject currentCoach = response.getJSONObject(i);
+                        int id = currentCoach.getInt("id");
+                        String firstname = currentCoach.getString("first_name");
+                        String lastname = currentCoach.getString("last_name");
+
+
+                        //create coach object
+                        coachList.add((new Coach(id,firstname,lastname)));
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Error Doing inside try");
+                        e.printStackTrace();
+                    }
+                }
+
+                //SPINNER CODE**
+                //store the name of the coaches on a string
+                String[] coaches = new String[coachList.size()];
+                for(int i = 0 ; i < coachList.size();i++){
+                    coaches[i] = coachList.get(i).getName();
+                }
+
+                //create spinner adapter that display names of the coaches to select.
+                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
+                //set the spinners adapter to the previously created one.
+                spinner.setAdapter(spinnerAdapter);
+                spinner.setPrompt("Select Coach");
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(RegisterActivity.this,"Error fetching data", Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                Log.e(TAG, "onErrorResponse: ",error );
+
+            }
+        });
+        //send the request queue
+        MySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
+
     }
 
 }
