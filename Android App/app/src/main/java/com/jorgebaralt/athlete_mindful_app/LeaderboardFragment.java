@@ -40,7 +40,7 @@ public class LeaderboardFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.leaderboard_list,container,false);
 
 
-        Log.d(TAG, "getTop10Player: STARTING JSON REQUEST FOR PLAYERS");
+        Log.d(TAG, "getTop10Player: STARTING RETROFIT REQUEST FOR PLAYERS");
 
         //create retrofit
         Retrofit.Builder builder = new Retrofit.Builder()
@@ -53,7 +53,6 @@ public class LeaderboardFragment extends Fragment{
             @Override
             public void onResponse(Call<ArrayList<Player>> call, Response<ArrayList<Player>> response) {
                 player = response.body();
-                //TODO: sort on backend?
                 LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),player);
                 //get the VIEW that is going to be filled
                 ListView listView = (ListView) getActivity().findViewById(R.id.leaderboardList);
