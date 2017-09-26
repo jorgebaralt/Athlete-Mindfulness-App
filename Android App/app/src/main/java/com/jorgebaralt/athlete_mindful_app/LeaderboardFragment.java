@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,13 +48,12 @@ public class LeaderboardFragment extends Fragment{
         Retrofit retrofit = builder.build();
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ArrayList<Player>> call = apiInterface.getPlayers();
+        Call<ArrayList<Player>> call = apiInterface.getLeaderboard();
         call.enqueue(new Callback<ArrayList<Player>>() {
             @Override
             public void onResponse(Call<ArrayList<Player>> call, Response<ArrayList<Player>> response) {
                 player = response.body();
                 //TODO: sort on backend?
-                Collections.sort(player);
                 LeaderboardAdapter adapter = new LeaderboardAdapter(getActivity(),player);
                 //get the VIEW that is going to be filled
                 ListView listView = (ListView) getActivity().findViewById(R.id.leaderboardList);

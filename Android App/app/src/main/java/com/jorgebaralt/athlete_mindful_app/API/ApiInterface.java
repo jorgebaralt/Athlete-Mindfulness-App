@@ -20,8 +20,8 @@ public interface ApiInterface {
     @GET("/coaches")
     Call<ArrayList<Coach>> getCoaches();
 
-    @GET("/players")
-    Call<ArrayList<Player>> getPlayers();
+    @GET("/leaderboard")
+    Call<ArrayList<Player>> getLeaderboard();
 
     @GET("/mental_questions")
     Call<ArrayList<Question>> getMentalQuestions(
