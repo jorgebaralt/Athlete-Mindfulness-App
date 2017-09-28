@@ -24,10 +24,11 @@ public interface ApiInterface {
     Call<ArrayList<Player>> getLeaderboard();
 
     //GET with parameters
-    @GET("/mental_questions")
-    Call<ArrayList<Question>> getMentalQuestions(
+    @GET("/questions")
+    Call<ArrayList<Question>> getQuestion(
             //parameters to query
-            @Query("question_type") int questionType
+            @Query("question_type") int questionType,
+            @Query("category") int category
         );
 
 

@@ -59,13 +59,13 @@ public class MentalFragment extends Fragment {
 
             //TODO: make the api receive a parameter to only get the question_type 1 or 2 accordingly.
             ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-            Call<ArrayList<Question>> call =  apiInterface.getMentalQuestions(FREE_ANSWER_TYPE);
+            Call<ArrayList<Question>> call =  apiInterface.getQuestion(FREE_ANSWER_TYPE,1);
             call.enqueue(new Callback<ArrayList<Question>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                     //get response from server and store into array list
                     mentalQuestionFreeAnswer = response.body();
-
+                    Log.d(TAG, "onResponse: " + mentalQuestionFreeAnswer);
                     //create the custom adapter\
                     QuestionAdapter adapter = new QuestionAdapter(getActivity(), mentalQuestionFreeAnswer);
                     //select the layout list to fill
@@ -116,7 +116,7 @@ public class MentalFragment extends Fragment {
             Retrofit retrofit = builder.build();
             //TODO: make the api receive a parameter to only get the question_type 1 or 2 accordingly.
             ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-            Call<ArrayList<Question>> call =  apiInterface.getMentalQuestions(MULT_ANSWER_TYPE);
+            Call<ArrayList<Question>> call =  apiInterface.getQuestion(MULT_ANSWER_TYPE,1);
             call.enqueue(new Callback<ArrayList<Question>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
