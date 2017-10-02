@@ -12,9 +12,16 @@ import android.view.ViewGroup;
  */
 
 public class Profile extends Fragment{
+
+    Player currentPlayer;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.profile_layout,container,false);
+        View rootView =  inflater.inflate(R.layout.profile_layout,container,false);
+
+
+        return rootView;
+
     }
 }

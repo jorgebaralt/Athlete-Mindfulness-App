@@ -11,16 +11,25 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
+import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.API.Login;
 import com.jorgebaralt.athlete_mindful_app.API.MySingleton;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,12 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText Email;
     EditText Password;
     Button btnLogin;
+    String token;
+    Player currentPlayer;
 
 
     String email;
     String password;
     AlertDialog.Builder builder;
-    private static String sign_in_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/players/sign_in";
+    private static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                //get email and user
                 email = Email.getText().toString();
                 password = Password.getText().toString();
 
@@ -68,35 +80,53 @@ public class LoginActivity extends AppCompatActivity {
 
                     goToNavigation(v); //FOR TESTING ISSUES!
                 }else{
+                    //User to authenticate
+                    final Login userLogin = new Login(email,password);
 
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, sign_in_url, new Response.Listener<String>() {
+
+                    //Start Retrofit
+                    Retrofit.Builder builder = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addConverterFactory(GsonConverterFactory.create());
+
+                    Retrofit retrofit = builder.build();
+
+                    ApiInterface api = retrofit.create(ApiInterface.class);
+                    Call<Player> call = api.login(userLogin);
+                    call.enqueue(new Callback<Player>() {
+                        @Override
+                        public void onResponse(Call<Player> call, retrofit2.Response<Player> response) {
+
+                            Log.d(TAG, "onResponse: Response from server at login" + response.body());
+
+                            if(response.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, response.body().getEmail() + ", token = " + response.body().getToken(), Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "onResponse: RESPONSE WORKED, LOGIN WORKED!!!" + response.body().getToken());
+                                token = response.body().getToken();
+                                currentPlayer = response.body();
+
+                                //Go to Navigation Activity ( profile ) MAYBE BUNDLE
+                                Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
+                                intent.putExtra("currentPlayer" , currentPlayer);
+                                startActivity(intent);
+
+
+                            }else{
+                                Toast.makeText(LoginActivity.this, "Make sure Email and Password Match", Toast.LENGTH_SHORT).show();
+                                Log.e(TAG, "onResponse: Error login not successful , response  =  " + response.errorBody() );
+                            }
+                        }
 
                         @Override
-                        public void onResponse(String response) {
-                            //User exist, continue and
-                            //TODO: API SHOULD RETURN EITHER login worked or failed
-                            Log.d(TAG, "onResponse: LOGIN WORKED!!!!!!!!!!!!!" + response +  " <======" );
+                        public void onFailure(Call<Player> call, Throwable t) {
+
+                            Toast.makeText(LoginActivity.this, "ERROR LOGGING TO SERVER", Toast.LENGTH_SHORT).show();
 
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
+                    });
 
-                        }
-                    }){
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String,String> params = new HashMap<>();
-                            params.put("email",email);
-                            params.put("password",password);
-                            return params;
-                        }
-                    };
 
-                    MySingleton.getInstance(LoginActivity.this).addToRequestQueue(stringRequest);
                 }
-
-
 
 
             }

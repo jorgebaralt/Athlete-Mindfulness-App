@@ -35,6 +35,10 @@ public interface ApiInterface {
     @POST("/players")
     Call<Player> createPlayer(@Body Player player);
 
+    //Authentication API
+    @POST("/players/sign_in")
+    Call<Player> login (@Body Login login);
+
 
 
 

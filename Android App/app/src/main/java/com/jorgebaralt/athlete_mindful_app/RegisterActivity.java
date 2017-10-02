@@ -239,19 +239,25 @@ public class RegisterActivity extends AppCompatActivity {
         call.enqueue(new Callback<Player>() {
             @Override
             public void onResponse(Call<Player> call, retrofit2.Response<Player> response) {
-                builder.setTitle("Server Response");
-                Log.d(TAG, "onResponse: User Added : " + response);
-                builder.setMessage("Response : User has been created" );
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                if(response.isSuccessful()) {
+                    builder.setTitle("Server Response");
+                    Log.d(TAG, "onResponse: User Added : " + response);
+                    builder.setMessage("Response : User has been created");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                        goToNavigation();
-                    }
-                });
-                //create the dialog
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                            goToNavigation();
+                        }
+                    });
+                    //create the dialog
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this, "Error creating Player", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "onResponse: Error creating player = " + response );
+                }
 
             }
 

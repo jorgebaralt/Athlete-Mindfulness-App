@@ -16,6 +16,7 @@ import android.view.MenuItem;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Player currentPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,11 @@ public class NavigationDrawer extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         //when they are logged in, go directly to their profile fragment.
         displaySelectedScreen(R.id.nav_profile);
+
+
 
 
 
@@ -121,4 +125,6 @@ public class NavigationDrawer extends AppCompatActivity
         Intent intent = new Intent(this,SurveyActivity.class);
         startActivity(intent);
     }
+
+
 }

@@ -3,10 +3,13 @@ package com.jorgebaralt.athlete_mindful_app;
 import android.support.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 
 //create object for users.
-public class Player implements Comparable<Player> {
+public class Player implements Comparable<Player>, Serializable{
     private int id;
+
     @SerializedName("first_name")
     private String firstName;
     @SerializedName("last_name")
@@ -19,11 +22,17 @@ public class Player implements Comparable<Player> {
     private int ageRange;
     @SerializedName("password_confirmation")
     private String passwordConfirmation;
+    @SerializedName("auth_token")
+    private String token;
+
     private int gender;
     private String email;
     private int age;
     private String password;
     private String phone;
+
+
+
 
 
     public Player(String firstName, String lastName, int points){
@@ -71,6 +80,9 @@ public class Player implements Comparable<Player> {
         return ageRange;
     }
 
+
+    public String getToken() { return token;}
+
     public void setCoachId(int coachId) {
         this.coachId = coachId;
     }
@@ -102,6 +114,7 @@ public class Player implements Comparable<Player> {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     @Override
     public int compareTo(@NonNull Player comparePlayer) {
