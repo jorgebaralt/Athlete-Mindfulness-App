@@ -106,8 +106,10 @@ public class LoginActivity extends AppCompatActivity {
                                 currentPlayer = response.body();
 
                                 //Go to Navigation Activity ( profile ) MAYBE BUNDLE
+
+
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
-                                intent.putExtra("currentPlayer" , currentPlayer);
+                                intent.putExtra("currentPlayer",currentPlayer);
                                 startActivity(intent);
 
 

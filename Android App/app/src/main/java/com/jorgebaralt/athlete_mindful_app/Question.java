@@ -39,9 +39,10 @@ public class Question {
         this.answer = answer;
     }
 
-    public String getOptions() {
-        return options;
+    public String[] getOptions() {
+        return options.split(",");
     }
+
 
 
 }

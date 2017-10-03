@@ -46,7 +46,7 @@ public class Player implements Comparable<Player>, Serializable{
     }
 
     public String getName(){
-        return firstName + " " + lastName;
+        return firstName.substring(0,1).toUpperCase() + firstName.substring(1) + " " + lastName.substring(0,1).toUpperCase() + lastName.substring(1);
     }
     public int getPoints(){
         return points;

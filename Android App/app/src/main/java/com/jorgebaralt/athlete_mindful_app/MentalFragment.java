@@ -37,7 +37,6 @@ public class MentalFragment extends Fragment {
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
 
-    final String mental_questions_url = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
     ListView listView;
     Button submitAnswers;

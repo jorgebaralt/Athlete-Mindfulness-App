@@ -1,6 +1,7 @@
 package com.jorgebaralt.athlete_mindful_app;
 
 import android.app.Activity;
+import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,6 +26,10 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
     public static class ViewHolder{
         public TextView question;
         public RadioGroup radioGroup;
+        public RadioButton radioButton1;
+        public RadioButton radioButton2;
+        public RadioButton radioButton3;
+
 
     }
 
@@ -46,6 +51,9 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             holder = new ViewHolder();
             holder.question = (TextView) listItemView.findViewById(R.id.txtQuestion);
             holder.radioGroup = (RadioGroup) listItemView.findViewById(R.id.radiogroup);
+            holder.radioButton1 = (RadioButton) listItemView.findViewById(R.id.radioBtn1);
+            holder.radioButton2 = (RadioButton) listItemView.findViewById(R.id.radioBtn2);
+            holder.radioButton3 = (RadioButton) listItemView.findViewById(R.id.radioBtn3);
 
             listItemView.setTag(holder);
             holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -80,6 +88,11 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
         //set the question
 
         holder.question.setText(currentQuestion.getQuestion());
+        holder.radioButton1.setText(currentQuestion.getOptions()[0]);
+        holder.radioButton2.setText(currentQuestion.getOptions()[1]);
+        holder.radioButton3.setText(currentQuestion.getOptions()[2]);
+
+
         //pass current position as tag
         holder.radioGroup.setTag(new Integer(position));
 
