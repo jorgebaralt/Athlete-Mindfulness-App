@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
-import com.jorgebaralt.athlete_mindful_app.API.GetQuestions;
 
 import java.util.ArrayList;
 
@@ -30,25 +29,32 @@ import static android.content.ContentValues.TAG;
  */
 public class MentalFragment extends Fragment {
 
+    int playerId;
+    int questionId;
+    String answer;
 
     final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+
     ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
     ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
+
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
-
 
     ListView listView;
     Button submitAnswers;
     Button submitMultipleChoice;
 
-    GetQuestions getQuestions;
+    Player currentPlayer;
+    Answer currentAnswer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.question_list,container,false);
 
+        //Get object of the player that is currently logged in
+        currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");
 
         //fill array list with free answer questions from database using RETROFIT
             Retrofit.Builder builder = new Retrofit.Builder()
@@ -73,10 +79,12 @@ public class MentalFragment extends Fragment {
                     listView = (ListView) rootView.findViewById(R.id.questionlist);
                     //fill the view.
                     listView.setAdapter(adapter);
+
+
+
                     //Adding Submit Button, as a footer.
                     submitAnswers = new Button(getContext());
                     submitAnswers.setText("Submit");
-
                     listView.addFooterView(submitAnswers);
                     submitAnswers.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -84,9 +92,9 @@ public class MentalFragment extends Fragment {
                             //remove current footer
                             listView.removeFooterView(submitAnswers);
 
-                            Log.d(TAG, "onClick: adding answers data to database");
 
                             //TODO: store all the free question's answer into the database
+                            pushAnswers(mentalQuestionFreeAnswer);
 
                             //clear array list after storing into database.
                             mentalQuestionFreeAnswer.clear();
@@ -163,5 +171,24 @@ public class MentalFragment extends Fragment {
 
     }
 
+    public void pushAnswers(ArrayList<Question> currentQuestions){
+        Log.d(TAG, "onClick: adding answers data to database");
+
+        if(currentPlayer != null) {
+            for (int i = 0; i < currentQuestions.size(); i++) {
+                playerId = currentPlayer.getId();
+                questionId = currentQuestions.get(i).getId();
+                answer = currentQuestions.get(i).getAnswer();
+                Log.d(TAG, "pushAnswers: question ID " + currentQuestions.get(i).getId());
+
+                //Create the object
+                currentAnswer = new Answer(answer,playerId,questionId);
+            }
+        }
+        else{
+            Log.e(TAG, "pushAnswers: ERROR : Player is NULL ** CAN'T PUSH ANSWERS ** ");
+        }
+
+    }
 
 }

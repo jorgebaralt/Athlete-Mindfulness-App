@@ -19,7 +19,6 @@ public class CategoryAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position==0)
-
             return new MentalFragment();
         else if(position==1)
             return new EmotionalFragment();

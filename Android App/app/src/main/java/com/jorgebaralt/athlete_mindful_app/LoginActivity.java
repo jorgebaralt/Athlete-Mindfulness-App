@@ -13,18 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.google.gson.Gson;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.API.Login;
-import com.jorgebaralt.athlete_mindful_app.API.MySingleton;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                     builder.setTitle("Something Went Wrong...");
                     builder.setMessage("Enter Valid Email and Password...");
                     displayAlert("input_error");
-
-                    goToNavigation(v); //FOR TESTING ISSUES!
+                    //TODO: ERASE goToNavigation after testing is done.
+                    goToNavigation(v); //FOR TESTING ISSUES!                   ERASE AFTER TESTING IS DONE!
                 }else{
                     //User to authenticate
                     final Login userLogin = new Login(email,password);
@@ -105,9 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                                 token = response.body().getToken();
                                 currentPlayer = response.body();
 
-                                //Go to Navigation Activity ( profile ) MAYBE BUNDLE
-
-
+                                // *** Go to Navigation Drawer Activity ***
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
                                 intent.putExtra("currentPlayer",currentPlayer);
                                 startActivity(intent);

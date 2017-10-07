@@ -2,9 +2,9 @@ package com.jorgebaralt.athlete_mindful_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import static android.content.ContentValues.TAG;
-
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,13 +35,13 @@ public class NavigationDrawer extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        //get player from login
+        currentPlayer = (Player) NavigationDrawer.this.getIntent().getSerializableExtra("currentPlayer");
+        if(currentPlayer != null) {
+            Log.d(TAG, "NavigationDrawer, Player Logged: " + currentPlayer.getName());
+        }
         //when they are logged in, go directly to their profile fragment.
         displaySelectedScreen(R.id.nav_profile);
-
-
-
-
 
     }
 
@@ -96,7 +95,10 @@ public class NavigationDrawer extends AppCompatActivity
         Fragment fragment = null;
         switch(id){
             case R.id.nav_survey:
-                goToSurvey();
+                //starting new activity
+                Intent intent = new Intent(this,SurveyActivity.class);
+                intent.putExtra("currentPlayer", currentPlayer);
+                startActivity(intent);
                 break;
             case R.id.nav_profile:
                 toolbar.setTitle("Profile");
@@ -123,9 +125,6 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
-    public void goToSurvey(){
-        Intent intent = new Intent(this,SurveyActivity.class);
-        startActivity(intent);
-    }
+
 
 }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class QuestionAdapter extends ArrayAdapter<Question>{
 
-
     public static class ViewHolder{
         public TextView question;
         public EditText answer;
@@ -28,8 +27,6 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
     //constructor
     public QuestionAdapter(Activity context, ArrayList<Question> question){
         super(context,0,question);
-
-;
     }
 
     @NonNull
@@ -38,8 +35,8 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
         View listItemView = convertView;
 
         final Question currentQuestion =  getItem(position);
-
         ViewHolder holder;
+
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_item,parent,false);
             holder = new ViewHolder();
@@ -55,15 +52,15 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
         holder.question.setText(currentQuestion.getQuestion());
         holder.answer.setText(currentQuestion.getAnswer());
 
-        //fill EditText with value in data source
-        holder.answer.setId(position);
 
-        //update adapter once finish editing
+        holder.answer.setId(position);
+        //EditText Change Listener so update the answer.
         holder.answer.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     final EditText Caption = (EditText) v;
+                    //save answer into current object
                     currentQuestion.setAnswer(Caption.getText().toString());
                 }
             }
