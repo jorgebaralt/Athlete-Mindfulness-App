@@ -1,5 +1,6 @@
 package com.jorgebaralt.athlete_mindful_app.API;
 
+import com.jorgebaralt.athlete_mindful_app.Answer;
 import com.jorgebaralt.athlete_mindful_app.Coach;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
@@ -31,13 +32,17 @@ public interface ApiInterface {
             @Query("category") int category
         );
 
-
+    //Player Registration
     @POST("/players")
     Call<Player> createPlayer(@Body Player player);
 
     //Authentication API
     @POST("/players/sign_in")
     Call<Player> login (@Body Login login);
+
+    //push answers to database
+    @POST("/multiple_answers")
+    Call<ArrayList<Answer>> pushAnswers (@Body ArrayList<Answer> answer);
 
 
 
