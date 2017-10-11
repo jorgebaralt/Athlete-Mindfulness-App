@@ -136,16 +136,21 @@ public class RegisterActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Coach>>() {
             @Override
             public void onResponse(Call<ArrayList<Coach>> call, retrofit2.Response<ArrayList<Coach>> response) {
-                coachList = response.body();
+               if(response.isSuccessful()) {
+                   coachList = response.body();
 
-                //create spinner adapter that display names of the coaches to select.
-                String[] coaches = new String[coachList.size()];
-                for(int i = 0 ; i < coachList.size();i++){
-                    coaches[i] = coachList.get(i).getName();
-                }
-                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
-                //set the spinners adapter to the previously created one.
-                spinner.setAdapter(spinnerAdapter);
+                   //create spinner adapter that display names of the coaches to select.
+                   String[] coaches = new String[coachList.size()];
+                   for (int i = 0; i < coachList.size(); i++) {
+                       coaches[i] = coachList.get(i).getName();
+                   }
+                   spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
+                   //set the spinners adapter to the previously created one.
+                   spinner.setAdapter(spinnerAdapter);
+               }
+               else{
+                   Toast.makeText(RegisterActivity.this, "Error Getting coaches", Toast.LENGTH_SHORT).show();
+               }
 
 
 

@@ -1,18 +1,12 @@
 package com.jorgebaralt.athlete_mindful_app;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by jorgebaraltq on 3/10/2017.
@@ -42,6 +36,9 @@ public class Profile extends Fragment{
             name.setText(currentPlayer.getName());
             email.setText(currentPlayer.getEmail());
             points.setText(Integer.toString(currentPlayer.getPoints()));
+        }
+        else{
+
         }
 
 

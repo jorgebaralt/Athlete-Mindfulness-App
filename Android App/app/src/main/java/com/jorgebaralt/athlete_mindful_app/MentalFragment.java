@@ -191,6 +191,25 @@ public class MentalFragment extends Fragment {
 
             ApiInterface apiInterface = retrofit.create(ApiInterface.class);
             Call<ArrayList<Answer>> call = apiInterface.pushAnswers(answers);
+            call.enqueue(new Callback<ArrayList<Answer>>() {
+                @Override
+                public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
+                    if(response.isSuccessful()){
+                        Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<Answer>> call, Throwable t) {
+                    t.printStackTrace();
+                    Toast.makeText(getContext(), "Error connecting to server..", Toast.LENGTH_SHORT).show();
+
+                }
+            });
 
 
         }

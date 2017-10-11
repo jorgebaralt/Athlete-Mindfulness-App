@@ -1,10 +1,10 @@
 package com.jorgebaralt.athlete_mindful_app;
 
 import android.app.Activity;
-import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Jorge Baralt on 5/25/2017.
@@ -101,6 +103,9 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             RadioButton r = (RadioButton) holder.radioGroup.getChildAt(currentQuestion.current);
             //mark it checked.
             r.setChecked(true);
+            //add answer to object
+            currentQuestion.setAnswer(r.getText().toString());
+            Log.d(TAG, "getView: answer for multiple choice is  = " + r.getText().toString() );
         }else{
             holder.radioGroup.clearCheck();
         }
