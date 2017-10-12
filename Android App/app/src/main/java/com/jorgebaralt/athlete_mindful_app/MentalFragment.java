@@ -41,6 +41,8 @@ public class MentalFragment extends Fragment {
 
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
+    private final int MENTAL_CATEGORY = 1;
+
 
     ListView listView;
     Button submitAnswers;
@@ -65,7 +67,7 @@ public class MentalFragment extends Fragment {
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
 
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, 1);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, MENTAL_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
@@ -93,7 +95,7 @@ public class MentalFragment extends Fragment {
                         listView.removeFooterView(submitAnswers);
 
 
-                        //TODO: store all the free question's answer into the database
+                        //Store all FREE ANSWERS into DATABASE
                         pushAnswers(mentalQuestionFreeAnswer);
 
                         //clear array list after storing into database.
@@ -123,14 +125,14 @@ public class MentalFragment extends Fragment {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
-        //TODO: make the api receive a parameter to only get the question_type 1 or 2 accordingly.
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE, 1);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE,MENTAL_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 //get response from server and store in array list
                 mentalQuestionMultipleChoice = response.body();
+
 
                 //create custom adapter for multiple choice
                 final QuestionAdapterMultipleChoice adapter = new
@@ -147,6 +149,7 @@ public class MentalFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //TODO: Store answers into database
+                        pushAnswers(mentalQuestionMultipleChoice);
                         //clear the arraylist after storing
 
                         //mentalQuestionMultipleChoice.clear();  ----------> MAKING APP CRASH
@@ -176,11 +179,16 @@ public class MentalFragment extends Fragment {
                 playerId = currentPlayer.getId();
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
-                Log.d(TAG, "pushAnswers: question ID " + currentQuestions.get(i).getId());
-
+                Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
-                currentAnswer = new Answer(answer, playerId, questionId);
-                answers.add(currentAnswer);
+                if(answer != null) {
+                    currentAnswer = new Answer(answer, playerId, questionId);
+                    answers.add(currentAnswer);
+                }else{
+                    //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
+                    //Maybe push how many and which one we missed for notifications?
+                }
+
             }
             //after we add all the asnwer to our arraylist
             //send it to the server.

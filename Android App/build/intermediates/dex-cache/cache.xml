@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b7dfda72e01741ad69f4c69d4ea4dfeee5111dbc/classes.dex" />
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e684fcdee6d44a98578ee6286b623044e7b7fa25\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="198fdc9ddea9119b49f674c400d3b8fd4ece3878">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a480f867b439e190be350381b34f08b81344d743/classes.dex" />
+        sha1="f6c2749043719702219f41bacc9164c6580a56a9">
+        <dex dex="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_84a9bd8f53cef028204bb98e94fbdc0d1396abd2\classes.dex" />
     </item>
 
 </items>

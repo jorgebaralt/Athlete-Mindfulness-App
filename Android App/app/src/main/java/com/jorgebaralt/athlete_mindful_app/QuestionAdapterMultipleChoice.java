@@ -24,6 +24,8 @@ import static android.content.ContentValues.TAG;
 public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
 
 
+    private final int NONE = -1;
+
 
     public static class ViewHolder{
         public TextView question;
@@ -45,8 +47,8 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
 
-        Question currentQuestion =  getItem(position);
-
+        final Question currentQuestion =  getItem(position);
+        currentQuestion.current = NONE;
         ViewHolder holder;
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_radio_item,parent,false);
@@ -69,12 +71,18 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
                     switch (checkedId){
                         case R.id.radioBtn1:
                             currentPosition.current = Question.answer0;
+                            currentQuestion.setAnswer(currentQuestion.getOptions()[0]);
+                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         case R.id.radioBtn2:
                             currentPosition.current = Question.answer1;
+                            currentQuestion.setAnswer(currentQuestion.getOptions()[1]);
+                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         case R.id.radioBtn3:
                             currentPosition.current = Question.answer2;
+                            currentQuestion.setAnswer(currentQuestion.getOptions()[2]);
+                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         default:
                             currentPosition.current = Question.NONE;
@@ -94,7 +102,6 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
         holder.radioButton2.setText(currentQuestion.getOptions()[1]);
         holder.radioButton3.setText(currentQuestion.getOptions()[2]);
 
-
         //pass current position as tag
         holder.radioGroup.setTag(new Integer(position));
 
@@ -105,10 +112,12 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             r.setChecked(true);
             //add answer to object
             currentQuestion.setAnswer(r.getText().toString());
-            Log.d(TAG, "getView: answer for multiple choice is  = " + r.getText().toString() );
+
         }else{
             holder.radioGroup.clearCheck();
         }
+
+
 
         return listItemView;
     }

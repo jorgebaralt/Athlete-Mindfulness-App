@@ -10,6 +10,7 @@ public class Question {
     private int id;
     @SerializedName("question_text")
     private String question;
+
     private String answer;
     private int category;
 
@@ -17,9 +18,8 @@ public class Question {
     private int ageRange;
 
     private String options;
-
-    public int current = NONE;
-    public static final int NONE = 10000;
+    public int current;
+    public static final int NONE = -1;
     public static final int answer0 = 0;
     public static final int answer1 = 1;
     public static final int answer2 = 2;
