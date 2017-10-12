@@ -29,15 +29,15 @@ import static android.content.ContentValues.TAG;
  */
 public class MentalFragment extends Fragment {
 
-    int playerId;
-    int questionId;
-    String answer;
+    private int playerId;
+    private int questionId;
+    private String answer;
 
     final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
-    ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
-    ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
-    ArrayList<Answer> answers = new ArrayList<>();
+    private ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
+    private ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
+    private ArrayList<Answer> answers = new ArrayList<>();
 
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
@@ -64,9 +64,9 @@ public class MentalFragment extends Fragment {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
-
+        //Create api.
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-
+        //API call
         Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, MENTAL_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
@@ -150,9 +150,10 @@ public class MentalFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //TODO: Store answers into database
                         pushAnswers(mentalQuestionMultipleChoice);
-                        //clear the arraylist after storing
 
-                        //mentalQuestionMultipleChoice.clear();  ----------> MAKING APP CRASH
+                        //clear the arraylist after storing?
+                        //mentalQuestionMultipleChoice.clear();
+
                         //Display message to user
                         Log.d(TAG, "onClick: Displaying final message");
                         Toast toast = Toast.makeText(getContext(), "All your answers have been submitted", Toast.LENGTH_LONG);
@@ -171,6 +172,7 @@ public class MentalFragment extends Fragment {
 
     }
 
+    //Add Answers to database, pass the arraylist question to get the answers from it.
     public void pushAnswers(ArrayList<Question> currentQuestions) {
         Log.d(TAG, "onClick: adding answers data to database");
 
