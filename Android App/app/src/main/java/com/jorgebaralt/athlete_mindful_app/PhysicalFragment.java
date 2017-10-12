@@ -36,6 +36,8 @@ public class PhysicalFragment extends Fragment {
     private final int MULT_ANSWER_TYPE = 2;
     private final int PHYSICAL_CATEGORY = 3;
 
+    private String physicalColor = "#b61827";
+
     final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> physicalQuestionFreeAnswer = new ArrayList<>();
@@ -55,6 +57,7 @@ public class PhysicalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.question_list, container, false);
+
 
         //Get object of the player that is currently logged in
         currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");

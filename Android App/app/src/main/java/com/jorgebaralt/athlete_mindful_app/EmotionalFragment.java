@@ -32,6 +32,8 @@ public class EmotionalFragment extends Fragment {
     private int questionId;
     private String answer;
 
+    private String emotionalColor = "#bb4d00";
+
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
     private final int EMOTIONAL_CATEGORY = 2;
@@ -54,6 +56,8 @@ public class EmotionalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.question_list, container, false);
+
+
 
         //Get object of the player that is currently logged in
         currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");

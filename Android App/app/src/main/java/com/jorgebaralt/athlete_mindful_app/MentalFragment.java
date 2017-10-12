@@ -1,6 +1,7 @@
 package com.jorgebaralt.athlete_mindful_app;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class MentalFragment extends Fragment {
     private int playerId;
     private int questionId;
     private String answer;
+    private String mentalColor = "#0077c2";
 
     final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
@@ -55,6 +58,8 @@ public class MentalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.question_list, container, false);
+
+
 
         //Get object of the player that is currently logged in
         currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");

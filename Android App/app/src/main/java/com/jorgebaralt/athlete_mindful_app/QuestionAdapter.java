@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class QuestionAdapter extends ArrayAdapter<Question>{
 
+
     public static class ViewHolder{
         public TextView question;
         public EditText answer;
@@ -65,6 +66,7 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
                 }
             }
         });
+
 
         return listItemView;
     }

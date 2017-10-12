@@ -3,51 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/813e2c4e12943283cc198e905b39ce5e5d5ce16b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_163bc0b6f51bd5e57e372334cc7fc7ac880dffcd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/9f88901c8029302094881fff2c996856b6d79f89/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_407693f4e119bd4d125167cc01eb81f662cac0d2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/gson-2.7_9210124d881176c932029225e5d6fa91b4e990c8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/c68860d54f4008248c2fb6b4fcf4c303bfc2ffca/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_8bb8afdd56c309388df4b5921013d2a07d38e0a0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations-java5/15.0/7011b4551a8451906759b05814c58b9eb829ea9b/annotations-java5-15.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/annotations-java5-15.0_494d4f9b0e225ab12ccd0231e0635f9206ce232d.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/jorgebaralt/.android/build-cache/f3e3b2d10136582cf96cb907c284d4c0e003b0f4/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -57,39 +12,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/a67f616e2b9a5c17a2d997f24451c87b5a3a579b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_d4c4437434a38f3b2fe54c9cbbeaacb1aae1755f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/49ad205db4bcd959dcbeac9d6f74342e9ccd2554/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_d082afe8fb030ef54458c01e118f50e814500c01.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/jorgebaralt/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
         <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_3f031067745c8dc0ab3ec2db5cfcd6d831c5a12b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_f9ba0c4097903a678a2ee62e18f4e6782ac19a4c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -164,15 +92,6 @@
         <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/okhttp-3.8.0_e84331dc2606e41c85980c632b7bc0b4c08bb916.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/jorgebaralt/.android/build-cache/4754ddfe81239aae38db8e7a248afbe93274cfbf/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_1a03794932d1464effeb2603a70b4e20990089b6.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
@@ -216,6 +135,87 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_70bae8f4ebeaea1fec0b506d1603e0195e993d51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/813e2c4e12943283cc198e905b39ce5e5d5ce16b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_163bc0b6f51bd5e57e372334cc7fc7ac880dffcd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/9f88901c8029302094881fff2c996856b6d79f89/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_407693f4e119bd4d125167cc01eb81f662cac0d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/gson-2.7_9210124d881176c932029225e5d6fa91b4e990c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/c68860d54f4008248c2fb6b4fcf4c303bfc2ffca/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_8bb8afdd56c309388df4b5921013d2a07d38e0a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations-java5/15.0/7011b4551a8451906759b05814c58b9eb829ea9b/annotations-java5-15.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/annotations-java5-15.0_494d4f9b0e225ab12ccd0231e0635f9206ce232d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/a67f616e2b9a5c17a2d997f24451c87b5a3a579b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_d4c4437434a38f3b2fe54c9cbbeaacb1aae1755f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/49ad205db4bcd959dcbeac9d6f74342e9ccd2554/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_d082afe8fb030ef54458c01e118f50e814500c01.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_f9ba0c4097903a678a2ee62e18f4e6782ac19a4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jorgebaralt/.android/build-cache/4754ddfe81239aae38db8e7a248afbe93274cfbf/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/jorgebaralt/Documents/Athlete App/Athlete-Mindfulness-App/Android App/app/build/intermediates/pre-dexed/debug/classes_1a03794932d1464effeb2603a70b4e20990089b6.jar" />
     </item>
 
 </items>
