@@ -13,15 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import static android.content.ContentValues.TAG;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //TextView navName = (TextView) findViewById(R.id.navigationName);
-    //TextView navEmail = (TextView) findViewById(R.id.navigationEmail);
-
+    //to store player coming from login
     private Player currentPlayer;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +39,23 @@ public class NavigationDrawer extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        //set name of the user on the navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+        TextView navName = (TextView) header.findViewById(R.id.navigationName);
+        TextView navEmail = (TextView) header.findViewById(R.id.navigationEmail);
 
         //get player from login
         currentPlayer = (Player) NavigationDrawer.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null) {
             Log.d(TAG, "NavigationDrawer, Player Logged: " + currentPlayer.getName());
-            //navName.setText(currentPlayer.getName().toString());
-            //navEmail.setText(currentPlayer.getEmail().toString());
+            //set navigation drawer name and email
+
+            navName.setText(currentPlayer.getName());
+            navEmail.setText(currentPlayer.getEmail());
+
+
         }
         //when they are logged in, go directly to their profile fragment.
         displaySelectedScreen(R.id.nav_profile);
@@ -79,6 +90,7 @@ public class NavigationDrawer extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        //TODO: action for logout
 
         return super.onOptionsItemSelected(item);
     }
@@ -131,6 +143,8 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
+    //get Player from child Activity
 
 
 }

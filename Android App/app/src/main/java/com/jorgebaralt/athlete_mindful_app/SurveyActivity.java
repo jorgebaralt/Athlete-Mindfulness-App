@@ -1,18 +1,32 @@
 package com.jorgebaralt.athlete_mindful_app;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Window;
-import android.widget.Toast;
+import android.util.Log;
+
+import com.jorgebaralt.athlete_mindful_app.Adapters.CategoryAdapter;
+
+import static android.content.ContentValues.TAG;
 
 public class SurveyActivity extends AppCompatActivity  {
 
+    private Player currentPlayer;
+
+    @Nullable
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
+
+        currentPlayer = (Player) SurveyActivity.this.getIntent().getSerializableExtra("currentPlayer");
+        if(currentPlayer != null) {
+            Log.d(TAG, "NavigationDrawer, Player Logged: " + currentPlayer.getName());
+
+        }
 
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -32,7 +46,20 @@ public class SurveyActivity extends AppCompatActivity  {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
+        Intent intent = new Intent();
+        intent.putExtra("currentPlayer",currentPlayer);
+        setResult(RESULT_OK,intent);
 
+
+
+    }
+
+    @Override
+    public Intent getSupportParentActivityIntent() {
+        Intent intent = new Intent(this,NavigationDrawer.class);
+        intent.putExtra("currentPlayer", currentPlayer);
+        setResult(RESULT_OK,intent);
+        return intent;
     }
 
 }

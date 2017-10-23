@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 //get email and user
                 email = Email.getText().toString();
                 password = Password.getText().toString();
-
+                //check email and user
                 if(email.length() < 1 || password.length()<1){
                     builder.setTitle("Something Went Wrong...");
                     builder.setMessage("Enter Valid Email and Password...");
@@ -73,15 +73,14 @@ public class LoginActivity extends AppCompatActivity {
                     //User to authenticate
                     final Login userLogin = new Login(email,password);
 
-
                     //Start Retrofit
                     Retrofit.Builder builder = new Retrofit.Builder()
                             .baseUrl(BASE_URL)
                             .addConverterFactory(GsonConverterFactory.create());
-
                     Retrofit retrofit = builder.build();
 
                     ApiInterface api = retrofit.create(ApiInterface.class);
+                    //call retrofit with the userLogin created (user trying to login)
                     Call<Player> call = api.login(userLogin);
                     call.enqueue(new Callback<Player>() {
                         @Override
@@ -95,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                                 token = response.body().getToken();
                                 currentPlayer = response.body();
 
-                                // *** Go to Navigation Drawer Activity ***
+                                // *** Go to Navigation Drawer Activity *** SENDING USER LOGGED IN
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
                                 intent.putExtra("currentPlayer",currentPlayer);
                                 startActivity(intent);

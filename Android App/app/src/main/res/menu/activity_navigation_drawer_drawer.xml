@@ -8,7 +8,8 @@
             android:id="@+id/nav_survey"
             android:icon="@drawable/ic_menu_camera"
             android:title="Survey"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            />
 
         <item
             android:id="@+id/nav_profile"

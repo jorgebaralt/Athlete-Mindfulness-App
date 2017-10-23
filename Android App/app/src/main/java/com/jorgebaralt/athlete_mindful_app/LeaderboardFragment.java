@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.Adapters.LeaderboardAdapter;
 
 import java.util.ArrayList;
 

@@ -153,7 +153,6 @@ public class RegisterActivity extends AppCompatActivity {
                }
 
 
-
             }
 
             @Override
@@ -252,7 +251,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            goToNavigation();
+                            goToLogin();
                         }
                     });
                     //create the dialog
@@ -320,18 +319,18 @@ public class RegisterActivity extends AppCompatActivity {
         MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
 */
     }
+
+    private void goToLogin() {
+        Intent intent = new Intent(this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
     public void goToNavigation(){
         Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
     }
 
-
-
-    public void goToSurvey(View view){
-        Intent intent = new Intent(this,SurveyActivity.class);
-        startActivity(intent);
-    }
-
+    //NOT BEING USED, WE ARE USING RETROFIT NOW!
     public void getCoachesJson(){
         coachList.add(new Coach (0,"Select","Coach"));
 

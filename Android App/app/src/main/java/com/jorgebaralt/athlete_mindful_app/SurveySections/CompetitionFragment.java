@@ -12,11 +12,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapter;
+import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapterMultipleChoice;
 import com.jorgebaralt.athlete_mindful_app.Answer;
+import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
-import com.jorgebaralt.athlete_mindful_app.QuestionAdapter;
-import com.jorgebaralt.athlete_mindful_app.QuestionAdapterMultipleChoice;
 import com.jorgebaralt.athlete_mindful_app.R;
 
 import java.util.ArrayList;
@@ -97,6 +98,8 @@ public class CompetitionFragment extends Fragment {
                 submitAnswers.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //close the android keyboard first
+                        HideKeyboard.hideSoftKeyboard(getActivity());
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 
