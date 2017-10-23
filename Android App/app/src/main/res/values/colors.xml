@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="backgroundGreen">#3D9970</color>
     <color name="lightGreen">#e6ffe6</color>
+    <color name= "profileBackground">#2196f3</color>
 
     <color name="colorMental">#0077c2</color>
     <color name="colorEmotional">#bb4d00</color>

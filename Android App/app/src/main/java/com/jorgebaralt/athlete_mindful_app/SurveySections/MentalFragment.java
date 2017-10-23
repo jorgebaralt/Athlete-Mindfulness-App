@@ -1,7 +1,6 @@
-package com.jorgebaralt.athlete_mindful_app;
+package com.jorgebaralt.athlete_mindful_app.SurveySections;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,11 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.Answer;
+import com.jorgebaralt.athlete_mindful_app.Player;
+import com.jorgebaralt.athlete_mindful_app.Question;
+import com.jorgebaralt.athlete_mindful_app.QuestionAdapter;
+import com.jorgebaralt.athlete_mindful_app.QuestionAdapterMultipleChoice;
+import com.jorgebaralt.athlete_mindful_app.R;
 
 import java.util.ArrayList;
 
@@ -178,6 +182,7 @@ public class MentalFragment extends Fragment {
     }
 
     //Add Answers to database, pass the arraylist question to get the answers from it.
+    //takes care of any type of question (Free answer, or Multiple Choice)
     public void pushAnswers(ArrayList<Question> currentQuestions) {
         Log.d(TAG, "onClick: adding answers data to database");
 
@@ -191,6 +196,7 @@ public class MentalFragment extends Fragment {
                 if(answer != null) {
                     currentAnswer = new Answer(answer, playerId, questionId);
                     answers.add(currentAnswer);
+                    //TODO: Add points.
                 }else{
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
                     //Maybe push how many and which one we missed for notifications?

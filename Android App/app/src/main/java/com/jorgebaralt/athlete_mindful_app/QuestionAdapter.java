@@ -63,6 +63,7 @@ public class QuestionAdapter extends ArrayAdapter<Question>{
                     final EditText Caption = (EditText) v;
                     //save answer into current object
                     currentQuestion.setAnswer(Caption.getText().toString());
+
                 }
             }
         });

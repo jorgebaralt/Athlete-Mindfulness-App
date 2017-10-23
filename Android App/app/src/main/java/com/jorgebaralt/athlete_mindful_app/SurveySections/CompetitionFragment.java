@@ -1,4 +1,4 @@
-package com.jorgebaralt.athlete_mindful_app;
+package com.jorgebaralt.athlete_mindful_app.SurveySections;
 
 
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.Answer;
+import com.jorgebaralt.athlete_mindful_app.Player;
+import com.jorgebaralt.athlete_mindful_app.Question;
+import com.jorgebaralt.athlete_mindful_app.QuestionAdapter;
+import com.jorgebaralt.athlete_mindful_app.QuestionAdapterMultipleChoice;
+import com.jorgebaralt.athlete_mindful_app.R;
 
 import java.util.ArrayList;
 
@@ -26,22 +32,20 @@ import static android.content.ContentValues.TAG;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmotionalFragment extends Fragment {
+public class CompetitionFragment extends Fragment {
 
     private int playerId;
     private int questionId;
     private String answer;
 
-    private String emotionalColor = "#bb4d00";
-
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
-    private final int EMOTIONAL_CATEGORY = 2;
+    private final int COMPETITION_CATEGORY = 6;
 
     final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
 
-    private ArrayList<Question> emotionalQuestionFreeAnswer = new ArrayList<>();
-    private ArrayList<Question> emotionalQuestionMultipleChoice = new ArrayList<>();
+    private ArrayList<Question> competitionQuestionFreeAnswer = new ArrayList<>();
+    private ArrayList<Question> competitionQuestionMultipleChoice = new ArrayList<>();
     private ArrayList<Answer> answers = new ArrayList<>();
 
     ListView listView;
@@ -52,12 +56,11 @@ public class EmotionalFragment extends Fragment {
     Player currentPlayer;
     Answer currentAnswer;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.question_list, container, false);
-
-
 
         //Get object of the player that is currently logged in
         currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");
@@ -70,17 +73,17 @@ public class EmotionalFragment extends Fragment {
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
 
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, EMOTIONAL_CATEGORY);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, COMPETITION_CATEGORY);
 
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
 
                 //get response from server and store into array list (response comes in form of ArrayList)
-                emotionalQuestionFreeAnswer = response.body();
+                competitionQuestionFreeAnswer = response.body();
 
                 //create the custom adapter\
-                QuestionAdapter adapter = new QuestionAdapter(getActivity(), emotionalQuestionFreeAnswer);
+                QuestionAdapter adapter = new QuestionAdapter(getActivity(), competitionQuestionFreeAnswer);
                 //select the layout list to fill
                 listView = (ListView) rootView.findViewById(R.id.questionlist);
                 //fill the view.
@@ -99,10 +102,10 @@ public class EmotionalFragment extends Fragment {
 
 
                         //Store all FREE ANSWERS into DATABASE
-                        pushAnswers(emotionalQuestionFreeAnswer);
+                        pushAnswers(competitionQuestionFreeAnswer);
 
                         //clear array list after storing into database.
-                        emotionalQuestionFreeAnswer.clear();
+                        competitionQuestionFreeAnswer.clear();
 
                         Log.d(TAG, "onClick: Transit to multiple choice question");
                         multipleChoiceQuestion();
@@ -118,8 +121,8 @@ public class EmotionalFragment extends Fragment {
         });
 
         return rootView;
-
     }
+
 
     public void multipleChoiceQuestion() {
         //fill array list with the multiple choice questions from database
@@ -129,17 +132,17 @@ public class EmotionalFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE,EMOTIONAL_CATEGORY);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE,COMPETITION_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 //get response from server and store in array list
-                emotionalQuestionMultipleChoice = response.body();
+                competitionQuestionMultipleChoice = response.body();
 
 
                 //create custom adapter for multiple choice
                 final QuestionAdapterMultipleChoice adapter = new
-                        QuestionAdapterMultipleChoice(getActivity(), emotionalQuestionMultipleChoice);
+                        QuestionAdapterMultipleChoice(getActivity(), competitionQuestionMultipleChoice);
                 //using same list view, that has been empty before, we fill it with the new adapter info.
                 listView.setAdapter(adapter);
 
@@ -152,10 +155,10 @@ public class EmotionalFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //TODO: Store answers into database
-                        pushAnswers(emotionalQuestionMultipleChoice);
+                        pushAnswers(competitionQuestionMultipleChoice);
 
                         //clear the arraylist after storing?
-                        //emotionalQuestionMultipleChoice.clear();
+                        //socialQuestionMultipleChoice.clear();
 
                         //Display message to user
                         Log.d(TAG, "onClick: Displaying final message");
@@ -228,6 +231,5 @@ public class EmotionalFragment extends Fragment {
         }
 
     }
+
 }
-
-

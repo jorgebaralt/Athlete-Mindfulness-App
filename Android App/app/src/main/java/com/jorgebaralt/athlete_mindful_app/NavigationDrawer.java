@@ -13,9 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import static android.content.ContentValues.TAG;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    //TextView navName = (TextView) findViewById(R.id.navigationName);
+    //TextView navEmail = (TextView) findViewById(R.id.navigationEmail);
 
     private Player currentPlayer;
     @Override
@@ -39,6 +43,8 @@ public class NavigationDrawer extends AppCompatActivity
         currentPlayer = (Player) NavigationDrawer.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null) {
             Log.d(TAG, "NavigationDrawer, Player Logged: " + currentPlayer.getName());
+            //navName.setText(currentPlayer.getName().toString());
+            //navEmail.setText(currentPlayer.getEmail().toString());
         }
         //when they are logged in, go directly to their profile fragment.
         displaySelectedScreen(R.id.nav_profile);

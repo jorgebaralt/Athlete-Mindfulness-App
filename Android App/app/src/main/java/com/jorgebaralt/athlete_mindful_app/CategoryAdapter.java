@@ -4,6 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jorgebaralt.athlete_mindful_app.SurveySections.CompetitionFragment;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.EmotionalFragment;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.MentalFragment;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.PhysicalFragment;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.SocialFragment;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.TrainingFragment;
+
 /**
  * Created by jorgebaraltq on 5/23/2017.
  */
