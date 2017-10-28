@@ -44,7 +44,7 @@ public class SocialFragment extends Fragment {
     private final int MULT_ANSWER_TYPE = 2;
     private final int SOCIAL_CATEGORY = 4;
 
-    final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> socialQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> socialQuestionMultipleChoice = new ArrayList<>();

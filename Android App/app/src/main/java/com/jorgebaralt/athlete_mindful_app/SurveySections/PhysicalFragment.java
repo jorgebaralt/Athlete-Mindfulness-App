@@ -45,7 +45,7 @@ public class PhysicalFragment extends Fragment {
 
     private String physicalColor = "#b61827";
 
-    final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> physicalQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> physicalQuestionMultipleChoice = new ArrayList<>();

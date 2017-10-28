@@ -43,7 +43,7 @@ public class CompetitionFragment extends Fragment {
     private final int MULT_ANSWER_TYPE = 2;
     private final int COMPETITION_CATEGORY = 6;
 
-    final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> competitionQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> competitionQuestionMultipleChoice = new ArrayList<>();

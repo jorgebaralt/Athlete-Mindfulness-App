@@ -43,7 +43,7 @@ public class TrainingFragment extends Fragment {
     private final int MULT_ANSWER_TYPE = 2;
     private final int TRAINING_CATEGORY = 5;
 
-    final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> trainingQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> trainingQuestionMultipleChoice = new ArrayList<>();

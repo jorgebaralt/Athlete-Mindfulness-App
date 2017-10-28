@@ -30,7 +30,7 @@ import static android.content.ContentValues.TAG;
 public class LeaderboardFragment extends Fragment{
 
     //variables
-    static final String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    static final String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
     ArrayList<Player> player = new ArrayList<>();
 
 

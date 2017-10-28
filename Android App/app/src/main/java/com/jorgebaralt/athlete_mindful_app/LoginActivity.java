@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     String email;
     String password;
     AlertDialog.Builder builder;
-    private static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

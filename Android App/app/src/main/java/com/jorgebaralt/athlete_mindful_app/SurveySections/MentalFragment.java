@@ -41,7 +41,7 @@ public class MentalFragment extends Fragment {
     private String answer;
     private String mentalColor = "#0077c2";
 
-    final static String BASE_URL = "http://project-env-4.us-east-1.elasticbeanstalk.com";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
