@@ -86,7 +86,7 @@ public class EmotionalFragment extends Fragment {
                 //get response from server and store into array list (response comes in form of ArrayList)
                 emotionalQuestionFreeAnswer = response.body();
 
-                //create the custom adapter\
+                //create the custom adapter
                 QuestionAdapter adapter = new QuestionAdapter(getActivity(), emotionalQuestionFreeAnswer);
                 //select the layout list to fill
                 listView = (ListView) rootView.findViewById(R.id.questionlist);

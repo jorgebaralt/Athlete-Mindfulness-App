@@ -98,8 +98,10 @@ public class CompetitionFragment extends Fragment {
                 submitAnswers.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         //close the android keyboard first
                         HideKeyboard.hideSoftKeyboard(getActivity());
+
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 
@@ -141,7 +143,6 @@ public class CompetitionFragment extends Fragment {
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 //get response from server and store in array list
                 competitionQuestionMultipleChoice = response.body();
-
 
                 //create custom adapter for multiple choice
                 final QuestionAdapterMultipleChoice adapter = new
