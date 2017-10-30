@@ -15,6 +15,7 @@ import com.jorgebaralt.athlete_mindful_app.SurveySections.TrainingFragment;
  * Created by jorgebaraltq on 5/23/2017.
  */
 
+//Adapter for the Survey Section. to display the scrollable bar on top.
 public class CategoryAdapter extends FragmentPagerAdapter {
 
 

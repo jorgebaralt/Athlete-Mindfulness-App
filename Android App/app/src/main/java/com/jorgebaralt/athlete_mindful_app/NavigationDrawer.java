@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jorgebaralt.athlete_mindful_app.Chat.ChatActivity;
+
 import static android.content.ContentValues.TAG;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -129,7 +131,10 @@ public class NavigationDrawer extends AppCompatActivity
             case R.id.nav_chat:
                 toolbar.setTitle("Chat");
                 //TODO: start chat, refer to selected API
-                fragment = new Fragment();
+                //start chat activity
+                Intent chatIntent = new Intent(this, ChatActivity.class);
+                chatIntent.putExtra("currentPlayer",currentPlayer);
+                startActivity(chatIntent);
                 break;
             case R.id.nav_notification:
                 toolbar.setTitle("Notifications");

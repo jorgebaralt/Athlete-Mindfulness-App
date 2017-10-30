@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jorgebaralt.athlete_mindful_app">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,35 +11,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
 
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:parentActivityName=".LoginActivity"
-            />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".SurveyActivity"
             android:label="Survey"
-            android:parentActivityName=".NavigationDrawer"/>
+            android:parentActivityName=".NavigationDrawer" />
+
         <!-- Parent activity meta-data to support 4.0 and lower -->
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".NavigationDrawer" />
 
-            />
+
         <activity
             android:name=".NavigationDrawer"
             android:label="Profile"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".Chat.ChatActivity"
+            android:label="Chat"
+            android:parentActivityName=".NavigationDrawer" />
 
     </application>
 

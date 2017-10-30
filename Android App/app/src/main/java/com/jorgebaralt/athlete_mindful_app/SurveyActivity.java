@@ -54,6 +54,7 @@ public class SurveyActivity extends AppCompatActivity  {
 
     }
 
+    //pass data back to parent activity
     @Override
     public Intent getSupportParentActivityIntent() {
         Intent intent = new Intent(this,NavigationDrawer.class);
