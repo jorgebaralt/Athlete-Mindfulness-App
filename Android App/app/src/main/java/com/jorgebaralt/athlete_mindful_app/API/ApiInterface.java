@@ -32,6 +32,10 @@ public interface ApiInterface {
             @Query("category") int category
         );
 
+    //Send device Id to get AccessToken to start a chat.
+    @POST("/token")
+    Call<String> getToken(@Body String deviceId);
+
     //Player Registration
     @POST("/players")
     Call<Player> createPlayer(@Body Player player);

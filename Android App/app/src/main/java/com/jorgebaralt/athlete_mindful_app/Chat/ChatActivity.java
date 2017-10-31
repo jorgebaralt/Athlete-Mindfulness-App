@@ -35,7 +35,8 @@ public class ChatActivity extends AppCompatActivity {
     private Player currentPlayer;
 
     //TODO set the server token url and the channel name
-    final static String SERVER_TOKEN_URL = "";
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
+
     String CHANNEL_NAME = "";
 
     private RecyclerView messagesRecyclerView;
@@ -117,7 +118,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void getAccessTokenFromServer(){
         String deviceID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        String tokenURL = SERVER_TOKEN_URL + "?device=" + deviceID;
+        String tokenURL = BASE_URL + "?device=" + deviceID;
 
         ChatClient.Properties props = new ChatClient.Properties.Builder().createProperties();
         /*
