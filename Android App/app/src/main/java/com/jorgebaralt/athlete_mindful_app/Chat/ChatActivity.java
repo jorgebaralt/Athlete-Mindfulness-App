@@ -73,18 +73,37 @@ public class ChatActivity extends AppCompatActivity {
         messagesAdapter = new MessagesAdapter();
         messagesRecyclerView.setAdapter(messagesAdapter);
 
+
+
         sendMessageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(generalChannel != null){
                     String messageBody = messageEditText.getText().toString();
+                    Message.Options message = Message.options().withBody(messageBody);
+                    Log.d(TAG, " Message Created ");
+                    generalChannel.getMessages().sendMessage(message, new CallbackListener<Message>() {
+                        @Override
+                        public void onSuccess(Message message) {
+                            Log.d(TAG, "onSuccess: Message Sent");
+                            ChatActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    messageEditText.setText("");
+                                }
+                            });
 
+                        }
 
+                        @Override
+                        public void onError(ErrorInfo errorInfo) {
+                            super.onError(errorInfo);
+                        }
+                    });
 
                 }
             }
         });
-
 
 
 
