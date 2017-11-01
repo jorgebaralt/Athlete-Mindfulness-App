@@ -1,6 +1,7 @@
 package com.jorgebaralt.athlete_mindful_app.API;
 
 import com.jorgebaralt.athlete_mindful_app.Answer;
+import com.jorgebaralt.athlete_mindful_app.Chat.Token;
 import com.jorgebaralt.athlete_mindful_app.Coach;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
@@ -33,8 +34,8 @@ public interface ApiInterface {
         );
 
     //Send device Id to get AccessToken to start a chat.
-    @POST("/token")
-    Call<String> getToken(@Body String deviceId);
+    @POST("/tokens")
+    Call<Token> getToken(@Body String name);
 
     //Player Registration
     @POST("/players")

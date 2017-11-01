@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.NavigationDrawer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.R;
@@ -27,6 +29,12 @@ import com.twilio.chat.Message;
 import com.twilio.chat.StatusListener;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 
@@ -46,8 +54,12 @@ public class ChatActivity extends AppCompatActivity {
     private Button sendMessageBtn;
     private EditText messageEditText;
 
-    private ChatClient chatClient;
+    private ChatClient chatClient = null;
     private Channel generalChannel;
+    private String accessToken = "";
+    private String name;
+
+    Token token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +69,13 @@ public class ChatActivity extends AppCompatActivity {
         //Get player that is currently logged in
         currentPlayer = (Player) ChatActivity.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null) {
-            Log.d(TAG, "ChatActivity, Player: " + currentPlayer.getName() + "Entered the Chat");
+            Log.d(TAG, "ChatActivity, Player: " + currentPlayer.getName() + " Entered the Chat");
+            CHANNEL_NAME = Integer.toString(currentPlayer.getId());
 
         }
+
+
+        Log.d(TAG, "onCreate: Channel name is  = "  + CHANNEL_NAME);
 
         messageEditText = (EditText) findViewById(R.id.txtMessage);
         sendMessageBtn = (Button) findViewById(R.id.btnSendMessage);
@@ -102,6 +118,9 @@ public class ChatActivity extends AppCompatActivity {
                         }
                     });
 
+                }else{
+                    Toast.makeText(ChatActivity.this, "Error Loading Chat Channel", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "onClick: Error loading Chat Channel" );
                 }
             }
         });
@@ -119,38 +138,72 @@ public class ChatActivity extends AppCompatActivity {
     private void getAccessTokenFromServer(){
         String deviceID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         String tokenURL = BASE_URL + "?device=" + deviceID;
-
-        ChatClient.Properties props = new ChatClient.Properties.Builder().createProperties();
+        name = currentPlayer.getName();
+        final ChatClient.Properties props = new ChatClient.Properties.Builder().createProperties();
         /*
         In particular, searching your log for 4xx and 5xx errors such as 401 can be very helpful in diagnosing issues.
         Generally speaking, a 401 error will indicate permissions issue - either for the particular object you are
          interacting with or your entire session if the 401 is related to your access token.
          */
         ChatClient.setLogLevel(android.util.Log.DEBUG);
-        //TODO : GET ACCESS TOKEN FROM SERVER
-        String accessToken = "";
-        ChatClient.create(ChatActivity.this, accessToken , props, new CallbackListener<ChatClient>() {
+
+        //request the AcessToken to the API
+        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit = builder.build();
+
+        ApiInterface api = retrofit.create(ApiInterface.class);
+        Call<Token> call = api.getToken(name);
+        call.enqueue(new Callback<Token>() {
             @Override
-            public void onSuccess(final ChatClient client) {
-                chatClient = client;
-                loadChannels();
-                Log.d(TAG, "onSuccess: Success creating Twilio Chat Client");
+            public void onResponse(Call<Token> call, Response<Token> response) {
+                if(response.isSuccessful()) {
+                    token = response.body();
+                    accessToken = token.getToken();
+                    Log.d(TAG, "onResponse TokenFromServer: accessToken = " + accessToken);
+
+                    ChatClient.create(ChatActivity.this, accessToken, props, new CallbackListener<ChatClient>() {
+                        @Override
+                        public void onSuccess(final ChatClient client) {
+                            Log.d(TAG, "onSuccess: Access Token Worked, Chat Client created");
+                            chatClient = client;
+                            loadChannels();
+                        }
+
+                        @Override
+                        public void onError(ErrorInfo errorInfo) {
+                            Log.e(TAG, "onError: Error Creating ChatClient = " + errorInfo.getMessage());
+                            super.onError(errorInfo);
+                        }
+                    });
+
+
+
+                }
+                else{
+                    Log.e(TAG, "onResponse: Error getting response");
+                }
             }
 
             @Override
-            public void onError(ErrorInfo errorInfo) {
-                Log.e(TAG, "onError: Error Creating Channel" + errorInfo.getMessage() );
-                super.onError(errorInfo);
+            public void onFailure(Call<Token> call, Throwable t) {
+
             }
         });
 
 
+
+
+
     }
     private void loadChannels(){
+        Log.d(TAG, "loadChannels: Loading channel");
+
        chatClient.getChannels().getChannel(CHANNEL_NAME, new CallbackListener<Channel>() {
            @Override
            public void onSuccess(Channel channel) {
                if(channel != null){
+                   Log.d(TAG, "onSuccess: Channel loaded");
                    joinChannel(channel);
                }else{
                    //channel does not exist, we can create it here, but since our api always
