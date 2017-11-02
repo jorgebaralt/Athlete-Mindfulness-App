@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -34,8 +36,9 @@ public interface ApiInterface {
         );
 
     //Send device Id to get AccessToken to start a chat.
+    @FormUrlEncoded
     @POST("/tokens")
-    Call<Token> getToken(@Body String name);
+    Call<Token> getToken(@Field("name") String name);
 
     //Player Registration
     @POST("/players")

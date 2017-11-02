@@ -19,6 +19,7 @@ import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.NavigationDrawer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.R;
+import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
 import com.twilio.chat.CallbackListener;
 import com.twilio.chat.Channel;
 import com.twilio.chat.ChannelListener;
@@ -29,6 +30,7 @@ import com.twilio.chat.Message;
 import com.twilio.chat.StatusListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,6 +68,9 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+
+
+
         //Get player that is currently logged in
         currentPlayer = (Player) ChatActivity.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null) {
@@ -81,10 +86,17 @@ public class ChatActivity extends AppCompatActivity {
         sendMessageBtn = (Button) findViewById(R.id.btnSendMessage);
 
         messagesRecyclerView = (RecyclerView) findViewById(R.id.recyclerMessages);
+        messagesRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                messagesRecyclerView.scrollToPosition(messages.size()+1);
+            }
+        });
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //since is chat, we need to show latest message at bottom and oldest on top
         layoutManager.setStackFromEnd(true);
+
         messagesRecyclerView.setLayoutManager(layoutManager);
 
         messagesAdapter = new MessagesAdapter();
@@ -92,13 +104,16 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
+
         sendMessageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(generalChannel != null){
+                    HideKeyboard.hideSoftKeyboard(ChatActivity.this);
                     String messageBody = messageEditText.getText().toString();
                     Message.Options message = Message.options().withBody(messageBody);
                     Log.d(TAG, " Message Created ");
+
                     generalChannel.getMessages().sendMessage(message, new CallbackListener<Message>() {
                         @Override
                         public void onSuccess(Message message) {
@@ -107,6 +122,7 @@ public class ChatActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     messageEditText.setText("");
+
                                 }
                             });
 
@@ -227,6 +243,19 @@ public class ChatActivity extends AppCompatActivity {
             public void onSuccess() {
                 Log.d(TAG, "onSuccess: Joined Channel Successfully");
                 generalChannel = channel;
+
+                //Load Previous Messages
+                generalChannel.getMessages().getLastMessages(50, new CallbackListener<List<Message>>() {
+                    @Override
+                    public void onSuccess(List<Message> oldMessages) {
+                        for( int i = 0; i < oldMessages.size(); i++){
+                            messages.add(oldMessages.get(i));
+                        }
+                        messagesAdapter.notifyDataSetChanged();
+                    }
+                });
+
+
                 generalChannel.addListener(new ChannelListener() {
                     @Override
                     public void onMessageAdded(final Message message) {
@@ -289,6 +318,7 @@ public class ChatActivity extends AppCompatActivity {
                 super.onError(errorInfo);
             }
         });
+
     }
 
     @Override
@@ -298,6 +328,9 @@ public class ChatActivity extends AppCompatActivity {
         setResult(RESULT_OK,intent);
         return intent;
     }
+
+
+
 
     class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHolder> {
 
@@ -332,6 +365,10 @@ public class ChatActivity extends AppCompatActivity {
         }
 
 
+
+
     }
+
+
 
 }
