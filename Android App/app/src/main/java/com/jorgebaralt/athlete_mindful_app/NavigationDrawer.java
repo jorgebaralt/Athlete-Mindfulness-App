@@ -129,7 +129,7 @@ public class NavigationDrawer extends AppCompatActivity
                 fragment = new LeaderboardFragment();
                 break;
             case R.id.nav_chat:
-                toolbar.setTitle("Chat");
+                toolbar.setTitle("Chat with Coach");
                 //TODO: start chat, refer to selected API
                 //start chat activity
                 Intent chatIntent = new Intent(this, ChatActivity.class);

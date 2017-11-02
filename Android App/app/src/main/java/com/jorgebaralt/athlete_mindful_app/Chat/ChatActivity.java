@@ -86,6 +86,7 @@ public class ChatActivity extends AppCompatActivity {
         sendMessageBtn = (Button) findViewById(R.id.btnSendMessage);
 
         messagesRecyclerView = (RecyclerView) findViewById(R.id.recyclerMessages);
+        //recycler view listens for keyboard appear and moves
         messagesRecyclerView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
@@ -255,7 +256,7 @@ public class ChatActivity extends AppCompatActivity {
                     }
                 });
 
-
+                //this is called everytime we send a message, so here is where we add them to the messages arraylist
                 generalChannel.addListener(new ChannelListener() {
                     @Override
                     public void onMessageAdded(final Message message) {

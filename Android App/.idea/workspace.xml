@@ -16,15 +16,15 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/MentalFragment.java" line="64" />
-    <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java" line="227" />
+    <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java" line="228" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8651a03b-669b-4f0e-a8be-5eeac7959146" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/ApiInterface.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/ApiInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/message_text_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_text_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml" />
     </list>
     <ignored path="Athlete-Mindful-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,21 +64,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3366">
-              <caret line="253" column="63" lean-forward="false" selection-start-line="253" selection-start-column="63" selection-end-line="253" selection-end-column="63" />
+            <state relative-caret-position="190">
+              <caret line="268" column="4" lean-forward="false" selection-start-line="268" selection-start-column="4" selection-end-line="268" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2908#3208#0" expanded="true" />
-                <element signature="e#3207#3208#0" expanded="true" />
-                <element signature="e#3639#5121#0" expanded="true" />
-                <element signature="e#4396#4636#0" expanded="true" />
-                <element signature="e#4635#4636#0" expanded="true" />
-                <element signature="e#5120#5121#0" expanded="true" />
-                <element signature="e#9095#9497#0" expanded="true" />
-                <element signature="e#9496#9497#0" expanded="true" />
+                <element signature="e#2970#3270#0" expanded="true" />
+                <element signature="e#3269#3270#0" expanded="true" />
+                <element signature="e#3701#5183#0" expanded="true" />
+                <element signature="e#4458#4698#0" expanded="true" />
+                <element signature="e#4697#4698#0" expanded="true" />
+                <element signature="e#5182#5183#0" expanded="true" />
+                <element signature="e#9157#9559#0" expanded="true" />
+                <element signature="e#9558#9559#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +87,44 @@
       <file leaf-file-name="CategoryAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/CategoryAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
+            <state relative-caret-position="-302">
               <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavigationDrawer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="131" column="49" lean-forward="false" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_navigation_drawer_drawer.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -114,87 +150,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetQuestions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/GetQuestions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApiInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/ApiInterface.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
               <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1055#1056#0" expanded="false" />
-                <element signature="e#1080#1081#0" expanded="false" />
-                <element signature="e#1294#1295#0" expanded="false" />
-                <element signature="e#1323#1324#0" expanded="false" />
-                <element signature="e#1359#1360#0" expanded="false" />
-                <element signature="e#1391#1392#0" expanded="false" />
-                <element signature="e#1426#1427#0" expanded="false" />
-                <element signature="e#1457#1458#0" expanded="false" />
-                <element signature="e#1487#1488#0" expanded="false" />
-                <element signature="e#1516#1517#0" expanded="false" />
-                <element signature="e#1548#1549#0" expanded="false" />
-                <element signature="e#1576#1577#0" expanded="false" />
-                <element signature="e#1603#1604#0" expanded="false" />
-                <element signature="e#1629#1630#0" expanded="false" />
-                <element signature="e#1660#1661#0" expanded="false" />
-                <element signature="e#1690#1691#0" expanded="false" />
-                <element signature="e#1722#1723#0" expanded="false" />
-                <element signature="e#1753#1754#0" expanded="false" />
-                <element signature="e#1844#1845#0" expanded="false" />
-                <element signature="e#1882#1883#0" expanded="false" />
-                <element signature="e#1927#1928#0" expanded="false" />
-                <element signature="e#1967#1968#0" expanded="false" />
-                <element signature="e#2144#2145#0" expanded="false" />
-                <element signature="e#2180#2181#0" expanded="false" />
-                <element signature="e#2222#2223#0" expanded="false" />
-                <element signature="e#2256#2257#0" expanded="false" />
-                <element signature="e#2291#2292#0" expanded="false" />
-                <element signature="e#2321#2322#0" expanded="false" />
-                <element signature="e#2369#2370#0" expanded="false" />
-                <element signature="e#2409#2410#0" expanded="false" />
-                <element signature="e#2451#2452#0" expanded="false" />
-                <element signature="e#2485#2486#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Question.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Question.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="e#698#699#0" expanded="false" />
-                <element signature="e#729#730#0" expanded="false" />
-                <element signature="e#762#763#0" expanded="false" />
-                <element signature="e#791#792#0" expanded="false" />
-                <element signature="e#835#836#0" expanded="false" />
-                <element signature="e#871#872#0" expanded="false" />
-                <element signature="e#907#908#0" expanded="false" />
-                <element signature="e#948#949#0" expanded="false" />
-                <element signature="e#974#975#0" expanded="false" />
-                <element signature="e#999#1000#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -241,6 +202,7 @@
     <findStrings>
       <find>chatActivity,</find>
       <find>props</find>
+      <find>setla</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2005,7 +1967,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/navigation_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_navigation_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/LeaderboardFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/PhysicalFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/SocialFragment.java" />
@@ -2014,8 +1975,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/CategoryAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveyActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/ChatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/EmotionalFragment.java" />
@@ -2028,6 +1987,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/message_text_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml" />
       </list>
     </option>
   </component>
@@ -2107,7 +2069,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="menu" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2362,7 +2324,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509596811799" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509598252943" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2410,7 +2372,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509596811799" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509598252943" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2593,7 +2555,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509596811800" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509598252944" />
       </method>
     </configuration>
     <list size="1">
@@ -2940,7 +2902,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509579563004</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Chat Finished, need only to fix starting at bottom scroll">
+      <created>1509596833438</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1509596833438</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3021,7 +2990,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Multiple choice works perfectly" />
     <MESSAGE value="compile volley" />
     <MESSAGE value="preparing register to push to database" />
     <MESSAGE value="Started work to push users when they register,&#10;Now leaderboard fragment actually get existing users from our database and displays them, still need to sort them by score." />
@@ -3046,7 +3014,8 @@
     <MESSAGE value="Finished up chat activity, need to get accessToken" />
     <MESSAGE value="update APIinterface to get token" />
     <MESSAGE value="Chat worked once, fixing some issue on backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chat worked once, fixing some issue on backend" />
+    <MESSAGE value="Chat Finished, need only to fix starting at bottom scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chat Finished, need only to fix starting at bottom scroll" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3062,16 +3031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -3273,17 +3232,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/message_textview.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/MessagesAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3338,13 +3286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="63" column="5" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="63" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="62" column="48" lean-forward="false" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -3490,14 +3431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/CategoryAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -3511,19 +3444,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="253" column="63" lean-forward="false" selection-start-line="253" selection-start-column="63" selection-end-line="253" selection-end-column="63" />
+        <state relative-caret-position="190">
+          <caret line="268" column="4" lean-forward="false" selection-start-line="268" selection-start-column="4" selection-end-line="268" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2908#3208#0" expanded="true" />
-            <element signature="e#3207#3208#0" expanded="true" />
-            <element signature="e#3639#5121#0" expanded="true" />
-            <element signature="e#4396#4636#0" expanded="true" />
-            <element signature="e#4635#4636#0" expanded="true" />
-            <element signature="e#5120#5121#0" expanded="true" />
-            <element signature="e#9095#9497#0" expanded="true" />
-            <element signature="e#9496#9497#0" expanded="true" />
+            <element signature="e#2970#3270#0" expanded="true" />
+            <element signature="e#3269#3270#0" expanded="true" />
+            <element signature="e#3701#5183#0" expanded="true" />
+            <element signature="e#4458#4698#0" expanded="true" />
+            <element signature="e#4697#4698#0" expanded="true" />
+            <element signature="e#5182#5183#0" expanded="true" />
+            <element signature="e#9157#9559#0" expanded="true" />
+            <element signature="e#9558#9559#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/CategoryAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-302">
+          <caret line="17" column="71" lean-forward="false" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="131" column="49" lean-forward="false" selection-start-line="131" selection-start-column="49" selection-end-line="131" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_navigation_drawer_drawer.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
