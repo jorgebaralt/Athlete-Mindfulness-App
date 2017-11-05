@@ -96,9 +96,12 @@ public class ChatActivity extends AppCompatActivity {
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //since is chat, we need to show latest message at bottom and oldest on top
+        //layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
 
+
         messagesRecyclerView.setLayoutManager(layoutManager);
+
 
         messagesAdapter = new MessagesAdapter();
         messagesRecyclerView.setAdapter(messagesAdapter);
@@ -253,6 +256,7 @@ public class ChatActivity extends AppCompatActivity {
                             messages.add(oldMessages.get(i));
                         }
                         messagesAdapter.notifyDataSetChanged();
+                        messagesRecyclerView.scrollToPosition(messages.size()-1);
                     }
                 });
 
@@ -266,6 +270,7 @@ public class ChatActivity extends AppCompatActivity {
                             public void run() {
                                 messages.add(message);
                                 messagesAdapter.notifyDataSetChanged();
+                                messagesRecyclerView.scrollToPosition(messages.size()-1);
                             }
                         });
 

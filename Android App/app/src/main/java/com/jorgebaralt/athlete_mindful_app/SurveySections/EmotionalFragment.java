@@ -186,10 +186,9 @@ public class EmotionalFragment extends Fragment {
 
     //Add Answers to database, pass the arraylist question to get the answers from it.
     public void pushAnswers(ArrayList<Question> currentQuestions) {
-        Log.d(TAG, "onClick: adding answers data to database");
+        answers.clear();
 
         if (currentPlayer != null) {
-            Log.d(TAG, "pushAnswers: SIZE of QUESTIONS" + currentQuestions.size());
 
             for (int i = 0; i < currentQuestions.size(); i++) {
                 playerId = currentPlayer.getId();

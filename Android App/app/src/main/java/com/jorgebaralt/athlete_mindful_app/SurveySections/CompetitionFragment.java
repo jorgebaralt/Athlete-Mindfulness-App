@@ -109,6 +109,7 @@ public class CompetitionFragment extends Fragment {
                         //Store all FREE ANSWERS into DATABASE
                         pushAnswers(competitionQuestionFreeAnswer);
 
+
                         //clear array list after storing into database.
                         competitionQuestionFreeAnswer.clear();
 
@@ -160,7 +161,7 @@ public class CompetitionFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //TODO: Store answers into database
                         pushAnswers(competitionQuestionMultipleChoice);
-
+                        answers.clear();
                         //clear the arraylist after storing?
                         //socialQuestionMultipleChoice.clear();
 
@@ -182,16 +183,15 @@ public class CompetitionFragment extends Fragment {
 
     }
 
-    //Add Answers to database, pass the arraylist question to get the answers from it.
+    //Add Answers to database, pass the array list question to get the answers from it.
     public void pushAnswers(ArrayList<Question> currentQuestions) {
-        Log.d(TAG, "onClick: adding answers data to database");
+        answers.clear();
 
         if (currentPlayer != null) {
             for (int i = 0; i < currentQuestions.size(); i++) {
                 playerId = currentPlayer.getId();
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
-                Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
                 if(answer != null) {
                     currentAnswer = new Answer(answer, playerId, questionId);
@@ -216,6 +216,7 @@ public class CompetitionFragment extends Fragment {
                 public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                     if(response.isSuccessful()){
                         Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                        //answers.clear();
                     }
                     else{
                         Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();

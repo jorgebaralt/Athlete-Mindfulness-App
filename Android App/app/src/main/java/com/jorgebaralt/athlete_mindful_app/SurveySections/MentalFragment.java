@@ -187,7 +187,7 @@ public class MentalFragment extends Fragment {
     //Add Answers to database, pass the arraylist question to get the answers from it.
     //takes care of any type of question (Free answer, or Multiple Choice)
     public void pushAnswers(ArrayList<Question> currentQuestions) {
-        Log.d(TAG, "onClick: adding answers data to database");
+        answers.clear();
 
         if (currentPlayer != null) {
             for (int i = 0; i < currentQuestions.size(); i++) {
