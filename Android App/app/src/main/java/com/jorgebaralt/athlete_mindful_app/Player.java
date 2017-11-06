@@ -24,14 +24,14 @@ public class Player implements Comparable<Player>, Serializable{
     private String passwordConfirmation;
     @SerializedName("auth_token")
     private String token;
+    @SerializedName("coach_name")
+    private String coach;
 
     private int gender;
     private String email;
     private int age;
     private String password;
     private String phone;
-
-
 
 
 
@@ -82,6 +82,10 @@ public class Player implements Comparable<Player>, Serializable{
 
 
     public String getToken() { return token;}
+
+    public String getCoach() {
+        return coach;
+    }
 
     public void setCoachId(int coachId) {
         this.coachId = coachId;

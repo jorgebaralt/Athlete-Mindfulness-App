@@ -88,12 +88,12 @@ public class NavigationDrawer extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id){
+            case R.id.menu_settings:
+                Intent settingsIntent = new Intent(this,SettingsActivity.class);
+                settingsIntent.putExtra("currentPlayer",currentPlayer);
+                startActivity(settingsIntent);
         }
-        //TODO: action for logout
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,9 +116,9 @@ public class NavigationDrawer extends AppCompatActivity
         switch(id){
             case R.id.nav_survey:
                 //starting new activity
-                Intent intent = new Intent(this,SurveyActivity.class);
-                intent.putExtra("currentPlayer", currentPlayer);
-                startActivity(intent);
+                Intent surveyIntent = new Intent(this,SurveyActivity.class);
+                surveyIntent.putExtra("currentPlayer", currentPlayer);
+                startActivity(surveyIntent);
                 break;
             case R.id.nav_profile:
                 toolbar.setTitle("Profile");
@@ -130,7 +130,6 @@ public class NavigationDrawer extends AppCompatActivity
                 break;
             case R.id.nav_chat:
                 toolbar.setTitle("Chat with Coach");
-                //TODO: start chat, refer to selected API
                 //start chat activity
                 Intent chatIntent = new Intent(this, ChatActivity.class);
                 chatIntent.putExtra("currentPlayer",currentPlayer);
