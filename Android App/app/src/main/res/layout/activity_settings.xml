@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jorgebaralt.athlete_mindful_app.SettingsActivity">
+    tools:context="com.jorgebaralt.athlete_mindful_app.SettingsActivity"
+    android:background="@color/backgroundGreen">
 
     <TextView
         android:id="@+id/settings_edit_coach"
@@ -29,11 +30,13 @@
         android:id="@+id/settings_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Modify Profile"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,10 +44,12 @@
         android:id="@+id/settings_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="Name"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_title"
         tools:text="Name" />
@@ -89,6 +94,7 @@
         android:layout_height="15dp"
         android:layout_marginEnd="16dp"
         android:text="edit"
+        android:textColorLink="@android:color/holo_blue_bright"
         app:layout_constraintBottom_toBottomOf="@+id/settings_email"
         app:layout_constraintEnd_toEndOf="parent" />
 

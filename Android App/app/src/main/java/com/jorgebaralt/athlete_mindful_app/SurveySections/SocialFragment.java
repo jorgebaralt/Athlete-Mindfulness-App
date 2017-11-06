@@ -160,7 +160,7 @@ public class SocialFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
-                        //TODO: Store answers into database
+                        //Store answers into database
                         pushAnswers(socialQuestionMultipleChoice);
 
                         //clear the arraylist after storing?

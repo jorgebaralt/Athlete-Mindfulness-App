@@ -94,10 +94,11 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "onResponse: Response from server at login" + response.body());
 
                             if(response.isSuccessful()){
-                                Toast.makeText(LoginActivity.this, response.body().getEmail() + ", token = " + response.body().getToken(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "onResponse: RESPONSE WORKED, LOGIN WORKED!!!" + response.body().getToken());
+                                //Toast.makeText(LoginActivity.this, response.body().getEmail() + ", token = " + response.body().getToken(), Toast.LENGTH_SHORT).show();
+
                                 token = response.body().getToken();
                                 currentPlayer = response.body();
+                                Log.d(TAG, "onResponse: user " + currentPlayer.getName() + "has logged in");
 
                                 // *** Go to Navigation Drawer Activity *** SENDING USER LOGGED IN
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);

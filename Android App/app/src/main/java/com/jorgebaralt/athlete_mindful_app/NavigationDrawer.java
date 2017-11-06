@@ -15,8 +15,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Chat.ChatActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 public class NavigationDrawer extends AppCompatActivity
@@ -24,7 +32,7 @@ public class NavigationDrawer extends AppCompatActivity
 
     //to store player coming from login
     private Player currentPlayer;
-
+    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
 
     @Override
@@ -93,6 +101,39 @@ public class NavigationDrawer extends AppCompatActivity
                 Intent settingsIntent = new Intent(this,SettingsActivity.class);
                 settingsIntent.putExtra("currentPlayer",currentPlayer);
                 startActivity(settingsIntent);
+                break;
+            case R.id.menu_logout:
+                Log.d(TAG, "onOptionsItemSelected: " + currentPlayer.getName() + " logging out");
+                //send token to logout on backend
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create());
+                Retrofit retrofit = builder.build();
+
+                ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+
+                //TODO: fix logout
+                Call<Player> logoutCall = apiInterface.logout(currentPlayer.getToken());
+                logoutCall.enqueue(new Callback<Player>() {
+                    @Override
+                    public void onResponse(Call<Player> call, Response<Player> response) {
+                        if(response.isSuccessful()){
+                            Toast.makeText(NavigationDrawer.this, "Logging out...", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Log.e(TAG, "onResponse: Error loging out...");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Player> call, Throwable t) {
+                        Log.e(TAG, "onFailure: Failure logging out with api");
+                    }
+                });
+               
+
+
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

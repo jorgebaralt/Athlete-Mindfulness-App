@@ -35,6 +35,10 @@ public interface ApiInterface {
             @Query("category") int category
         );
 
+    @FormUrlEncoded
+    @POST("/players/sign_out")
+    Call<Player> logout (@Field("auth_token") String token);
+
     //Send device Id to get AccessToken to start a chat.
     @FormUrlEncoded
     @POST("/tokens")

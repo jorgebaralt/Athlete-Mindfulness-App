@@ -44,7 +44,6 @@ public class ChatActivity extends AppCompatActivity {
 
     private Player currentPlayer;
 
-    //TODO set the server token url and the channel name
     final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     String CHANNEL_NAME = "";
