@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Chat.ChatActivity;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -111,26 +112,24 @@ public class NavigationDrawer extends AppCompatActivity
                 Retrofit retrofit = builder.build();
 
                 ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-
-                //TODO: fix logout
-                Call<Player> logoutCall = apiInterface.logout(currentPlayer.getToken());
-                logoutCall.enqueue(new Callback<Player>() {
+                Call<ResponseBody> deleteCall = apiInterface.logout(currentPlayer.getToken());
+                deleteCall.enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(Call<Player> call, Response<Player> response) {
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if(response.isSuccessful()){
-                            Toast.makeText(NavigationDrawer.this, "Logging out...", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Log.e(TAG, "onResponse: Error loging out...");
+                            Toast.makeText(NavigationDrawer.this, "Logged out", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Log.e(TAG, "onResponse: response error = " + response);
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<Player> call, Throwable t) {
-                        Log.e(TAG, "onFailure: Failure logging out with api");
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e(TAG, "onFailure: Failure logging out");
                     }
                 });
-               
+
+
 
 
                 break;
