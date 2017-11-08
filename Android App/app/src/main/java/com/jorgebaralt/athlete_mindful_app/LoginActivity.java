@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // *** Go to Navigation Drawer Activity *** SENDING USER LOGGED IN
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
                                 intent.putExtra("currentPlayer",currentPlayer);
+                                finish();
                                 startActivity(intent);
 
 

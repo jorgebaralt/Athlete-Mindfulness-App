@@ -36,16 +36,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    ArrayList<Coach>  coachList = new ArrayList<>();
+    private ArrayList<Coach>  coachList = new ArrayList<>();
 
     static final String coaches_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/coaches";
 
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
+    private final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     AlertDialog.Builder builder;
 
     private String TAG;
-    ArrayAdapter<String> spinnerAdapter;
+    private ArrayAdapter<String> spinnerAdapter;
 
     //Layout views
     private Spinner spinner;
