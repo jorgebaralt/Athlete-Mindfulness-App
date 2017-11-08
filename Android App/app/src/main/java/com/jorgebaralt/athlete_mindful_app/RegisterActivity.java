@@ -48,18 +48,18 @@ public class RegisterActivity extends AppCompatActivity {
     ArrayAdapter<String> spinnerAdapter;
 
     //Layout views
-    Spinner spinner;
-    EditText textName;
-    EditText textLastname;
-    EditText textEmail;
-    EditText textPassword1;
-    EditText textPassword2;
-    EditText textPhone;
-    EditText textAge;
-    RadioGroup radioGender;
-    RadioButton radioSelectedGender;
-    Button submit;
-    int BASE_POINTS = 0;
+    private Spinner spinner;
+    private EditText textName;
+    private EditText textLastname;
+    private EditText textEmail;
+    private EditText textPassword1;
+    private EditText textPassword2;
+    private EditText textPhone;
+    private EditText textAge;
+    private RadioGroup radioGender;
+    private RadioButton radioSelectedGender;
+    private Button submit;
+    private int BASE_POINTS = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

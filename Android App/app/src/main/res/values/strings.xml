@@ -13,4 +13,6 @@
     <string name="enter_answer_here">Enter Answer Here</string>
     <string name="title_activity_chat">ChatActivity</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_edit_email">EditEmailActivity</string>
+    <string name="title_activity_edit_coach">EditCoachActivity</string>
 </resources>

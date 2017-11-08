@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Chat.ChatActivity;
+import com.jorgebaralt.athlete_mindful_app.settings.SettingsActivity;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

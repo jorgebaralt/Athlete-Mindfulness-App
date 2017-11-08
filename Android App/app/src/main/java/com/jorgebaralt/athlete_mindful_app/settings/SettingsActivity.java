@@ -1,4 +1,4 @@
-package com.jorgebaralt.athlete_mindful_app;
+package com.jorgebaralt.athlete_mindful_app.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,13 +59,21 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Edit Email Pressed");
+                Intent editEmailIntent = new Intent(SettingsActivity.this,EditEmailActivity.class);
+                editEmailIntent.putExtra("currentPlayer",currentPlayer);
+                startActivity(editEmailIntent);
             }
+
+
         });
 
         editCoach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Edit Coach Pressed");
+                Intent editCoachIntent = new Intent(SettingsActivity.this,EditCoachActivity.class);
+                editCoachIntent.putExtra("currentPlayer",currentPlayer);
+                startActivity(editCoachIntent);
 
             }
         });

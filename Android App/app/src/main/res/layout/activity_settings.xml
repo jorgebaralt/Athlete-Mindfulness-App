@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jorgebaralt.athlete_mindful_app.SettingsActivity"
+    tools:context="com.jorgebaralt.athlete_mindful_app.settings.SettingsActivity"
     android:background="@color/backgroundGreen">
 
     <TextView
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/settings_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -69,7 +69,7 @@
         android:id="@+id/settings_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="140dp"
         android:layout_marginStart="8dp"
         android:textColor="@android:color/white"
         android:textSize="18sp"

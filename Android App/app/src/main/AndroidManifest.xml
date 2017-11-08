@@ -43,10 +43,15 @@
             android:label="Chat with Coach"
             android:parentActivityName=".NavigationDrawer" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
-
             android:parentActivityName=".NavigationDrawer" />
+        <activity
+            android:name=".settings.EditEmailActivity"
+            android:label="Change Your Email" />
+        <activity
+            android:name=".settings.EditCoachActivity"
+            android:label="Change Your Coach" />
     </application>
 
 </manifest>
