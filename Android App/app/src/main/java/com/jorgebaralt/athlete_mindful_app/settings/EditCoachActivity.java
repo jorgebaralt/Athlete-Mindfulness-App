@@ -57,7 +57,6 @@ public class EditCoachActivity extends AppCompatActivity {
                 for(int i = 0; i < coachList.size(); i ++ ){
                     if(coachList.get(i).getName().equals(newSelectedCoach)){
                         int coachId = coachList.get(i).getId();
-                        Log.d(TAG, "insertPlayer: FOUND COACH ID : " + coachId);
                         break;
                     }
                 }
