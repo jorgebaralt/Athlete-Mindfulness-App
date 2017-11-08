@@ -44,12 +44,12 @@ public class SettingsActivity extends AppCompatActivity {
 
         currentPlayer = (Player) SettingsActivity.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null){
-            Log.d(TAG, "onCreate: " + currentPlayer.getCoach());
+            Log.d(TAG, "onCreate: " + currentPlayer.getCoachName());
 
             //display the current player information
             name.setText(currentPlayer.getName());
             email.setText(currentPlayer.getEmail());
-            coach.setText(currentPlayer.getCoach());
+            coach.setText(currentPlayer.getCoachName());
             age.setText("Age: " + Integer.toString(currentPlayer.getAge()));
 
         }else{

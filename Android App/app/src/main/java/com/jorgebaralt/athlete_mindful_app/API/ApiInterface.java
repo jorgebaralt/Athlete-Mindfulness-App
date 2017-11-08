@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -39,8 +39,9 @@ public interface ApiInterface {
         );
 
 
-    @DELETE("/players/sign_out/{auth_token}")
-    Call<ResponseBody> logout (@Path("auth_token") String token);
+    @FormUrlEncoded
+    @POST("/players/sign_out/")
+    Call<Player> logout (@Field("auth_token") String token);
 
     //Send device Id to get AccessToken to start a chat.
     @FormUrlEncoded
@@ -59,7 +60,15 @@ public interface ApiInterface {
     @POST("/multiple_answers")
     Call<ArrayList<Answer>> pushAnswers (@Body ArrayList<Answer> answer);
 
+    @FormUrlEncoded
+    @PUT("/players/{id}")
+    Call<ResponseBody> updatePlayerEmail(@Path("id") String id, @Field("email") String email);
 
+    @FormUrlEncoded
+    @PUT("/players/{id}")
+    Call<ResponseBody> updatePlayerCoach(@Path("id") String id,
+                                         @Field("coach_id") String coachId,
+                                         @Field("coach_name") String coachName);
 
 
 

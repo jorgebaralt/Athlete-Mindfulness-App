@@ -21,7 +21,6 @@ import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Chat.ChatActivity;
 import com.jorgebaralt.athlete_mindful_app.settings.SettingsActivity;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -113,22 +112,29 @@ public class NavigationDrawer extends AppCompatActivity
                 Retrofit retrofit = builder.build();
 
                 ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-                Call<ResponseBody> deleteCall = apiInterface.logout(currentPlayer.getToken());
-                deleteCall.enqueue(new Callback<ResponseBody>() {
+
+                Call<Player> logoutCall = apiInterface.logout(currentPlayer.getToken());
+                logoutCall.enqueue(new Callback<Player>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    public void onResponse(Call<Player> call, Response<Player> response) {
                         if(response.isSuccessful()){
-                            Toast.makeText(NavigationDrawer.this, "Logged out", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NavigationDrawer.this, "Logging Out...", Toast.LENGTH_SHORT).show();
+                            //go to login activity
+                            Intent loginIntent = new Intent(NavigationDrawer.this,LoginActivity.class);
+                            finish();
+                            startActivity(loginIntent);
                         }else{
-                            Log.e(TAG, "onResponse: response error = " + response);
+                            Toast.makeText(NavigationDrawer.this, "Error Logging Out...", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: Error Logging Out... = " + response);
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.e(TAG, "onFailure: Failure logging out");
+                    public void onFailure(Call<Player> call, Throwable t) {
+
                     }
                 });
+
 
 
 
