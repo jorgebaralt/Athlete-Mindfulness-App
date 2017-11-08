@@ -62,7 +62,8 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @PUT("/players/{id}")
-    Call<ResponseBody> updatePlayerEmail(@Path("id") String id, @Field("email") String email);
+    Call<ResponseBody> updatePlayerEmail(@Path("id") String id,
+                                         @Field("email") String email);
 
     @FormUrlEncoded
     @PUT("/players/{id}")
@@ -70,6 +71,10 @@ public interface ApiInterface {
                                          @Field("coach_id") String coachId,
                                          @Field("coach_name") String coachName);
 
+    @FormUrlEncoded
+    @PUT("/players/{id}")
+    Call<ResponseBody> updatePlayerAge(@Path("id") String id,
+                                       @Field("age") String age);
 
 
 }

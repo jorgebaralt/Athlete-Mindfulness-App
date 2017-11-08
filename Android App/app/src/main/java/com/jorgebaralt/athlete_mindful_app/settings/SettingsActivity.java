@@ -84,7 +84,9 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Edit Age Pressed");
-
+                Intent editAgeIntent = new Intent(SettingsActivity.this,EditAgeActivity.class);
+                editAgeIntent.putExtra("currentPlayer",currentPlayer);
+                startActivity(editAgeIntent);
             }
         });
 

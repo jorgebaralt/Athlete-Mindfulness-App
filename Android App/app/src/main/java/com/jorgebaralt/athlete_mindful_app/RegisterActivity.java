@@ -16,16 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
-import com.jorgebaralt.athlete_mindful_app.API.MySingleton;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -272,53 +263,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Log.e(TAG, "onFailure: ",t );
             }
         });
-        /*
-        //start string request to create users.
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_players_url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                builder.setTitle("Server Response");
-                Log.d(TAG, "onResponse: User Added : " + response);
-                builder.setMessage("Response : User has been created" );
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        goToNavigation();
-                    }
-                });
-                //create the dialog
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterActivity.this, "Error..." + error, Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("first_name",firstName);
-                params.put("last_name",lastName);
-                params.put("email",email);
-                params.put("password",password);
-                params.put("password_confirmation",passwordConfirmation);
-                params.put("phone",phone);
-                params.put("gender",gender);
-                params.put("points","0");
-                params.put("coach_id",coachId);
-                params.put("age",age);
-                params.put("age_range",ageRange);
-                return params;
-            }
-        };
-        //send request to the queue.
-        MySingleton.getInstance(RegisterActivity.this).addToRequestQueue(stringRequest);
-*/
     }
 
     private void goToLogin() {
@@ -329,61 +273,6 @@ public class RegisterActivity extends AppCompatActivity {
     public void goToNavigation(){
         Intent intent = new Intent(this,NavigationDrawer.class);
         startActivity(intent);
-    }
-
-    //NOT BEING USED, WE ARE USING RETROFIT NOW!
-    public void getCoachesJson(){
-        coachList.add(new Coach (0,"Select","Coach"));
-
-        Log.d(TAG, "getCoaches: STARTING JSON ARRAY REQUEST FOR COACHES");
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, coaches_url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                for( int i = 0 ; i < response.length(); i++){
-                    try {
-                        JSONObject currentCoach = response.getJSONObject(i);
-                        int id = currentCoach.getInt("id");
-                        String firstname = currentCoach.getString("first_name");
-                        String lastname = currentCoach.getString("last_name");
-
-
-                        //create coach object
-                        coachList.add((new Coach(id,firstname,lastname)));
-
-                    } catch (JSONException e) {
-                        Log.e(TAG, "onResponse: Error Doing inside try");
-                        e.printStackTrace();
-                    }
-                }
-
-                //SPINNER CODE**
-                //store the name of the coaches on a string
-                String[] coaches = new String[coachList.size()];
-                for(int i = 0 ; i < coachList.size();i++){
-                    coaches[i] = coachList.get(i).getName();
-                }
-
-                //create spinner adapter that display names of the coaches to select.
-                spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, coaches);
-                //set the spinners adapter to the previously created one.
-                spinner.setAdapter(spinnerAdapter);
-                spinner.setPrompt("Select Coach");
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterActivity.this,"Error fetching data", Toast.LENGTH_LONG).show();
-                error.printStackTrace();
-                Log.e(TAG, "onErrorResponse: ",error );
-
-            }
-        });
-        //send the request queue
-        MySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
-
     }
 
 }

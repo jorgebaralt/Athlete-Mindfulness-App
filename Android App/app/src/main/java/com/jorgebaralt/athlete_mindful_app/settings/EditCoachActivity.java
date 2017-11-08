@@ -80,7 +80,7 @@ public class EditCoachActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if(response.isSuccessful()){
-                            Toast.makeText(EditCoachActivity.this, "Updating Player's Coach...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditCoachActivity.this, "Your Coach Has Been Updated...", Toast.LENGTH_SHORT).show();
                             //go back to settings with updated players info.
                             Intent settingsIntent = new Intent(EditCoachActivity.this,SettingsActivity.class);
                             currentPlayer.setCoachName(coachName);

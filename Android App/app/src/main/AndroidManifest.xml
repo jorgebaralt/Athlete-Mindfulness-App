@@ -54,7 +54,7 @@
             android:label="Change Your Coach" />
         <activity
             android:name=".settings.EditAgeActivity"
-            android:label="@string/title_activity_edit_age"></activity>
+            android:label="Change Your Age" />
     </application>
 
 </manifest>
