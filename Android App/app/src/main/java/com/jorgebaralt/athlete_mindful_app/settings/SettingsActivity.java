@@ -41,8 +41,10 @@ public class SettingsActivity extends AppCompatActivity {
         editCoach = (TextView) findViewById(R.id.settings_edit_coach);
         editAge = (TextView) findViewById(R.id.settings_edit_age);
 
+
         currentPlayer = (Player) SettingsActivity.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null){
+            Log.d(TAG, "onCreate: " + currentPlayer.getCoach());
 
             //display the current player information
             name.setText(currentPlayer.getName());

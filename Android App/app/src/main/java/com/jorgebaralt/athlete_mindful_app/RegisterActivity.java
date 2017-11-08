@@ -322,7 +322,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void goToLogin() {
-        Intent intent = new Intent(this,RegisterActivity.class);
+        Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
 
