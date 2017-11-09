@@ -43,4 +43,8 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     testCompile 'junit:junit:4.12'
     compile 'org.jetbrains:annotations-java5:15.0'
+    //Firebase
+    compile 'com.google.firebase:firebase-core:11.6.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
