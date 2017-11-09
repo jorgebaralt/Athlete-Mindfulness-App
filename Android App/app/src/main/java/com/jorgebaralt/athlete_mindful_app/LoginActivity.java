@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 token = response.body().getToken();
                                 currentPlayer = response.body();
-                                Log.d(TAG, "onResponse: user " + currentPlayer.getName() + "has logged in");
+                                Log.d(TAG, "onResponse: user " + currentPlayer.getName() + " has logged in");
 
                                 // *** Go to Navigation Drawer Activity *** SENDING USER LOGGED IN
                                 Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
