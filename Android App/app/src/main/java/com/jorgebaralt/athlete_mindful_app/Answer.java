@@ -8,15 +8,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class Answer {
     private String answer;
-    @SerializedName("player_id")
+    @SerializedName("user_id")
     private int playerId;
     @SerializedName("question_id")
     private int questionId;
+    @SerializedName("points")
+    private int points;
 
-    public Answer(String answer, int playerId, int questionId){
+    public Answer(String answer, int playerId, int questionId,int points){
         this.answer = answer;
         this.playerId = playerId;
         this.questionId = questionId;
+        this.points = points;
     }
 
     public String getAnswer() {
@@ -30,4 +33,10 @@ public class Answer {
     public int getQuestionId() {
         return questionId;
     }
+
+    public int getPoints() {
+        return points;
+    }
+
+
 }

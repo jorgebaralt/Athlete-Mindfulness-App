@@ -39,9 +39,8 @@ public class MentalFragment extends Fragment {
     private int playerId;
     private int questionId;
     private String answer;
+    private int points;
     private String mentalColor = "#0077c2";
-
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
@@ -71,7 +70,7 @@ public class MentalFragment extends Fragment {
 
         //fill array list with free answer questions from database using RETROFIT
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         //Create api.
@@ -108,12 +107,13 @@ public class MentalFragment extends Fragment {
 
 
                         //Store all FREE ANSWERS into DATABASE
-                        pushAnswers(mentalQuestionFreeAnswer);
+                        pushAnswers(mentalQuestionFreeAnswer,FREE_ANSWER_TYPE);
 
                         //clear array list after storing into database.
                         mentalQuestionFreeAnswer.clear();
 
                         Log.d(TAG, "onClick: Transit to multiple choice question");
+
                         multipleChoiceQuestion();
                     }
 
@@ -134,7 +134,7 @@ public class MentalFragment extends Fragment {
         //fill array list with the multiple choice questions from database
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
@@ -161,15 +161,11 @@ public class MentalFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //Store answers into database
-                        pushAnswers(mentalQuestionMultipleChoice);
+                        pushAnswers(mentalQuestionMultipleChoice, MULT_ANSWER_TYPE);
 
                         //clear the arraylist after storing?
                         //mentalQuestionMultipleChoice.clear();
 
-                        //Display message to user
-                        Log.d(TAG, "onClick: Displaying final message");
-                        Toast toast = Toast.makeText(getContext(), "All your answers have been submitted", Toast.LENGTH_LONG);
-                        toast.show();
 
                     }
                 });
@@ -186,7 +182,7 @@ public class MentalFragment extends Fragment {
 
     //Add Answers to database, pass the arraylist question to get the answers from it.
     //takes care of any type of question (Free answer, or Multiple Choice)
-    public void pushAnswers(ArrayList<Question> currentQuestions) {
+    public void pushAnswers(ArrayList<Question> currentQuestions, int type) {
         answers.clear();
 
         if (currentPlayer != null) {
@@ -194,12 +190,19 @@ public class MentalFragment extends Fragment {
                 playerId = currentPlayer.getId();
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
+                //set points
+                if(type == FREE_ANSWER_TYPE){
+                    points = 5;
+                }else{
+                    points = 3;
+                }
+
                 Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
                 if(answer != null) {
-                    currentAnswer = new Answer(answer, playerId, questionId);
+                    currentAnswer = new Answer(answer, playerId, questionId,points);
                     answers.add(currentAnswer);
-                    //TODO: Add points.
+
                 }else{
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
                     //Maybe push how many and which one we missed for notifications?
@@ -209,7 +212,7 @@ public class MentalFragment extends Fragment {
             //after we add all the asnwer to our arraylist
             //send it to the server.
             Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(ApiInterface.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
             Retrofit retrofit = builder.build();
 

@@ -29,8 +29,7 @@ import static android.content.ContentValues.TAG;
 
 public class LeaderboardFragment extends Fragment{
 
-    //variables
-    static final String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
+
     ArrayList<Player> player = new ArrayList<>();
 
 
@@ -45,7 +44,7 @@ public class LeaderboardFragment extends Fragment{
 
         //create retrofit
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
+                .baseUrl(ApiInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);

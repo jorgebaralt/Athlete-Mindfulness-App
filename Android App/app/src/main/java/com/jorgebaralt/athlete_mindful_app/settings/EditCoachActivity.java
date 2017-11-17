@@ -26,7 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EditCoachActivity extends AppCompatActivity {
     private String TAG;
-    private final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
     private ArrayList<Coach>  coachList = new ArrayList<>();
 
     private Player currentPlayer;
@@ -70,7 +69,7 @@ public class EditCoachActivity extends AppCompatActivity {
                 }
 
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl(BASE_URL)
+                        .baseUrl(ApiInterface.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create());
                 Retrofit retrofit = builder.build();
 
@@ -114,7 +113,7 @@ public class EditCoachActivity extends AppCompatActivity {
     public void getCoaches(){
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();

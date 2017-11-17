@@ -44,8 +44,6 @@ public class ChatActivity extends AppCompatActivity {
 
     private Player currentPlayer;
 
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
-
     String CHANNEL_NAME = "";
 
     private RecyclerView messagesRecyclerView;
@@ -105,7 +103,7 @@ public class ChatActivity extends AppCompatActivity {
         messagesAdapter = new MessagesAdapter();
         messagesRecyclerView.setAdapter(messagesAdapter);
 
-
+        getAccessTokenFromServer();
 
 
         sendMessageBtn.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +144,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-        getAccessTokenFromServer();
+
 
 
 
@@ -156,7 +154,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void getAccessTokenFromServer(){
         String deviceID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-        String tokenURL = BASE_URL + "?device=" + deviceID;
+        String tokenURL = ApiInterface.BASE_URL + "?device=" + deviceID;
         name = currentPlayer.getName();
         final ChatClient.Properties props = new ChatClient.Properties.Builder().createProperties();
         /*
@@ -167,7 +165,7 @@ public class ChatActivity extends AppCompatActivity {
         ChatClient.setLogLevel(android.util.Log.DEBUG);
 
         //request the AcessToken to the API
-        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL)
+        Retrofit.Builder builder = new Retrofit.Builder().baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
 
@@ -206,6 +204,7 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Token> call, Throwable t) {
+                Toast.makeText(ChatActivity.this, "Fail Getting Token for Chat", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -359,7 +358,7 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(MessagesAdapter.ViewHolder holder, int position) {
         Message message = messages.get(position);
-        String messageText = String.format("%s: %s", message.getAuthor(),message.getMessageBody());
+        String messageText = String.format(" %s: \n   %s",message.getAuthor(),message.getMessageBody());
         holder.messageTextView.setText(messageText);
 
         }

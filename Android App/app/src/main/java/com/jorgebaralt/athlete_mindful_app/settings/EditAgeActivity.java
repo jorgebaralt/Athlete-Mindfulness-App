@@ -21,7 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EditAgeActivity extends AppCompatActivity {
     private String TAG;
-    private final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private Player currentPlayer;
     private Button okButton;
@@ -71,12 +70,12 @@ public class EditAgeActivity extends AppCompatActivity {
                     //TODO:SEND ALSO AGE RANGE
 
                     Retrofit.Builder builder = new Retrofit.Builder()
-                            .baseUrl(BASE_URL)
+                            .baseUrl(ApiInterface.BASE_URL)
                             .addConverterFactory(GsonConverterFactory.create());
                     Retrofit retrofit = builder.build();
 
                     ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-                    Call<ResponseBody> call = apiInterface.updatePlayerAge(Integer.toString(currentPlayer.getId()),newAge);
+                    Call<ResponseBody> call = apiInterface.updatePlayerAge(Integer.toString(currentPlayer.getId()),newAge,Integer.toString(ageRange));
                     
                     call.enqueue(new Callback<ResponseBody>() {
                         @Override

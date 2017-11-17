@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EditEmailActivity extends AppCompatActivity {
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
+
     private Button okButton;
     private Button cancelButton;
     private EditText editTextEmail;
@@ -47,7 +47,7 @@ public class EditEmailActivity extends AppCompatActivity {
                 //PUT request to change email
                 if(!newEmail.equals("") && !newEmail.equals(currentPlayer.getEmail())){
                     Retrofit.Builder builder = new Retrofit.Builder()
-                            .baseUrl(BASE_URL)
+                            .baseUrl(ApiInterface.BASE_URL)
                             .addConverterFactory(GsonConverterFactory.create());
                     Retrofit retrofit = builder.build();
 

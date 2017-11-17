@@ -24,6 +24,9 @@ import retrofit2.http.Query;
  */
 
 public interface ApiInterface {
+
+    String BASE_URL = "http://postgresql-env-clone.us-east-1.elasticbeanstalk.com/";
+
     @GET("/coaches")
     Call<ArrayList<Coach>> getCoaches();
 
@@ -37,6 +40,10 @@ public interface ApiInterface {
             @Query("question_type") int questionType,
             @Query("category") int category
         );
+
+    //get specific player
+    @GET("/players/{id}")
+    Call<Player> getPlayer(@Path("id")int id);
 
 
     @FormUrlEncoded
@@ -74,7 +81,8 @@ public interface ApiInterface {
     @FormUrlEncoded
     @PUT("/players/{id}")
     Call<ResponseBody> updatePlayerAge(@Path("id") String id,
-                                       @Field("age") String age);
+                                       @Field("age") String age,
+                                        @Field("age_range")String ageRange);
 
 
 }

@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     String email;
     String password;
     AlertDialog.Builder builder;
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //Start Retrofit
                     Retrofit.Builder builder = new Retrofit.Builder()
-                            .baseUrl(BASE_URL)
+                            .baseUrl(ApiInterface.BASE_URL)
                             .addConverterFactory(GsonConverterFactory.create());
                     Retrofit retrofit = builder.build();
 

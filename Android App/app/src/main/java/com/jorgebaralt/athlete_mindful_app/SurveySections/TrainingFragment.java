@@ -38,12 +38,11 @@ public class TrainingFragment extends Fragment {
     private int playerId;
     private int questionId;
     private String answer;
+    private int point;
 
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
     private final int TRAINING_CATEGORY = 5;
-
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
     private ArrayList<Question> trainingQuestionFreeAnswer = new ArrayList<>();
     private ArrayList<Question> trainingQuestionMultipleChoice = new ArrayList<>();
@@ -68,7 +67,7 @@ public class TrainingFragment extends Fragment {
 
         //fill array list with free answer questions from database using RETROFIT
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
 
@@ -133,7 +132,7 @@ public class TrainingFragment extends Fragment {
         //fill array list with the multiple choice questions from database
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
@@ -163,12 +162,8 @@ public class TrainingFragment extends Fragment {
                         pushAnswers(trainingQuestionMultipleChoice);
 
                         //clear the arraylist after storing?
-                        //socialQuestionMultipleChoice.clear();
+                        //trainingQuestionMultipleChoice.clear();
 
-                        //Display message to user
-                        Log.d(TAG, "onClick: Displaying final message");
-                        Toast toast = Toast.makeText(getContext(), "All your answers have been submitted", Toast.LENGTH_LONG);
-                        toast.show();
 
                     }
                 });
@@ -194,7 +189,7 @@ public class TrainingFragment extends Fragment {
                 Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
                 if(answer != null) {
-                    currentAnswer = new Answer(answer, playerId, questionId);
+                    currentAnswer = new Answer(answer, playerId, questionId,point);
                     answers.add(currentAnswer);
                 }else{
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
@@ -205,7 +200,7 @@ public class TrainingFragment extends Fragment {
             //after we add all the asnwer to our arraylist
             //send it to the server.
             Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(ApiInterface.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
             Retrofit retrofit = builder.build();
 

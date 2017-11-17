@@ -33,7 +33,6 @@ public class NavigationDrawer extends AppCompatActivity
 
     //to store player coming from login
     private Player currentPlayer;
-    final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
 
 
     @Override
@@ -107,7 +106,7 @@ public class NavigationDrawer extends AppCompatActivity
                 Log.d(TAG, "onOptionsItemSelected: " + currentPlayer.getName() + " logging out");
                 //send token to logout on backend
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl(BASE_URL)
+                        .baseUrl(ApiInterface.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create());
                 Retrofit retrofit = builder.build();
 

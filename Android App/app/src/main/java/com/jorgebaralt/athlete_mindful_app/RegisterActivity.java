@@ -29,10 +29,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ArrayList<Coach>  coachList = new ArrayList<>();
 
-    static final String coaches_url = "http://project-env-4.us-east-1.elasticbeanstalk.com/coaches";
-
-    private final static String BASE_URL = "http://postgresql-env.8ts8eznn5d.us-east-1.elasticbeanstalk.com";
-
     AlertDialog.Builder builder;
 
     private String TAG;
@@ -119,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
     public  void getCoaches(){
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -227,7 +223,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //Retrofit request
         Retrofit.Builder retroBuilder = new Retrofit.Builder()
-                .baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create());
+                .baseUrl(ApiInterface.BASE_URL).addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = retroBuilder.build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
