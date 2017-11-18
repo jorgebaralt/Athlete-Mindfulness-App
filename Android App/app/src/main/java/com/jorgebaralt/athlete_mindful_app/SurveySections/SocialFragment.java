@@ -39,7 +39,7 @@ public class SocialFragment extends Fragment {
     private int playerId;
     private int questionId;
     private String answer;
-    private int point;
+    private int points;
 
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
@@ -107,7 +107,7 @@ public class SocialFragment extends Fragment {
 
 
                         //Store all FREE ANSWERS into DATABASE
-                        pushAnswers(socialQuestionFreeAnswer);
+                        pushAnswers(socialQuestionFreeAnswer, FREE_ANSWER_TYPE);
 
                         //clear array list after storing into database.
                         socialQuestionFreeAnswer.clear();
@@ -160,7 +160,7 @@ public class SocialFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //Store answers into database
-                        pushAnswers(socialQuestionMultipleChoice);
+                        pushAnswers(socialQuestionMultipleChoice, MULT_ANSWER_TYPE);
 
                         //clear the arraylist after storing?
                         //socialQuestionMultipleChoice.clear();
@@ -179,7 +179,7 @@ public class SocialFragment extends Fragment {
     }
 
     //Add Answers to database, pass the arraylist question to get the answers from it.
-    public void pushAnswers(ArrayList<Question> currentQuestions) {
+    public void pushAnswers(ArrayList<Question> currentQuestions, int type) {
         answers.clear();
 
         if (currentPlayer != null) {
@@ -188,9 +188,16 @@ public class SocialFragment extends Fragment {
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
                 Log.d(TAG, "pushAnswers: ANSWER = " + answer);
+                //set points
+                if(type == FREE_ANSWER_TYPE){
+                    points = 5;
+                }else{
+                    points = 3;
+                }
+
                 //Create the object
                 if(answer != null) {
-                    currentAnswer = new Answer(answer, playerId, questionId,point);
+                    currentAnswer = new Answer(answer, playerId, questionId,points);
                     answers.add(currentAnswer);
                 }else{
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE

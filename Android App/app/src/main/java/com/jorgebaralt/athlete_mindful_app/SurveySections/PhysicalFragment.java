@@ -106,7 +106,7 @@ public class PhysicalFragment extends Fragment {
 
 
                         //Store all FREE ANSWERS into DATABASE
-                        pushAnswers(physicalQuestionFreeAnswer);
+                        pushAnswers(physicalQuestionFreeAnswer, FREE_ANSWER_TYPE);
 
                         //clear array list after storing into database.
                         physicalQuestionFreeAnswer.clear();
@@ -159,7 +159,7 @@ public class PhysicalFragment extends Fragment {
                     public void onClick(View v) {
                         Log.d(TAG, "onClick: Saving answers into database");
                         // Store answers into database
-                        pushAnswers(physicalQuestionMultipleChoice);
+                        pushAnswers(physicalQuestionMultipleChoice, MULT_ANSWER_TYPE);
 
                         //clear the arraylist after storing?
                         //physicalQuestionMultipleChoice.clear();
@@ -179,7 +179,7 @@ public class PhysicalFragment extends Fragment {
     }
 
     //Add Answers to database, pass the arraylist question to get the answers from it.
-    public void pushAnswers(ArrayList<Question> currentQuestions) {
+    public void pushAnswers(ArrayList<Question> currentQuestions, int type) {
         answers.clear();
 
         if (currentPlayer != null) {
@@ -187,6 +187,13 @@ public class PhysicalFragment extends Fragment {
                 playerId = currentPlayer.getId();
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
+                //set points
+                if(type == FREE_ANSWER_TYPE){
+                    points = 5;
+                }else{
+                    points = 3;
+                }
+
                 Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
                 if(answer != null) {
