@@ -8,14 +8,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class Question {
     private int id;
-    @SerializedName("question_text")
-    private String question;
-
-    private String answer;
-    private int category;
-
     @SerializedName("age_range")
     private int ageRange;
+    @SerializedName("question_text")
+    private String question;
+    private String answer;
+    private int category;
 
     private String options;
     public int current;

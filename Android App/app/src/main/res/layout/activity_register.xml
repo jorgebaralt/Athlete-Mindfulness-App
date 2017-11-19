@@ -151,9 +151,6 @@
     </RadioGroup>
 
 
-
-
-
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="215dp"

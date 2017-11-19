@@ -188,18 +188,18 @@ public class PhysicalFragment extends Fragment {
                 questionId = currentQuestions.get(i).getId();
                 answer = currentQuestions.get(i).getAnswer();
                 //set points
-                if(type == FREE_ANSWER_TYPE){
+                if (type == FREE_ANSWER_TYPE) {
                     points = 5;
-                }else{
+                } else {
                     points = 3;
                 }
 
                 Log.d(TAG, "pushAnswers: ANSWER = " + answer);
                 //Create the object
-                if(answer != null) {
-                    currentAnswer = new Answer(answer, playerId, questionId,points);
+                if (answer != null && !answer.equals("")) {
+                    currentAnswer = new Answer(answer, playerId, questionId, points);
                     answers.add(currentAnswer);
-                }else{
+                } else {
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
                     //Maybe push how many and which one we missed for notifications?
                 }
@@ -207,35 +207,36 @@ public class PhysicalFragment extends Fragment {
             }
             //after we add all the asnwer to our arraylist
             //send it to the server.
-            Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(ApiInterface.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
-            Retrofit retrofit = builder.build();
+            if (answers.size() > 0) {
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl(ApiInterface.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create());
+                Retrofit retrofit = builder.build();
 
-            ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-            Call<ArrayList<Answer>> call = apiInterface.pushAnswers(answers);
-            call.enqueue(new Callback<ArrayList<Answer>>() {
-                @Override
-                public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
-                    if(response.isSuccessful()){
-                        Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "onResponse: Succesfully pushed answers");
+                ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+                Call<ArrayList<Answer>> call = apiInterface.pushAnswers(answers);
+                call.enqueue(new Callback<ArrayList<Answer>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: Succesfully pushed answers");
+                        } else {
+                            Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "onResponse: Error pushing answers , response = " + response);
+                        }
                     }
-                    else{
-                        Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
-                        Log.e(TAG, "onResponse: Error pushing answers , response = " +response);
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Answer>> call, Throwable t) {
+                        t.printStackTrace();
+                        Toast.makeText(getContext(), "Error connecting to server..", Toast.LENGTH_SHORT).show();
+
                     }
-                }
-
-                @Override
-                public void onFailure(Call<ArrayList<Answer>> call, Throwable t) {
-                    t.printStackTrace();
-                    Toast.makeText(getContext(), "Error connecting to server..", Toast.LENGTH_SHORT).show();
-
-                }
-            });
+                });
 
 
+            }
         }
 
     }
