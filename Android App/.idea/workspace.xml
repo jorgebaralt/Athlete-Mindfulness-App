@@ -12,7 +12,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Create Answer" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
@@ -22,17 +21,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8651a03b-669b-4f0e-a8be-5eeac7959146" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_messaging_11_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_messaging_license_11_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/google-services.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseInstanceIdService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseMessagingService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/QuestionAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/QuestionAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Question.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Question.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/CompetitionFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/CompetitionFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/EmotionalFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/EmotionalFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/MentalFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/MentalFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/PhysicalFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/PhysicalFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/SocialFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/SocialFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/TrainingFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/TrainingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
     </list>
     <ignored path="Athlete-Mindful-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,24 +79,69 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompetitionFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/CompetitionFragment.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="240" column="9" lean-forward="false" selection-start-line="240" selection-start-column="9" selection-end-line="240" selection-end-column="9" />
+            <state relative-caret-position="-449">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyFirebaseInstanceIdService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseInstanceIdService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyFirebaseMessagingService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseMessagingService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmotionalFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/EmotionalFragment.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="243" column="9" lean-forward="false" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="9" />
-              <folding>
-                <marker date="1511117000706" expanded="true" signature="8509:9735" ph="{...}" />
-              </folding>
+            <state relative-caret-position="600">
+              <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="google-services.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/google-services.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,10 +166,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrainingFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TrainingFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/TrainingFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
+            <state relative-caret-position="612">
               <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
               <folding>
                 <marker date="1511116913261" expanded="true" signature="8386:9611" ph="{...}" />
@@ -154,6 +196,8 @@
       <find>props</find>
       <find>setla</find>
       <find>answer.clear</find>
+      <find>token</find>
+      <find>Fire</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1910,8 +1954,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Adapters/QuestionAdapterMultipleChoice.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/HideKeyboard.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/HideKeyboard.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_navigation_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" />
@@ -1933,14 +1975,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Chat/Token.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/PlayerToken.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/Player.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_email.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/settings/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_age.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/profile_layout.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/LeaderboardFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/NavigationDrawer.java" />
@@ -1961,6 +2000,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/PhysicalFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/EmotionalFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/CompetitionFragment.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseMessagingService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseInstanceIdService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -2052,12 +2096,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2068,14 +2108,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2128,7 +2160,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SurveySections" />
+              <option name="myItemId" value="firebase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2142,26 +2174,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="athlete_mindful_app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adapters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android App" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2172,7 +2186,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="FA6BS0304040" />
+    <property name="device.picker.selection" value="Pixel_API_26" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -2193,6 +2207,7 @@
       <recent name="com.jorgebaralt.athlete_mindful_app" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
       <recent name="C:\Users\User\Documents\Athlete App\Athlete-Mindfulness-App\Android App\app\src\main\res\layout" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2285,7 +2300,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511117092853" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511149229013" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2333,7 +2348,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511117092853" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511149229013" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2365,6 +2380,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2495,7 +2531,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511117092854" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511149229016" />
       </method>
     </configuration>
     <list size="1">
@@ -2533,13 +2569,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1486880131407</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Created the Navigation Drawer. Still needs some configuration!">
-      <created>1489034555753</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1489034555753</updated>
     </task>
     <task id="LOCAL-00007" summary="fixing git">
       <created>1489076525404</created>
@@ -2877,7 +2906,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511035915233</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fixed all answers">
+      <created>1511117112215</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1511117112217</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2891,7 +2927,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="946" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2905,7 +2940,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32851985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932693" sideWeight="0.49573562" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32650602" sideWeight="0.49307036" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32650602" sideWeight="0.49307036" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
@@ -2994,7 +3029,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Saving Progress before testing retrofit" />
     <MESSAGE value="Changed all volley code to retrofit" />
     <MESSAGE value="working on questions" />
     <MESSAGE value="Leaderboard sorting is now done in the backend" />
@@ -3019,7 +3053,8 @@
     <MESSAGE value="Settings FINISHED, **Remember to update age_range on API" />
     <MESSAGE value="Need to add point system to all survey except mental section!" />
     <MESSAGE value="updating" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating" />
+    <MESSAGE value="fixed all answers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed all answers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3028,43 +3063,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/navigation_drawer.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/message_text_view.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -3098,17 +3096,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/API/PlayerToken.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_email.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -3153,20 +3140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -3384,8 +3357,8 @@
         <state relative-caret-position="671">
           <caret line="71" column="96" lean-forward="false" selection-start-line="71" selection-start-column="96" selection-end-line="71" selection-end-column="96" />
           <folding>
-            <element signature="e#1963#2448#0" expanded="true" />
-            <element signature="e#2447#2448#0" expanded="true" />
+            <element signature="e#1963#2448#0" expanded="false" />
+            <element signature="e#2447#2448#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3408,14 +3381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/MentalFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="203" column="56" lean-forward="false" selection-start-line="203" selection-start-column="35" selection-end-line="203" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/PhysicalFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -3434,10 +3399,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/TrainingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
+        <state relative-caret-position="612">
           <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
           <folding>
             <marker date="1511116913261" expanded="true" signature="8386:9611" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/SurveySections/MentalFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="203" column="56" lean-forward="false" selection-start-line="203" selection-start-column="35" selection-end-line="203" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/os/MessageQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="544" column="0" lean-forward="false" selection-start-line="544" selection-start-column="0" selection-end-line="544" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/google-services.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseMessagingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-449">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jorgebaralt/athlete_mindful_app/firebase/MyFirebaseInstanceIdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
