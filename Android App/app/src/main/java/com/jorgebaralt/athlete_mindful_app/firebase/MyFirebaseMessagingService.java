@@ -18,6 +18,7 @@ import com.jorgebaralt.athlete_mindful_app.R;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        
         //create our own notification
         Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);

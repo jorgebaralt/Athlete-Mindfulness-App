@@ -358,7 +358,7 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(MessagesAdapter.ViewHolder holder, int position) {
         Message message = messages.get(position);
-        String messageText = String.format(" %s: \n   %s",message.getAuthor(),message.getMessageBody());
+        String messageText = String.format(" %s: \n\t   %s",message.getAuthor(),message.getMessageBody());
         holder.messageTextView.setText(messageText);
 
         }

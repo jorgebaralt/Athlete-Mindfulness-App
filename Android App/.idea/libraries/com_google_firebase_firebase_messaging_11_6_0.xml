@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.firebase:firebase-messaging-11.6.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.0.aar/4aca199ef5f133644ba7adb879a3241b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.0.aar/4aca199ef5f133644ba7adb879a3241b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.0.aar/6701849dd6abd31ba26fc8092bd11258/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.0.aar/6701849dd6abd31ba26fc8092bd11258/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -183,7 +183,10 @@ public class NavigationDrawer extends AppCompatActivity
                 break;
             case R.id.nav_notification:
                 toolbar.setTitle("Notifications");
-                fragment = new Fragment();
+                fragment = new NotificationsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("currentPlayer",currentPlayer);
+                fragment.setArguments(bundle);
         }
         if(fragment!=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
