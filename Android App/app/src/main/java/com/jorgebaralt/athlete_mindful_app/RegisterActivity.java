@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
+import com.jorgebaralt.athlete_mindful_app.SurveySections.OneTimeQuestion;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioButton radioSelectedGender;
     private Button submit;
     private int BASE_POINTS = 0;
+
+    Player currentPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -232,14 +235,19 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Player> call, retrofit2.Response<Player> response) {
                 if(response.isSuccessful()) {
+
+                    currentPlayer = response.body();
+
                     builder.setTitle("Server Response");
-                    Log.d(TAG, "onResponse: User Added : " + response);
-                    builder.setMessage("Response : User has been created");
+                    Log.d(TAG, "onResponse: User " + response + "Has been Created");
+                    builder.setMessage("User has been created");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-                            goToLogin();
+                            //go to OneTimeQuestion
+                            Intent oneTimeQuestionIntent = new Intent(RegisterActivity.this, OneTimeQuestion.class);
+                            oneTimeQuestionIntent.putExtra("currentPlayer", currentPlayer);
+                            startActivity(oneTimeQuestionIntent);
                         }
                     });
                     //create the dialog
@@ -261,14 +269,5 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void goToLogin() {
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToNavigation(){
-        Intent intent = new Intent(this,NavigationDrawer.class);
-        startActivity(intent);
-    }
 
 }

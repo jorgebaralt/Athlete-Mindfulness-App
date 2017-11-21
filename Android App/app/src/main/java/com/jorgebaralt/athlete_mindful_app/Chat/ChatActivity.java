@@ -346,9 +346,7 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         }
-        public MessagesAdapter(){
 
-        }
         @Override
         public MessagesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             TextView messageTextView = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.message_text_view,parent,false);

@@ -1,12 +1,10 @@
 package com.jorgebaralt.athlete_mindful_app.SurveySections;
 
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,6 +13,7 @@ import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapter;
 import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapterMultipleChoice;
 import com.jorgebaralt.athlete_mindful_app.Answer;
+import com.jorgebaralt.athlete_mindful_app.LoginActivity;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
@@ -28,13 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.content.ContentValues.TAG;
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MentalFragment extends Fragment {
+public class OneTimeQuestion extends AppCompatActivity {
 
     private int playerId;
     private int questionId;
@@ -42,33 +35,31 @@ public class MentalFragment extends Fragment {
     private int points;
 
 
-    private ArrayList<Question> mentalQuestionFreeAnswer = new ArrayList<>();
-    private ArrayList<Question> mentalQuestionMultipleChoice = new ArrayList<>();
-    private ArrayList<Answer> answers = new ArrayList<>();
-
     private final int FREE_ANSWER_TYPE = 1;
     private final int MULT_ANSWER_TYPE = 2;
-    private final int MENTAL_CATEGORY = 1;
+    private final int ONETIME_CATEGORY = 7;
 
+    private ArrayList<Question> oneTimeQuestionFreeAnswer = new ArrayList<>();
+    private ArrayList<Question> oneTimeQuestionMultipleChoice = new ArrayList<>();
+    private ArrayList<Answer> answers = new ArrayList<>();
 
-    ListView listView;
+    final String TAG = "OneTimeAnswer";
+
     Button submitAnswers;
     Button submitMultipleChoice;
 
     Player currentPlayer;
     Answer currentAnswer;
 
+    ListView listView;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.question_list, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.question_list);
+        //get current player
+        currentPlayer = (Player) this.getIntent().getSerializableExtra("currentPlayer");
 
-
-
-        //Get object of the player that is currently logged in
-        currentPlayer = (Player) getActivity().getIntent().getSerializableExtra("currentPlayer");
-
-        //fill array list with free answer questions from database using RETROFIT
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(ApiInterface.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
@@ -76,60 +67,52 @@ public class MentalFragment extends Fragment {
         //Create api.
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
         //API call
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, MENTAL_CATEGORY);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(FREE_ANSWER_TYPE, ONETIME_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
-
-                //get response from server and store into array list (response comes in form of ArrayList)
-                mentalQuestionFreeAnswer = response.body();
-
-                Log.d(TAG, "onResponse: " + mentalQuestionFreeAnswer);
-                //create the custom adapter\
-                QuestionAdapter adapter = new QuestionAdapter(getActivity(), mentalQuestionFreeAnswer);
-                //select the layout list to fill
-                listView = (ListView) rootView.findViewById(R.id.questionlist);
-                //fill the view.
+                oneTimeQuestionFreeAnswer = response.body();
+                Log.d(TAG, "onResponse: ");
+                QuestionAdapter adapter = new QuestionAdapter(OneTimeQuestion.this, oneTimeQuestionFreeAnswer);
+                listView = (ListView) findViewById(R.id.questionlist);
                 listView.setAdapter(adapter);
 
-
-                //Adding Submit Button, as a footer.
-                submitAnswers = new Button(getContext());
+                //add new button
+                submitAnswers = new Button(getApplicationContext());
                 submitAnswers.setText("Submit");
                 listView.addFooterView(submitAnswers);
+
+                //button pressed.
                 submitAnswers.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        HideKeyboard.hideSoftKeyboard(OneTimeQuestion.this);
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 
 
+
                         //Store all FREE ANSWERS into DATABASE
-                        pushAnswers(mentalQuestionFreeAnswer,FREE_ANSWER_TYPE);
+                        pushAnswers(oneTimeQuestionFreeAnswer,FREE_ANSWER_TYPE);
 
                         //clear array list after storing into database.
-                        mentalQuestionFreeAnswer.clear();
+                        oneTimeQuestionFreeAnswer.clear();
 
                         Log.d(TAG, "onClick: Transit to multiple choice question");
 
                         multipleChoiceQuestion();
                     }
-
                 });
             }
 
             @Override
             public void onFailure(Call<ArrayList<Question>> call, Throwable t) {
-                Toast.makeText(getActivity(), "ERROR.. couldnt load questions", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OneTimeQuestion.this, "ERROR.. couldnt load questions", Toast.LENGTH_SHORT).show();
             }
         });
 
-        return rootView;
     }
-
-
     public void multipleChoiceQuestion() {
         //fill array list with the multiple choice questions from database
 
@@ -138,30 +121,35 @@ public class MentalFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE,MENTAL_CATEGORY);
+        Call<ArrayList<Question>> call = apiInterface.getQuestion(MULT_ANSWER_TYPE,ONETIME_CATEGORY);
         call.enqueue(new Callback<ArrayList<Question>>() {
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
                 //get response from server and store in array list
-                mentalQuestionMultipleChoice = response.body();
+                oneTimeQuestionMultipleChoice = response.body();
 
 
                 //create custom adapter for multiple choice
                 final QuestionAdapterMultipleChoice adapter = new
-                        QuestionAdapterMultipleChoice(getActivity(), mentalQuestionMultipleChoice);
+                        QuestionAdapterMultipleChoice(OneTimeQuestion.this, oneTimeQuestionMultipleChoice);
                 //using same list view, that has been empty before, we fill it with the new adapter info.
                 listView.setAdapter(adapter);
 
                 //Footer Button for multiple choice
-                submitMultipleChoice = new Button(getContext());
+                submitMultipleChoice = new Button(OneTimeQuestion.this);
                 submitMultipleChoice.setText("Submit");
                 listView.addFooterView(submitMultipleChoice);
                 submitMultipleChoice.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.d(TAG, "onClick: Saving answers into database");
+                        Log.d(TAG, "onClick: Saving answers into database, mult");
                         //Store answers into database
-                        pushAnswers(mentalQuestionMultipleChoice, MULT_ANSWER_TYPE);
+                        pushAnswers(oneTimeQuestionFreeAnswer, MULT_ANSWER_TYPE);
+
+                        //go back to login
+                        Intent intent = new Intent(OneTimeQuestion.this, LoginActivity.class);
+                        startActivity(intent);
+
 
                     }
                 });
@@ -179,6 +167,7 @@ public class MentalFragment extends Fragment {
     //Add Answers to database, pass the arraylist question to get the answers from it.
     //takes care of any type of question (Free answer, or Multiple Choice)
     public void pushAnswers(ArrayList<Question> currentQuestions, int type) {
+        Log.d(TAG, "pushAnswers: Getting answers");
         answers.clear();
 
         if (currentPlayer != null) {
@@ -220,9 +209,11 @@ public class MentalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: answers pushed!");
+                            Toast.makeText(OneTimeQuestion.this, "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+
                         } else {
-                            Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OneTimeQuestion.this, "Error.." + response.body(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -230,7 +221,7 @@ public class MentalFragment extends Fragment {
                     @Override
                     public void onFailure(Call<ArrayList<Answer>> call, Throwable t) {
                         t.printStackTrace();
-                        Toast.makeText(getContext(), "Error connecting to server..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OneTimeQuestion.this, "Error connecting to server..", Toast.LENGTH_SHORT).show();
 
                     }
                 });
