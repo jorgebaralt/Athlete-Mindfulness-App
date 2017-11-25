@@ -4,12 +4,12 @@ package com.jorgebaralt.athlete_mindful_app;
  * Created by User on 11/19/2017.
  */
 
-public class Notifications {
+public class Resources {
     private int id;
     private String url;
     private String message;
 
-    public Notifications(String url, String message){
+    public Resources(String url, String message){
         this.url = url;
         this.message = message;
     }

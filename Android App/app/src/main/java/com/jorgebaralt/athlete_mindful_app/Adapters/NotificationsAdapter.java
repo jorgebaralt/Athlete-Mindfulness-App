@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.jorgebaralt.athlete_mindful_app.Notifications;
+import com.jorgebaralt.athlete_mindful_app.Resources;
 import com.jorgebaralt.athlete_mindful_app.R;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class NotificationsAdapter  extends ArrayAdapter{
-    public NotificationsAdapter(@NonNull Context context, ArrayList<Notifications> notifications) {
+    public NotificationsAdapter(@NonNull Context context, ArrayList<Resources> notifications) {
         super(context,0,notifications);
     }
 
@@ -30,13 +30,13 @@ public class NotificationsAdapter  extends ArrayAdapter{
 
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.notification_item,parent,false);
+                    R.layout.resources_item,parent,false);
         }
-        Notifications currentNotification = (Notifications) getItem(position);
+        Resources currentNotification = (Resources) getItem(position);
 
         //declar view on layour
-        TextView url = (TextView) listItemView.findViewById(R.id.notification_url);
-        TextView message = (TextView) listItemView.findViewById(R.id.notification_message);
+        TextView url = (TextView) listItemView.findViewById(R.id.resource_url);
+        TextView message = (TextView) listItemView.findViewById(R.id.resource_message);
 
         url.setText(currentNotification.getUrl());
         message.setText(currentNotification.getMessage());

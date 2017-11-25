@@ -3,7 +3,7 @@ package com.jorgebaralt.athlete_mindful_app.API;
 import com.jorgebaralt.athlete_mindful_app.Answer;
 import com.jorgebaralt.athlete_mindful_app.Chat.Token;
 import com.jorgebaralt.athlete_mindful_app.Coach;
-import com.jorgebaralt.athlete_mindful_app.Notifications;
+import com.jorgebaralt.athlete_mindful_app.Resources;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 
@@ -48,7 +48,7 @@ public interface ApiInterface {
 
     //Get notifications for players
     @GET("/players_notifications/")
-    Call<ArrayList<Notifications>> getPlayerNotifications(
+    Call<ArrayList<Resources>> getPlayerNotifications(
             @Query("user_id") int user_id
     );
 

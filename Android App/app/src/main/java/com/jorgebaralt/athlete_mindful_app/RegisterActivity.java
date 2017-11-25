@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.SurveySections.OneTimeQuestion;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import java.util.ArrayList;
 
@@ -220,6 +221,10 @@ public class RegisterActivity extends AppCompatActivity {
         newPlayer.setPasswordConfirmation(passwordConfirmation);
         newPlayer.setPhone(phone);
         newPlayer.setGender(gender);
+        //is only going to happen on installation
+        if(!Util.FirebaseToken.equals(null)) {
+            newPlayer.setDeviceId(Util.FirebaseToken);
+        }
 
         //Create the alert dialog.
         builder = new AlertDialog.Builder(RegisterActivity.this);

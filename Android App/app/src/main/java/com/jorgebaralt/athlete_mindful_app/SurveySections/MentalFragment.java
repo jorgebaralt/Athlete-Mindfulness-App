@@ -18,7 +18,7 @@ import com.jorgebaralt.athlete_mindful_app.Answer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import java.util.ArrayList;
 
@@ -101,7 +101,7 @@ public class MentalFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        Util.hideSoftKeyboard(getActivity());
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 
@@ -162,6 +162,7 @@ public class MentalFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //Store answers into database
                         pushAnswers(mentalQuestionMultipleChoice, MULT_ANSWER_TYPE);
+                        Log.d(TAG, "onClick: Points Updated!");
 
                     }
                 });
@@ -208,6 +209,7 @@ public class MentalFragment extends Fragment {
             }
             //after we add all the asnwer to our arraylist
             //send it to the server.
+            Log.d(TAG, "pushAnswers: answers size = " + answers.size());
             if (answers.size() > 0) {
                 Retrofit.Builder builder = new Retrofit.Builder()
                         .baseUrl(ApiInterface.BASE_URL)
@@ -221,8 +223,10 @@ public class MentalFragment extends Fragment {
                     public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                         if (response.isSuccessful()) {
                             Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: Free Questions Answers Added...");
                         } else {
                             Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "onResponse: Response not succesfull");
 
                         }
                     }

@@ -7,7 +7,10 @@ import android.view.inputmethod.InputMethodManager;
  * Created by User on 10/23/2017.
  */
 
-public class HideKeyboard {
+public class Util {
+
+    public static String FirebaseToken;
+
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
@@ -16,4 +19,5 @@ public class HideKeyboard {
             inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
         }
     }
+
 }

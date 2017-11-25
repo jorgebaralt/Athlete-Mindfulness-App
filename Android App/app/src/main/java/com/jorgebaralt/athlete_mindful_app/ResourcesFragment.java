@@ -22,16 +22,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 
-public class NotificationsFragment extends Fragment {
+public class ResourcesFragment extends Fragment {
 
     Player currentPlayer;
-    ArrayList<Notifications> notificationList;
+    ArrayList<Resources> notificationList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.notifications_list,container,false);
-        Log.d(TAG, "onCreateView: Entering Notifications");
+        View rootView = inflater.inflate(R.layout.resources_list,container,false);
+        Log.d(TAG, "onCreateView: Entering Resources");
 
         //get current player
         Player currentPlayer = (Player) getArguments().getSerializable("currentPlayer");
@@ -43,14 +43,14 @@ public class NotificationsFragment extends Fragment {
         Retrofit retrofit = builder.build();
 
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<ArrayList<Notifications>> call = apiInterface.getPlayerNotifications(currentPlayer.getId());
-        call.enqueue(new Callback<ArrayList<Notifications>>() {
+        Call<ArrayList<Resources>> call = apiInterface.getPlayerNotifications(currentPlayer.getId());
+        call.enqueue(new Callback<ArrayList<Resources>>() {
             @Override
-            public void onResponse(Call<ArrayList<Notifications>> call, Response<ArrayList<Notifications>> response) {
+            public void onResponse(Call<ArrayList<Resources>> call, Response<ArrayList<Resources>> response) {
                 if(response.isSuccessful()){
                     notificationList = response.body();
                     NotificationsAdapter notificationsAdapter = new NotificationsAdapter(getContext(),notificationList);
-                    ListView listView = (ListView) getActivity().findViewById(R.id.notification_listview);
+                    ListView listView = (ListView) getActivity().findViewById(R.id.resources_listview);
                     listView.setAdapter(notificationsAdapter);
 
 
@@ -61,7 +61,7 @@ public class NotificationsFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Notifications>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Resources>> call, Throwable t) {
                 Log.e(TAG, "onFailure: Error connecting to notificaitons");
             }
         });

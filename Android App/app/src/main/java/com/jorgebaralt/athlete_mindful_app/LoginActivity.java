@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.API.Login;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(final View v) {
 
                 //hide the keyboard
-                HideKeyboard.hideSoftKeyboard(LoginActivity.this);
+                Util.hideSoftKeyboard(LoginActivity.this);
 
                 //get email and user
                 email = Email.getText().toString();

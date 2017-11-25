@@ -19,7 +19,7 @@ import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.NavigationDrawer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.R;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 import com.twilio.chat.CallbackListener;
 import com.twilio.chat.Channel;
 import com.twilio.chat.ChannelListener;
@@ -110,7 +110,7 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(generalChannel != null){
-                    HideKeyboard.hideSoftKeyboard(ChatActivity.this);
+                    Util.hideSoftKeyboard(ChatActivity.this);
                     String messageBody = messageEditText.getText().toString();
                     Message.Options message = Message.options().withBody(messageBody);
                     Log.d(TAG, " Message Created ");
@@ -356,7 +356,7 @@ public class ChatActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(MessagesAdapter.ViewHolder holder, int position) {
         Message message = messages.get(position);
-        String messageText = String.format(" %s: \n\t   %s",message.getAuthor(),message.getMessageBody());
+        String messageText = String.format(" %s: \t \t %s",message.getAuthor(),message.getMessageBody());
         holder.messageTextView.setText(messageText);
 
         }

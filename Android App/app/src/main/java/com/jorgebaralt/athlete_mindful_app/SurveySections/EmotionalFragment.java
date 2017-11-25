@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Answer;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapter;
@@ -101,7 +101,7 @@ public class EmotionalFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        Util.hideSoftKeyboard(getActivity());
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 
@@ -161,7 +161,7 @@ public class EmotionalFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //Store answers into database
                         pushAnswers(emotionalQuestionMultipleChoice, MULT_ANSWER_TYPE);
-
+                        Log.d(TAG, "onClick: Points Updated!");
                         //clear the arraylist after storing?
                        //emotionalQuestionMultipleChoice.clear();
 

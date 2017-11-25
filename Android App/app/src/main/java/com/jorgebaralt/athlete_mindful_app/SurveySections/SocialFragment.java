@@ -18,7 +18,7 @@ import com.jorgebaralt.athlete_mindful_app.Answer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import java.util.ArrayList;
 
@@ -100,7 +100,7 @@ public class SocialFragment extends Fragment {
                     public void onClick(View v) {
 
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        Util.hideSoftKeyboard(getActivity());
 
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
@@ -161,7 +161,7 @@ public class SocialFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //Store answers into database
                         pushAnswers(socialQuestionMultipleChoice, MULT_ANSWER_TYPE);
-
+                        Log.d(TAG, "onClick: Points Updated!");
                         //clear the arraylist after storing?
                         //socialQuestionMultipleChoice.clear();
 
@@ -182,7 +182,7 @@ public class SocialFragment extends Fragment {
     public void pushAnswers(ArrayList<Question> currentQuestions, int type) {
         answers.clear();
 
-        if (currentPlayer != null&& !answer.equals("")) {
+        if (currentPlayer != null ) {
             for (int i = 0; i < currentQuestions.size(); i++) {
                 playerId = currentPlayer.getId();
                 questionId = currentQuestions.get(i).getId();
@@ -196,7 +196,7 @@ public class SocialFragment extends Fragment {
                 }
 
                 //Create the object
-                if (answer != null) {
+                if (answer != null && !answer.equals("")) {
                     currentAnswer = new Answer(answer, playerId, questionId, points);
                     answers.add(currentAnswer);
                 } else {
@@ -207,7 +207,7 @@ public class SocialFragment extends Fragment {
             }
             //after we add all the asnwer to our arraylist
             //send it to the server.
-            if (answers.size() > 0) {
+            if (answers.size() > 0 ) {
                 Retrofit.Builder builder = new Retrofit.Builder()
                         .baseUrl(ApiInterface.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create());

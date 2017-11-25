@@ -26,6 +26,8 @@ public class Player implements Comparable<Player>, Serializable{
     private String token;
     @SerializedName("coach_name")
     private String coachName;
+    @SerializedName("device_id")
+    private String deviceId;
 
     private int gender;
     private String email;
@@ -87,6 +89,7 @@ public class Player implements Comparable<Player>, Serializable{
         return coachName;
     }
 
+
     public void setCoachId(int coachId) {
         this.coachId = coachId;
     }
@@ -125,6 +128,10 @@ public class Player implements Comparable<Player>, Serializable{
 
     public void setCoachName(String coachName) {
         this.coachName = coachName;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     @Override

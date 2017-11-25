@@ -18,7 +18,7 @@ import com.jorgebaralt.athlete_mindful_app.Answer;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import java.util.ArrayList;
 
@@ -99,7 +99,7 @@ public class TrainingFragment extends Fragment {
                     public void onClick(View v) {
 
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        Util.hideSoftKeyboard(getActivity());
 
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
@@ -160,7 +160,7 @@ public class TrainingFragment extends Fragment {
                         Log.d(TAG, "onClick: Saving answers into database");
                         //TODO: Store answers into database
                         pushAnswers(trainingQuestionMultipleChoice, MULT_ANSWER_TYPE);
-
+                        Log.d(TAG, "onClick: Points Updated!");
                         //clear the arraylist after storing?
                         //trainingQuestionMultipleChoice.clear();
 

@@ -17,7 +17,7 @@ import com.jorgebaralt.athlete_mindful_app.LoginActivity;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 
 import java.util.ArrayList;
 
@@ -87,7 +87,7 @@ public class OneTimeQuestion extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(OneTimeQuestion.this);
+                        Util.hideSoftKeyboard(OneTimeQuestion.this);
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
 

@@ -15,7 +15,7 @@ import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapter;
 import com.jorgebaralt.athlete_mindful_app.Adapters.QuestionAdapterMultipleChoice;
 import com.jorgebaralt.athlete_mindful_app.Answer;
-import com.jorgebaralt.athlete_mindful_app.Util.HideKeyboard;
+import com.jorgebaralt.athlete_mindful_app.Util.Util;
 import com.jorgebaralt.athlete_mindful_app.Player;
 import com.jorgebaralt.athlete_mindful_app.Question;
 import com.jorgebaralt.athlete_mindful_app.R;
@@ -99,7 +99,7 @@ public class CompetitionFragment extends Fragment {
                     public void onClick(View v) {
 
                         //close the android keyboard first
-                        HideKeyboard.hideSoftKeyboard(getActivity());
+                        Util.hideSoftKeyboard(getActivity());
 
                         //remove current footer
                         listView.removeFooterView(submitAnswers);
@@ -162,6 +162,7 @@ public class CompetitionFragment extends Fragment {
                         pushAnswers(competitionQuestionMultipleChoice,MULT_ANSWER_TYPE);
                         answers.clear();
 
+                        Log.d(TAG, "onClick: Points Updated!");
                         //clear the arraylist after storing?
                         //competitionQuestionMultipleChoice.clear();
 

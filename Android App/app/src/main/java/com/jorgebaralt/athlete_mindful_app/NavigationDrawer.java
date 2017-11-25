@@ -182,8 +182,8 @@ public class NavigationDrawer extends AppCompatActivity
                 startActivity(chatIntent);
                 break;
             case R.id.nav_notification:
-                toolbar.setTitle("Notifications");
-                fragment = new NotificationsFragment();
+                toolbar.setTitle("Resources");
+                fragment = new ResourcesFragment();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("currentPlayer",currentPlayer);
                 fragment.setArguments(bundle);
