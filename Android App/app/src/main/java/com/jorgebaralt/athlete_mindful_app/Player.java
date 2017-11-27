@@ -26,8 +26,8 @@ public class Player implements Comparable<Player>, Serializable{
     private String token;
     @SerializedName("coach_name")
     private String coachName;
-    @SerializedName("device_id")
-    private String deviceId;
+    @SerializedName("fcm_token")
+    private String fcmToken;
 
     private int gender;
     private String email;
@@ -130,8 +130,8 @@ public class Player implements Comparable<Player>, Serializable{
         this.coachName = coachName;
     }
 
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
     }
 
     @Override

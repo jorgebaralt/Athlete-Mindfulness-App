@@ -194,7 +194,17 @@ public class EmotionalFragment extends Fragment {
                 if (type == FREE_ANSWER_TYPE) {
                     points = 5;
                 } else {
-                    points = 3;
+                    if(currentQuestions.get(i).getPosition() == 1){
+                        points = 1;
+                    }
+                    if(currentQuestions.get(i).getPosition() == 2){
+                        points = 2;
+
+                    }
+                    if(currentQuestions.get(i).getPosition() == 3){
+                        points = 3;
+
+                    }
                 }
 
                 //Create the object

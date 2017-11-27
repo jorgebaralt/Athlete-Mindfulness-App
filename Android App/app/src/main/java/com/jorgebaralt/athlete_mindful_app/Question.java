@@ -14,7 +14,7 @@ public class Question {
     private String question;
     private String answer;
     private int category;
-
+    private int position;
     private String options;
     public int current;
     public static final int NONE = -1;
@@ -44,5 +44,13 @@ public class Question {
 
     public int getId() {
         return id;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }

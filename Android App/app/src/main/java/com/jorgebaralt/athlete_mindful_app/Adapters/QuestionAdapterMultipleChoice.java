@@ -68,27 +68,26 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                     //to identify the Question Object I get from the radio group with getTag
                     //the integer represent the position
-                    Integer pos = (Integer) group.getTag();
-                    Question currentPosition =  getItem(pos);
+
                     //set the Model to hold the answer the user picked
                     switch (checkedId){
                         case R.id.radioBtn1:
-                            currentPosition.current = Question.answer0;
+                            currentQuestion.setPosition(1);
                             currentQuestion.setAnswer(currentQuestion.getOptions()[0]);
                             Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         case R.id.radioBtn2:
-                            currentPosition.current = Question.answer1;
+                            currentQuestion.setPosition(2);
                             currentQuestion.setAnswer(currentQuestion.getOptions()[1]);
                             Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         case R.id.radioBtn3:
-                            currentPosition.current = Question.answer2;
+                            currentQuestion.setPosition(3);
                             currentQuestion.setAnswer(currentQuestion.getOptions()[2]);
                             Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                             break;
                         default:
-                            currentPosition.current = Question.NONE;
+
                     }
 
                 }

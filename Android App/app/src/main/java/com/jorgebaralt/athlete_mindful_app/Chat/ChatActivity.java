@@ -66,8 +66,6 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
 
-
-
         //Get player that is currently logged in
         currentPlayer = (Player) ChatActivity.this.getIntent().getSerializableExtra("currentPlayer");
         if(currentPlayer != null) {
@@ -254,6 +252,7 @@ public class ChatActivity extends AppCompatActivity {
                             messages.add(oldMessages.get(i));
                         }
                         messagesAdapter.notifyDataSetChanged();
+                        //scroll to last messages
                         messagesRecyclerView.scrollToPosition(messages.size()-1);
                     }
                 });
@@ -332,8 +331,6 @@ public class ChatActivity extends AppCompatActivity {
         setResult(RESULT_OK,intent);
         return intent;
     }
-
-
 
 
     class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHolder> {

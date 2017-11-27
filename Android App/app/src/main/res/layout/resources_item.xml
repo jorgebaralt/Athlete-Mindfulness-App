@@ -8,17 +8,20 @@
     >
 
     <TextView
-        android:id="@+id/resource_url"
+        android:id="@+id/resource_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:text="URL" />
-
+        tools:text="some text message" />
     <TextView
-        android:id="@+id/resource_message"
+        android:id="@+id/resource_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="some text message" />
+        android:textSize="18sp"
+
+        tools:text="URL" />
+
+
 
 </LinearLayout>

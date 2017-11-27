@@ -222,8 +222,8 @@ public class RegisterActivity extends AppCompatActivity {
         newPlayer.setPhone(phone);
         newPlayer.setGender(gender);
         //is only going to happen on installation
-        if(!Util.FirebaseToken.equals(null)) {
-            newPlayer.setDeviceId(Util.FirebaseToken);
+        if(Util.FirebaseToken != null) {
+            newPlayer.setFcmToken(Util.FirebaseToken);
         }
 
         //Create the alert dialog.

@@ -192,7 +192,17 @@ public class MentalFragment extends Fragment {
                 if (type == FREE_ANSWER_TYPE) {
                     points = 5;
                 } else {
-                    points = 3;
+                    if(currentQuestions.get(i).getPosition() == 1){
+                        points = 1;
+                    }
+                    if(currentQuestions.get(i).getPosition() == 2){
+                        points = 2;
+
+                    }
+                    if(currentQuestions.get(i).getPosition() == 3){
+                        points = 3;
+
+                    }
                 }
 
                 //Create the object
@@ -202,7 +212,7 @@ public class MentalFragment extends Fragment {
                     answers.add(currentAnswer);
 
                 } else {
-                    //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
+                    //TODO: COUNT HOW MANY QUESTION USER MISS FOR FUTURE REFERENCE
                     //Maybe push how many and which one we missed for notifications?
                 }
 

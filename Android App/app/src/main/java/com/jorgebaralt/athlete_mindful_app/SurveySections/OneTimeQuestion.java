@@ -178,9 +178,9 @@ public class OneTimeQuestion extends AppCompatActivity {
 
                 //set points
                 if (type == FREE_ANSWER_TYPE) {
-                    points = 5;
+                    points = 0;
                 } else {
-                    points = 3;
+                    points = 0;
                 }
 
                 //Create the object

@@ -48,10 +48,12 @@ public class ResourcesFragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<Resources>> call, Response<ArrayList<Resources>> response) {
                 if(response.isSuccessful()){
+                    Log.d(TAG, "onResponse: getting notification list");
                     notificationList = response.body();
                     NotificationsAdapter notificationsAdapter = new NotificationsAdapter(getContext(),notificationList);
                     ListView listView = (ListView) getActivity().findViewById(R.id.resources_listview);
                     listView.setAdapter(notificationsAdapter);
+                    
 
 
                 }
