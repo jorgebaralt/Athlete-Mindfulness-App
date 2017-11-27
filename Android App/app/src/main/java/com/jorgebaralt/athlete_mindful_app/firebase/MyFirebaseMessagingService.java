@@ -1,14 +1,11 @@
 package com.jorgebaralt.athlete_mindful_app.firebase;
 
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.jorgebaralt.athlete_mindful_app.NavigationDrawer;
 import com.jorgebaralt.athlete_mindful_app.R;
 
 /**
@@ -18,18 +15,14 @@ import com.jorgebaralt.athlete_mindful_app.R;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        
-        //create our own notification
-        Intent intent = new Intent(this, NavigationDrawer.class);
-        intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
 
+        //Create our own notification
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
         notificationBuilder.setContentTitle("Off Court");
-        notificationBuilder.setContentText(remoteMessage.getNotification().getBody());
+        notificationBuilder.setContentText(remoteMessage.getData().get("twi_body"));
         notificationBuilder.setAutoCancel(true);
         notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
-        notificationBuilder.setContentIntent(pendingIntent);
+
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0,notificationBuilder.build());
