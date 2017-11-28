@@ -26,9 +26,8 @@ import static android.content.ContentValues.TAG;
 
 public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
 
-
     private final int NONE = -1;
-
+    private int size;
 
     public static class ViewHolder{
         public TextView question;
@@ -36,13 +35,12 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
         public RadioButton radioButton1;
         public RadioButton radioButton2;
         public RadioButton radioButton3;
-
-
     }
 
     //constructor
     public QuestionAdapterMultipleChoice(Activity context, ArrayList<Question> question){
         super(context,0,question);
+        size = question.size();
     }
 
     @NonNull
@@ -52,7 +50,8 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
 
         final Question currentQuestion =  getItem(position);
         currentQuestion.current = NONE;
-        ViewHolder holder;
+        final ViewHolder holder;
+
         if(listItemView == null){
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.question_radio_item,parent,false);
             holder = new ViewHolder();
@@ -63,35 +62,7 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
             holder.radioButton3 = (RadioButton) listItemView.findViewById(R.id.radioBtn3);
 
             listItemView.setTag(holder);
-            holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                    //to identify the Question Object I get from the radio group with getTag
-                    //the integer represent the position
 
-                    //set the Model to hold the answer the user picked
-                    switch (checkedId){
-                        case R.id.radioBtn1:
-                            currentQuestion.setPosition(1);
-                            currentQuestion.setAnswer(currentQuestion.getOptions()[0]);
-                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
-                            break;
-                        case R.id.radioBtn2:
-                            currentQuestion.setPosition(2);
-                            currentQuestion.setAnswer(currentQuestion.getOptions()[1]);
-                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
-                            break;
-                        case R.id.radioBtn3:
-                            currentQuestion.setPosition(3);
-                            currentQuestion.setAnswer(currentQuestion.getOptions()[2]);
-                            Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
-                            break;
-                        default:
-
-                    }
-
-                }
-            });
         }else{
             holder = (ViewHolder) convertView.getTag();
             listItemView.setTag(holder);
@@ -107,22 +78,60 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
         //pass current position as tag
         holder.radioGroup.setTag(new Integer(position));
 
-        if(currentQuestion.current != Question.NONE){
-            //select the one that has been marked
-            RadioButton r = (RadioButton) holder.radioGroup.getChildAt(currentQuestion.current);
-            //mark it checked.
-            r.setChecked(true);
-            //add answer to object
-            currentQuestion.setAnswer(r.getText().toString());
+        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                //to identify the Question Object I get from the radio group with getTag
+                //the integer represent the position
+                Integer pos = (Integer) group.getTag();
+                Question currentPosition =  getItem(pos);
+                //set the Model to hold the answer the user picked
+                switch (checkedId){
+                    case R.id.radioBtn1:
+                        currentPosition.current = Question.answer0;
+                        currentQuestion.setAnswer(currentQuestion.getOptions()[0]);
+                        Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
+                        break;
+                    case R.id.radioBtn2:
+                        currentPosition.current = Question.answer1;
+                        currentQuestion.setAnswer(currentQuestion.getOptions()[1]);
+                        Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
+                        break;
+                    case R.id.radioBtn3:
+                        currentPosition.current = Question.answer2;
+                        currentQuestion.setAnswer(currentQuestion.getOptions()[2]);
+                        Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
+                        break;
+                    default:
+                        currentPosition.current = Question.NONE;
+                }
+                if(currentQuestion.current != Question.NONE){
+                    //select the one that has been marked
+                    RadioButton r = (RadioButton) holder.radioGroup.getChildAt(currentQuestion.current);
+                    //mark it checked.
+                    r.setChecked(true);
+                    //add answer to object
+                    currentQuestion.setAnswer(r.getText().toString());
 
-        }else{
-            holder.radioGroup.clearCheck();
-        }
+                }else{
+                    holder.radioGroup.clearCheck();
+                }
+
+            }
+        });
 
 
 
         return listItemView;
     }
 
+    @Override
+    public int getViewTypeCount() {
+        return size;
+    }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }
