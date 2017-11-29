@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.SurveySections.OneTimeQuestion;
 import com.jorgebaralt.athlete_mindful_app.Util.Util;
@@ -224,6 +225,8 @@ public class RegisterActivity extends AppCompatActivity {
         //is only going to happen on installation
         if(Util.FirebaseToken != null) {
             newPlayer.setFcmToken(Util.FirebaseToken);
+        }else{
+            newPlayer.setFcmToken(FirebaseInstanceId.getInstance().getToken());
         }
 
         //Create the alert dialog.
@@ -260,7 +263,7 @@ public class RegisterActivity extends AppCompatActivity {
                     alertDialog.show();
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this, "Error creating Player", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Error creating Player...", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "onResponse: Error creating player = " + response );
                 }
 
@@ -268,7 +271,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Player> call, Throwable t) {
-                Toast.makeText(RegisterActivity.this, "Error Creating user", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Error connecting to server", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "onFailure: ",t );
             }
         });

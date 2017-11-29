@@ -210,7 +210,7 @@ public class OneTimeQuestion extends AppCompatActivity {
                     public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                         if (response.isSuccessful()) {
                             Log.d(TAG, "onResponse: answers pushed!");
-                            Toast.makeText(OneTimeQuestion.this, "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OneTimeQuestion.this, "Answers Added...", Toast.LENGTH_SHORT).show();
 
                         } else {
                             Toast.makeText(OneTimeQuestion.this, "Error.." + response.body(), Toast.LENGTH_SHORT).show();

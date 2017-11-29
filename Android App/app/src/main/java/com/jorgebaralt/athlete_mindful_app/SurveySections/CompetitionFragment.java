@@ -231,7 +231,7 @@ public class CompetitionFragment extends Fragment {
                     @Override
                     public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Answers Added...", Toast.LENGTH_SHORT).show();
                             //answers.clear();
                         } else {
                             Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.jorgebaralt.athlete_mindful_app.API.ApiInterface;
 import com.jorgebaralt.athlete_mindful_app.API.Login;
 import com.jorgebaralt.athlete_mindful_app.Util.Util;
@@ -94,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(response.isSuccessful()){
                                 //Toast.makeText(LoginActivity.this, response.body().getEmail() + ", token = " + response.body().getToken(), Toast.LENGTH_SHORT).show();
-
+                                Log.d(TAG, "onResponse: FIREBASE TOKEN = " + FirebaseInstanceId.getInstance().getToken());
                                 token = response.body().getToken();
                                 currentPlayer = response.body();
                                 Log.d(TAG, "onResponse: user " + currentPlayer.getName() + " has logged in");

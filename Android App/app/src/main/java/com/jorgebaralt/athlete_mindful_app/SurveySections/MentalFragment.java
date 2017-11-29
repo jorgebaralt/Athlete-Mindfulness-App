@@ -232,8 +232,8 @@ public class MentalFragment extends Fragment {
                     @Override
                     public void onResponse(Call<ArrayList<Answer>> call, Response<ArrayList<Answer>> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(getContext(), "Free Questions Answers Added...", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "onResponse: Free Questions Answers Added...");
+                            Toast.makeText(getContext(), " Answers Added...", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: Answers Added...");
                         } else {
                             Toast.makeText(getContext(), "Error.." + response.body(), Toast.LENGTH_SHORT).show();
                             Log.e(TAG, "onResponse: Response not succesfull");
