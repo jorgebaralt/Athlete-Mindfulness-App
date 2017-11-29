@@ -208,6 +208,7 @@ public class TrainingFragment extends Fragment {
                 if (answer != null && !answer.equals("")) {
                     currentAnswer = new Answer(answer, playerId, questionId, points);
                     answers.add(currentAnswer);
+
                 } else {
                     //TODO: COUNT HOW MANY WE MISS FOR FUTURE REFERENCE
                     //Maybe push how many and which one we missed for notifications?

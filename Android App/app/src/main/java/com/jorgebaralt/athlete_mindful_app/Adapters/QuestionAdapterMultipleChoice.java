@@ -90,16 +90,20 @@ public class QuestionAdapterMultipleChoice extends ArrayAdapter<Question>{
                     case R.id.radioBtn1:
                         currentPosition.current = Question.answer0;
                         currentQuestion.setAnswer(currentQuestion.getOptions()[0]);
+                        currentQuestion.setPosition(1);
                         Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                         break;
                     case R.id.radioBtn2:
                         currentPosition.current = Question.answer1;
                         currentQuestion.setAnswer(currentQuestion.getOptions()[1]);
+                        currentQuestion.setPosition(2);
                         Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
+
                         break;
                     case R.id.radioBtn3:
                         currentPosition.current = Question.answer2;
                         currentQuestion.setAnswer(currentQuestion.getOptions()[2]);
+                        currentQuestion.setPosition(3);
                         Log.d(TAG, "onCheckedChanged: " + currentQuestion.getAnswer());
                         break;
                     default:

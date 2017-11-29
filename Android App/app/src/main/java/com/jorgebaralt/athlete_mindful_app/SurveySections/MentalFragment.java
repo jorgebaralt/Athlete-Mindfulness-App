@@ -210,6 +210,7 @@ public class MentalFragment extends Fragment {
                     Log.d(TAG, "Create Answer: Creating Answer = " + answer);
                     currentAnswer = new Answer(answer, playerId, questionId, points);
                     answers.add(currentAnswer);
+                    Log.d(TAG, "pushAnswers: POINTS SENT = " + points);
 
                 } else {
                     //TODO: COUNT HOW MANY QUESTION USER MISS FOR FUTURE REFERENCE
