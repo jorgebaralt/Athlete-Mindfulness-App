@@ -1,6 +1,7 @@
 class TokensController < ApplicationController
 	# before_filter :authenticate_coach!
 
+	# GET for the token used for authentication
 	def index
 		if User.find_by(auth_token: params[:auth_token])
 			@user = User.find_by(auth_token: params[:auth_token])
@@ -10,6 +11,7 @@ class TokensController < ApplicationController
 		end
 	end
 
+	# POST for authentication token used for Twilio
 	def create
 		# Required for any Twilio Access Token
 		account_sid = ENV['account_sid']
@@ -35,11 +37,9 @@ class TokensController < ApplicationController
 
 		# Generate the token
 		puts token.to_jwt
-
-		# token_response = "{\n    \"access_token\": \"#{token.to_jwt}\"\n}"
+		
 		# json_response(identity: identity, token: token.to_jwt)
 		json_response(token: token.to_jwt)
-		# json_response(token_response)
 	end
 		
 end

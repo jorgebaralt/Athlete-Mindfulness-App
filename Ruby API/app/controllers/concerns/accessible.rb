@@ -1,5 +1,6 @@
 module Accessible
   extend ActiveSupport::Concern
+  # used for authorization
   # included do
   #   before_action :check_user
   # end

@@ -1,5 +1,6 @@
 module Channels
 
+	# method to create a chat channel for a player
 	def createChannel(player_email)
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 		# Create the channel
@@ -16,6 +17,7 @@ module Channels
 		# puts "New channel was created for "+player_email+" and "+coach_email
 	end
 
+	# method to delete a channel 
 	def deleteChannel(id)
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 

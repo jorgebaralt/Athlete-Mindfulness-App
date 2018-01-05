@@ -53,12 +53,18 @@ class AnswersController < ApplicationController
   def create
     puts params 
     @answer = Answer.create!(answer_params)
+    # get question order to make sure that the answers are in the same order as the questions
     question_order = Question.find(params[:question_id])[:question_order]
     @answer.update(question_order: question_order)
+    
     addPointsToPlayer(params[:user_id], params[:points]);
     question_pattern = Question.find(params[:question_id])[:pattern_multi]
+
+    # check if the answer has points = 1 and if the question is sensing patterns
+    # if so we increment the counter for the push notification
     if @answer[:points] == 1 && question_pattern == 1
       incrementNotification(params[:question_id], params[:user_id])
+    # if question is sensing patterns but points is not 1 then reset the push notification counter
     elsif @answer[:points] != 1 && question_pattern == 1
       puts params
       resetCounter(params[:question_id], params[:user_id])

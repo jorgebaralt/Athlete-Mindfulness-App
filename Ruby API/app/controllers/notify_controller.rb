@@ -1,10 +1,9 @@
 class NotifyController < ApplicationController
 
+	### Controller not being used, instead we implemented this in the bindings controller !!!
 
-
+	# POST for creating a push notification for Twilio
 	def create
-
-
 		
 		client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 

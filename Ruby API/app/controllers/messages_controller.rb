@@ -1,5 +1,8 @@
 class MessagesController < ApplicationController
 
+	# Controller for Twilio chat messages 
+
+	# GET for all chat messages for a channel
 	def index
 		channel_sid = params[:channel_sid]
 		client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
@@ -15,6 +18,7 @@ class MessagesController < ApplicationController
 		json_response(messages_response)
 	end
 
+	# POST for a message to a channel
 	def create
 		channel_sid = params[:channel_sid]
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
@@ -27,6 +31,7 @@ class MessagesController < ApplicationController
 		json_response(response)
 	end 
 
+	# GET for a particular message on a channel
 	def show
 		channel_sid = params[:channel_sid]
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
@@ -42,6 +47,7 @@ class MessagesController < ApplicationController
 		json_response(message_json)
 	end
 
+	# PUT for a message on a channel
 	def update
 		# channel_sid = params[:channel_sid]
 		# message_sid = params[:id]
@@ -57,6 +63,7 @@ class MessagesController < ApplicationController
 		# json_response(new_message)
 	end
 
+	# DELETE for a particular message on a channel
 	def destroy
 		channel_sid = params[:channel_sid]
 		message_sid = params[:id]
