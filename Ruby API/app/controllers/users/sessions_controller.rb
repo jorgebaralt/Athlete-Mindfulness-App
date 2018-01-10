@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     user_password = params[:session][:password]
-    user_email = params[:session][:email]
+    user_email = params[:session][:email].strip.downcase
     user = user_email.present? && User.find_by(email: user_email)
 
     if user

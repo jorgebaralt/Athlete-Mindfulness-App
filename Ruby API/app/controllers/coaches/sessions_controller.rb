@@ -12,7 +12,7 @@ class Coaches::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     coach_password = params[:session][:password]
-    coach_email = params[:session][:email]
+    coach_email = params[:session][:email].strip.downcase
     coach = coach_email.present? && Coach.find_by(email: coach_email)
 
     if coach

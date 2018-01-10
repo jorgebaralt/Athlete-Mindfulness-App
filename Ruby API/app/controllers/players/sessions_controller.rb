@@ -13,7 +13,8 @@ class Players::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     player_password = params[:session][:password]
-    player_email = params[:session][:email]
+    # To_lower and trim for email
+    player_email = params[:session][:email].strip.downcase
     player = player_email.present? && User.find_by(email: player_email)
 
     if player
