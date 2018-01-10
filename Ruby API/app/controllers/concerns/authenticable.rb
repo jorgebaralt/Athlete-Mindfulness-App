@@ -1,5 +1,6 @@
 module Authenticable
 
+	# used for authentication
 	def current_user
 		@current_user ||= user.find_by(auth_token: :auth_token)
 	end

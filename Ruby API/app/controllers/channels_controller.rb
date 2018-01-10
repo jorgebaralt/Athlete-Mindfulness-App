@@ -2,6 +2,7 @@ class ChannelsController < ApplicationController
 # Get your Account SID, Auth Token, Service SID and Channel SID
 	# from twilio.com/console
 
+	# GET for all chat channels
 	def index
 		client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 		# List the channels
@@ -15,6 +16,7 @@ class ChannelsController < ApplicationController
 		json_response(channels_response)
 	end
 
+	# POST for a chat channel
 	def create
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 		# Create the channel
@@ -23,6 +25,7 @@ class ChannelsController < ApplicationController
 		puts "Channel #{channel.sid} (\"#{channel.unique_name}\") created!"
 	end 
 
+	# GET for a particular chat channel
 	def show
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 		# Retrieve a particular channel
@@ -34,6 +37,7 @@ class ChannelsController < ApplicationController
 		json_response(channel_response)
 	end
 
+	# PUT for a particular chat channel
 	def update
 		# @client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 		# service = @client.chat.v2.services(ENV['service_sid'])
@@ -46,6 +50,7 @@ class ChannelsController < ApplicationController
 		#      "has become the \"#{channel_updated.unique_name}\" channel."
 	end
 
+	# DELETE a channel
 	def destroy
 		@client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 

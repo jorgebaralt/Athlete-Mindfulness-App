@@ -1,10 +1,8 @@
 class MultipleAnswersController < ApplicationController
   include NotificationTracker
 
+  # POST for multiple answers
   def create_multiple
-		# puts "This is "
-		# puts params
-		# puts "ohhhh yaa"
     total_points = 0
     user_id = nil
 		@answers = params["_json"].map do |params_hash|

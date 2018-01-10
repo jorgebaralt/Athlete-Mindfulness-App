@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.twilio:chat-android-2.0.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-android-2.0.1.aar/6a4a75801448a75f31a079b6245c452d/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-android-2.0.1.aar/6a4a75801448a75f31a079b6245c452d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-android-2.0.1.aar/3dd8bbee8a5f59a990d9e5c1b5c54bea/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-android-2.0.1.aar/3dd8bbee8a5f59a990d9e5c1b5c54bea/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
