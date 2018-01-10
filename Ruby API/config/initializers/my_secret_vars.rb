@@ -1,6 +1,0 @@
-ENV['account_sid'] = 'AC309ecc6b635e0352480eb78de524c4ce'
-ENV['auth_token'] = 'ba1aaeec93982846f48ed3534b2d0547'
-ENV['service_sid'] = 'IS8aab1320365f43fbb4bd92bfd20d5318'
-ENV['api_key'] = 'SK8854e119244657f21a7049000c8abdbc'
-ENV['api_secret'] = 'tN2FC8ydCeSGaj2VvQGc4sOc5JCCxpha'
-ENV['notify_service_sid'] = 'ISb49cc6f4d6f44d663442213f5180ee2a'
