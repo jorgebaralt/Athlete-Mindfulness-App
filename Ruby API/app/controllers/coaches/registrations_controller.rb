@@ -61,6 +61,6 @@ class Coaches::RegistrationsController < Devise::RegistrationsController
 
   def coach_params
     # whitelist params
-    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone)
+    params.permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :age, :is_coach)
   end
 end
